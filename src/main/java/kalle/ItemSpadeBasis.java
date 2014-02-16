@@ -1,15 +1,21 @@
 package kalle;
 
+import java.util.Set;
+
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+
+import com.google.common.collect.Sets;
 
 public class ItemSpadeBasis extends ItemToolBasis
 {
     /** an array of the blocks this spade is effective against */
-    public static final Block[] blocksEffectiveAgainst = new Block[] {Block.grass, Block.dirt, Block.sand, Block.gravel, Block.snow, Block.blockSnow, Block.blockClay, Block.tilledField, Block.slowSand, Block.mycelium};
+    public static final Set<Block> blocksEffectiveAgainst = Sets.newHashSet(new Block[] {Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.gravel, Blocks.snow, Blocks.snow, Blocks.clay, Blocks.soul_sand, Blocks.mycelium});
 
-    public ItemSpadeBasis(int par1, EnumToolMaterialBasis par2EnumToolMaterial)
+    public ItemSpadeBasis(Item.ToolMaterial par2EnumToolMaterial)
     {
-        super(par1, 1.0F, par2EnumToolMaterial, blocksEffectiveAgainst);
+        super(1.0F, par2EnumToolMaterial, blocksEffectiveAgainst);
     }
 
     /**
@@ -17,6 +23,6 @@ public class ItemSpadeBasis extends ItemToolBasis
      */
     public boolean canHarvestBlock(Block par1Block)
     {
-        return par1Block == Block.snow ? true : par1Block == Block.blockSnow;
+        return par1Block == Blocks.snow ? true : par1Block == Blocks.snow;
     }
 }

@@ -1,29 +1,25 @@
 package kalle;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
+import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemHoeBasis extends Item
+public class ItemHoeBasis extends ItemHoe
 {
-    protected EnumToolMaterialBasis theToolMaterial;
+    protected Item.ToolMaterial theToolMaterial;
 
-    public ItemHoeBasis(int ID, EnumToolMaterialBasis par2EnumToolMaterial)
+    public ItemHoeBasis(Item.ToolMaterial par2EnumToolMaterial)
     {
-        super(ID);
-        this.theToolMaterial = par2EnumToolMaterial;
-        this.maxStackSize = 1;
-        this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
-        this.setCreativeTab(CreativeTabs.tabTools);
+        super(par2EnumToolMaterial);
     }
 
     /**
@@ -50,13 +46,12 @@ public class ItemHoeBasis extends Item
                 return true;
             }
 
-            int i1 = par3World.getBlockId(par4, par5, par6);
+            Block block = par3World.getBlock(par4, par5, par6);
             boolean air = par3World.isAirBlock(par4, par5 + 1, par6);
 
-            if (par7 != 0 && air && (i1 == Block.grass.blockID || i1 == Block.dirt.blockID))
+            if (par7 != 0 && air && (block == Blocks.grass || block == Blocks.dirt))
             {
-                Block block = Block.tilledField;
-                par3World.playSoundEffect((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), block.stepSound.getStepSound(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
+                par3World.playSoundEffect((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), block.stepSound.getStepResourcePath(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
 
                 if (par3World.isRemote)
                 {
@@ -64,7 +59,7 @@ public class ItemHoeBasis extends Item
                 }
                 else
                 {
-                    par3World.setBlock(par4, par5, par6, block.blockID);
+                    par3World.setBlock(par4, par5, par6, Blocks.farmland);
                     par1ItemStack.damageItem(1, par2EntityPlayer);
                     return true;
                 }
