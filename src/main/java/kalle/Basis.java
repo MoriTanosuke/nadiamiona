@@ -21,7 +21,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = "kalle", name = "Kalle's Mod Commpilation", version = "0.0.1")
+//TODO replace with build.gradle properties
+@Mod(modid = "kalle", name = "Kalle's Mod Compilation", version = "0.0.1")
 public class Basis {
 	private static final Logger LOG = FMLLog.getLogger();
 
@@ -31,35 +32,39 @@ public class Basis {
 	@SidedProxy(clientSide = "kalle.proxies.BasisClientProxy", serverSide = "kalle.proxies.BasisCommonProxy")
 	public static BasisCommonProxy proxy;
 
-	private static MultiBlockBasis unobtanium;
+	private static final String ASSETS_PREFIX = "kalle:";
 
-	private static ItemFood bier;
+	// items
+	private static Item bier;
 
-	private static ItemFood kakao;
+	private static Item kakao;
 
-	private static ItemFood saft;
+	private static Item saft;
 
-	private static ItemFood breadslicetoast;
+	private static Item breadslicetoast;
 
-	private static ItemFood coockedEgg;
+	private static Item coockedEgg;
 
-	private static ItemFood sandwich_c;
+	private static Item sandwich_chicken;
 
-	private static ItemFood sandwich_f;
+	private static Item sandwich_fish;
 
-	private static ItemFood sandwich_p;
+	private static Item sandwich_bacon;
 
-	private static ItemFood sandwich_b;
+	private static Item sandwich_beef;
 
-	private static ItemFood eiertoast;
+	private static Item eiertoast;
 
-	private static ItemFood schnaps;
+	private static Item schnaps;
 
-	private static ItemFood likoer;
+	private static Item likoer;
 
 	private static Item ketten_glieder;
 
 	private static Item milch;
+
+	// blocks
+	private static MultiBlockBasis unobtanium;
 
 	private static MultiBlockBasis theke;
 
@@ -107,6 +112,7 @@ public class Basis {
 
 	private static MultiBlockBasis kisteKarotte;
 
+	// tools
 	private static Item emeraldPickaxe;
 
 	private static Item emeraldAxe;
@@ -119,84 +125,84 @@ public class Basis {
 	public void preInit(FMLInitializationEvent event) {
 		LOG.debug("Creating objects...");
 		// Nahrung
-		bier = (DrinkBasis) new DrinkBasis(5, 0.5F, false).setUnlocalizedName("bier").setCreativeTab(tabKalle).setTextureName("kalle:Bier");
-		kakao = (DrinkBasis) new DrinkBasis(5, 0.5F, false).setUnlocalizedName("kakao").setCreativeTab(tabKalle).setTextureName("kalle:Kakao");
-		saft = (DrinkBasis) new DrinkBasis(5, 0.5F, false).setUnlocalizedName("saft").setCreativeTab(tabKalle).setTextureName("kalle:Saft");
+		bier = new ItemDrink(5, 0.5F, false).setUnlocalizedName("bier").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Bier");
+		kakao = new ItemDrink(5, 0.5F, false).setUnlocalizedName("kakao").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Kakao");
+		saft = new ItemDrink(5, 0.5F, false).setUnlocalizedName("saft").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Saft");
 
-		breadslicetoast = (EatBasis) new EatBasis(1, 0.1F, false).setUnlocalizedName("breadslice").setCreativeTab(tabKalle).setTextureName("kalle:Toast");
-		coockedEgg = (EatBasis) new EatBasis(2, 0.1F, false).setUnlocalizedName("coockedEgg").setCreativeTab(tabKalle).setTextureName("kalle:Egg");
+		breadslicetoast = new ItemFood(1, 0.1F, false).setUnlocalizedName("breadslice").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Toast");
+		coockedEgg = new ItemFood(2, 0.1F, false).setUnlocalizedName("coockedEgg").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Egg");
 
-		sandwich_c = (EatBasis) new EatBasis(8, 0.66F, false).setUnlocalizedName("sandwich_c").setCreativeTab(tabKalle).setTextureName("kalle:Chickensandwich");
-		sandwich_f = (EatBasis) new EatBasis(7, 0.66F, false).setUnlocalizedName("sandwich_f").setCreativeTab(tabKalle).setTextureName("kalle:Lachssandwich");
-		sandwich_p = (EatBasis) new EatBasis(10, 0.75F, false).setUnlocalizedName("sandwich_p").setCreativeTab(tabKalle).setTextureName("kalle:Schinkensandwich");
-		sandwich_b = (EatBasis) new EatBasis(10, 0.75F, false).setUnlocalizedName("sandwich_b").setCreativeTab(tabKalle).setTextureName("kalle:Roastbeefsandwich");
+		sandwich_chicken = new ItemFood(8, 0.66F, false).setUnlocalizedName("sandwich_c").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Chickensandwich");
+		sandwich_fish = new ItemFood(7, 0.66F, false).setUnlocalizedName("sandwich_f").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Lachssandwich");
+		sandwich_bacon = new ItemFood(10, 0.75F, false).setUnlocalizedName("sandwich_p").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Schinkensandwich");
+		sandwich_beef = new ItemFood(10, 0.75F, false).setUnlocalizedName("sandwich_b").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Roastbeefsandwich");
 
-		eiertoast = (EatBasis) new EatBasis(5, 0.5F, false).setUnlocalizedName("Eiertoast").setCreativeTab(tabKalle).setTextureName("kalle:Eiertoast");
-		schnaps = (DrinkBasis) new DrinkBasis(1, 0.1F, false).setUnlocalizedName("Schnaps").setCreativeTab(tabKalle).setTextureName("kalle:Schnaps");
-		likoer = (DrinkBasis) new DrinkBasis(5, 0.3F, false).setUnlocalizedName("Eierlikoer").setCreativeTab(tabKalle).setTextureName("kalle:Likoer");
+		eiertoast = new ItemFood(5, 0.5F, false).setUnlocalizedName("Eiertoast").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Eiertoast");
+		schnaps = (ItemDrink) new ItemDrink(1, 0.1F, false).setUnlocalizedName("Schnaps").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Schnaps");
+		likoer = (ItemDrink) new ItemDrink(5, 0.3F, false).setUnlocalizedName("Eierlikoer").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Likoer");
 
 		// Teile zum Craften
-		ketten_glieder = new Item().setUnlocalizedName("Kettenglieder").setCreativeTab(tabKalle).setTextureName("kalle:Kettenglieder");
-		milch = new Item().setUnlocalizedName("Milchflasche").setCreativeTab(tabKalle).setTextureName("kalle:Milchflasche");
+		ketten_glieder = new Item().setUnlocalizedName("Kettenglieder").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Kettenglieder");
+		milch = new Item().setUnlocalizedName("Milchflasche").setCreativeTab(tabKalle).setTextureName(ASSETS_PREFIX + "Milchflasche");
 
 		// Specialblock
 		unobtanium = (MultiBlockBasis) new MultiBlockBasis(Material.rock).setBlockName("Unobtanium").setCreativeTab(tabKalle).setBlockUnbreakable().setResistance(65535.0F);
-		unobtanium.setBlockTextureName("kalle:Unobtanium_bottom", "kalle:Unobtanium_top", "kalle:Unobtanium_north", "kalle:Unobtanium_south", "kalle:Unobtanium_west", "kalle:Unobtanium_east");
+		unobtanium.setBlockTextureName(ASSETS_PREFIX + "Unobtanium_bottom", ASSETS_PREFIX + "Unobtanium_top", ASSETS_PREFIX + "Unobtanium_north", ASSETS_PREFIX + "Unobtanium_south", ASSETS_PREFIX + "Unobtanium_west", ASSETS_PREFIX + "Unobtanium_east");
 
 		// Moebel
 		theke = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("Theke").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		theke.setBlockTextureName("kalle:Theke", "kalle:Theke_top", "kalle:Theke", "kalle:Theke", "kalle:Theke", "kalle:Theke");
+		theke.setBlockTextureName(ASSETS_PREFIX + "Theke", ASSETS_PREFIX + "Theke_top", ASSETS_PREFIX + "Theke", ASSETS_PREFIX + "Theke", ASSETS_PREFIX + "Theke", ASSETS_PREFIX + "Theke");
 		parkettHell = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("ParkettHell").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		parkettHell.setBlockTextureName("kalle:ParkettHell", "kalle:ParkettHell", "kalle:ParkettHell", "kalle:ParkettHell", "kalle:ParkettHell", "kalle:ParkettHell");
+		parkettHell.setBlockTextureName(ASSETS_PREFIX + "ParkettHell", ASSETS_PREFIX + "ParkettHell", ASSETS_PREFIX + "ParkettHell", ASSETS_PREFIX + "ParkettHell", ASSETS_PREFIX + "ParkettHell", ASSETS_PREFIX + "ParkettHell");
 		parkettDunkel = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("ParkettDunkel").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		parkettDunkel.setBlockTextureName("kalle:ParkettDunkel", "kalle:ParkettDunkel", "kalle:ParkettDunkel", "kalle:ParkettDunkel", "kalle:ParkettDunkel", "kalle:ParkettDunkel");
+		parkettDunkel.setBlockTextureName(ASSETS_PREFIX + "ParkettDunkel", ASSETS_PREFIX + "ParkettDunkel", ASSETS_PREFIX + "ParkettDunkel", ASSETS_PREFIX + "ParkettDunkel", ASSETS_PREFIX + "ParkettDunkel", ASSETS_PREFIX + "ParkettDunkel");
 
 		lamp = (MultiBlockBasis) new MultiBlockBasis(Material.glass).setBlockName("Lamp").setCreativeTab(tabKalle).setHardness(0.5F).setLightLevel(1.0F);
-		lamp.setBlockTextureName("kalle:Lamp", "kalle:Lamp", "kalle:Lamp", "kalle:Lamp", "kalle:Lamp", "kalle:Lamp");
+		lamp.setBlockTextureName(ASSETS_PREFIX + "Lamp", ASSETS_PREFIX + "Lamp", ASSETS_PREFIX + "Lamp", ASSETS_PREFIX + "Lamp", ASSETS_PREFIX + "Lamp", ASSETS_PREFIX + "Lamp");
 
 		booksSpruce = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("BooksSpruce").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		booksSpruce.setBlockTextureName("kalle:books_spruce", "kalle:books_spruce", "kalle:books_spruce_side", "kalle:books_spruce_side", "kalle:books_spruce_side", "kalle:books_spruce_side");
+		booksSpruce.setBlockTextureName(ASSETS_PREFIX + "books_spruce", ASSETS_PREFIX + "books_spruce", ASSETS_PREFIX + "books_spruce_side", ASSETS_PREFIX + "books_spruce_side", ASSETS_PREFIX + "books_spruce_side", ASSETS_PREFIX + "books_spruce_side");
 		booksJungle = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("BooksJungle").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		booksJungle.setBlockTextureName("kalle:books_jungle", "kalle:books_jungle", "kalle:books_jungle_side", "kalle:books_jungle_side", "kalle:books_jungle_side", "kalle:books_jungle_side");
+		booksJungle.setBlockTextureName(ASSETS_PREFIX + "books_jungle", ASSETS_PREFIX + "books_jungle", ASSETS_PREFIX + "books_jungle_side", ASSETS_PREFIX + "books_jungle_side", ASSETS_PREFIX + "books_jungle_side", ASSETS_PREFIX + "books_jungle_side");
 		booksBirch = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("BooksBirch").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		booksBirch.setBlockTextureName("kalle:books_birch", "kalle:books_birch", "kalle:books_birch_side", "kalle:books_birch_side", "kalle:books_birch_side", "kalle:books_birch_side");
+		booksBirch.setBlockTextureName(ASSETS_PREFIX + "books_birch", ASSETS_PREFIX + "books_birch", ASSETS_PREFIX + "books_birch_side", ASSETS_PREFIX + "books_birch_side", ASSETS_PREFIX + "books_birch_side", ASSETS_PREFIX + "books_birch_side");
 
 		fensterNS = (MultiBlockBasis) new MultiBlockBasis(Material.glass).setBlockName("FensterNS").setCreativeTab(tabKalle).setHardness(0.25F).setResistance(1.0F);
-		fensterNS.setBlockTextureName("kalle:Kiste", "kalle:Kiste", "kalle:vorhang", "kalle:fensterladen", "kalle:Kiste", "kalle:Kiste");
+		fensterNS.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "vorhang", ASSETS_PREFIX + "fensterladen", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		fensterSN = (MultiBlockBasis) new MultiBlockBasis(Material.glass).setBlockName("FensterSN").setCreativeTab(tabKalle).setHardness(0.25F).setResistance(1.0F);
-		fensterSN.setBlockTextureName("kalle:Kiste", "kalle:Kiste", "kalle:fensterladen", "kalle:vorhang", "kalle:Kiste", "kalle:Kiste");
+		fensterSN.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "fensterladen", ASSETS_PREFIX + "vorhang", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 
 		fensterWO = (MultiBlockBasis) new MultiBlockBasis(Material.glass).setBlockName("FensterWO").setCreativeTab(tabKalle).setHardness(0.25F).setResistance(1.0F);
-		fensterWO.setBlockTextureName("kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:vorhang", "kalle:fensterladen");
+		fensterWO.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "vorhang", ASSETS_PREFIX + "fensterladen");
 		fensterOW = (MultiBlockBasis) new MultiBlockBasis(Material.glass).setBlockName("FensterOW").setCreativeTab(tabKalle).setHardness(0.25F).setResistance(1.0F);
-		fensterOW.setBlockTextureName("kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:fensterladen", "kalle:vorhang");
+		fensterOW.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "fensterladen", ASSETS_PREFIX + "vorhang");
 
 		// Kisten
 		kiste = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("Kiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kiste.setBlockTextureName("kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kiste.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteKohle = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteKohle").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteKohle.setBlockTextureName("kalle:Kiste", "kalle:KisteKohle", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteKohle.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteKohle", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteEisen = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteEisen").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteEisen.setBlockTextureName("kalle:Kiste", "kalle:KisteEisen", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteEisen.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteEisen", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteGold = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteGold").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteGold.setBlockTextureName("kalle:Kiste", "kalle:KisteGold", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteGold.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteGold", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteDiamant = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteDiamant").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteDiamant.setBlockTextureName("kalle:Kiste", "kalle:KisteDiamant", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteDiamant.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteDiamant", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteEmerald = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteEmerald").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteEmerald.setBlockTextureName("kalle:Kiste", "kalle:KisteEmerald", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteEmerald.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteEmerald", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteLapis = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteLapis").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteLapis.setBlockTextureName("kalle:Kiste", "kalle:KisteLapis", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteLapis.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteLapis", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 
 		kisteCookie = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteCookie").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteCookie.setBlockTextureName("kalle:Kiste", "kalle:KisteCookie", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteCookie.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteCookie", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteKartoffel = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteKartoffel").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteKartoffel.setBlockTextureName("kalle:Kiste", "kalle:KisteKartoffel", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteKartoffel.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteKartoffel", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteApfel = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteApfel").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteApfel.setBlockTextureName("kalle:Kiste", "kalle:KisteApfel", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteApfel.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteApfel", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteFisch = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteFisch").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteFisch.setBlockTextureName("kalle:Kiste", "kalle:KisteFisch", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteFisch.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteFisch", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 		kisteKarotte = (MultiBlockBasis) new MultiBlockBasis(Material.wood).setBlockName("KisteKarotte").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
-		kisteKarotte.setBlockTextureName("kalle:Kiste", "kalle:KisteKarotte", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
+		kisteKarotte.setBlockTextureName(ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "KisteKarotte", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste", ASSETS_PREFIX + "Kiste");
 
 		// Tools
 		emeraldPickaxe = new ItemPickaxeEmerald().setUnlocalizedName("EmeraldPickaxe").setCreativeTab(tabKalle);
@@ -207,17 +213,17 @@ public class Basis {
 		// Weapon
 		// Ammo = (ItemBasis) new
 		// ItemBasis(AmmoID).setUnlocalizedName("Ammo").setCreativeTab(tabTest);
-		// Ammo.setTextureName("kalle:Ammo");
+		// Ammo.setTextureName(ASSETS_PREFIX + "Ammo");
 		// Revolver = (ItemWeapon) new
 		// ItemWeapon(RevolverID).setUnlocalizedName("Revolver").setCreativeTab(tabTest);
-		// Revolver.setTextureName("kalle:Weapon");
+		// Revolver.setTextureName(ASSETS_PREFIX + "Weapon");
 
 		// Zauberstab = (ItemRod) new
 		// ItemRod(ZauberstabID).setUnlocalizedName("Zauberstab").setCreativeTab(tabTest);
-		// Zauberstab.setTextureName("kalle:magic_rod");
+		// Zauberstab.setTextureName(ASSETS_PREFIX + "magic_rod");
 		// Krawams = (ItemBomb) new
 		// ItemBomb(KrawamsID).setUnlocalizedName("Krawams").setCreativeTab(tabTest);
-		// Krawams.setTextureName("kalle:Bomb");
+		// Krawams.setTextureName(ASSETS_PREFIX + "Bomb");
 
 		LOG.info("Registering items...");
 		registerItems();
@@ -303,10 +309,10 @@ public class Basis {
 		// Food-Rezepte-Eat
 		GameRegistry.addShapelessRecipe(new ItemStack(breadslicetoast, 4), new ItemStack(Items.bread));
 
-		GameRegistry.addRecipe(new ItemStack(sandwich_c), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_chicken);
-		GameRegistry.addRecipe(new ItemStack(sandwich_f), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_fished);
-		GameRegistry.addRecipe(new ItemStack(sandwich_p), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_porkchop);
-		GameRegistry.addRecipe(new ItemStack(sandwich_b), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_beef);
+		GameRegistry.addRecipe(new ItemStack(sandwich_chicken), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_chicken);
+		GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_fished);
+		GameRegistry.addRecipe(new ItemStack(sandwich_bacon), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_porkchop);
+		GameRegistry.addRecipe(new ItemStack(sandwich_beef), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_beef);
 
 		GameRegistry.addRecipe(new ItemStack(eiertoast), "*", "#", '#', breadslicetoast, '*', coockedEgg);
 
@@ -362,10 +368,10 @@ public class Basis {
 		GameRegistry.registerItem(breadslicetoast, "Toastbrotscheibe");
 		GameRegistry.registerItem(coockedEgg, "gekochtes Ei");
 
-		GameRegistry.registerItem(sandwich_c, "Chickensandwich");
-		GameRegistry.registerItem(sandwich_f, "Lachssandwich");
-		GameRegistry.registerItem(sandwich_p, "Schickensandwich");
-		GameRegistry.registerItem(sandwich_b, "Roastbeefsandwich");
+		GameRegistry.registerItem(sandwich_chicken, "Chickensandwich");
+		GameRegistry.registerItem(sandwich_fish, "Lachssandwich");
+		GameRegistry.registerItem(sandwich_bacon, "Schickensandwich");
+		GameRegistry.registerItem(sandwich_beef, "Roastbeefsandwich");
 
 		GameRegistry.registerItem(eiertoast, "Eiertoast");
 		GameRegistry.registerItem(schnaps, "Schnaps");

@@ -7,9 +7,9 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class DrinkBasis extends ItemFood {
+public class ItemDrink extends ItemFood {
 
-	public DrinkBasis(int healAmount, float saturationModifier, boolean isWolfsFavoriteMeat) {
+	public ItemDrink(int healAmount, float saturationModifier, boolean isWolfsFavoriteMeat) {
 		super(healAmount, saturationModifier, isWolfsFavoriteMeat);
 	}
 
