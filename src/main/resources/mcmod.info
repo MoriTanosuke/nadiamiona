@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "kalle",
+  "name": "Kalle's Mod Commpilation",
+  "description": "Useful utilities and decorations",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authors": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authors": ["Kalle"],
+  "credits": "To my mother.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
