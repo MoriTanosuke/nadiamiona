@@ -8,12 +8,15 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+
+import org.apache.logging.log4j.Logger;
+
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -21,6 +24,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = "kalle", name = "Kalle's Mod Commpilation", version = "0.0.1")
 public class Basis {
+	private static final Logger LOG = FMLLog.getLogger();
 
 	@Instance("kalle")
 	public static Basis instance;
@@ -113,7 +117,8 @@ public class Basis {
 	private static Item emeraldHoe;
 
 	@EventHandler
-	public static void init(FMLInitializationEvent event) {
+	public void preInit(FMLInitializationEvent event) {
+		LOG.debug("Creating objects...");
 		// Nahrung
 		bier = (DrinkBasis) new DrinkBasis(5, 0.5F, false).setUnlocalizedName("bier").setCreativeTab(tabKalle).setTextureName("kalle:Bier");
 		kakao = (DrinkBasis) new DrinkBasis(5, 0.5F, false).setUnlocalizedName("kakao").setCreativeTab(tabKalle).setTextureName("kalle:Kakao");
@@ -215,20 +220,21 @@ public class Basis {
 		// ItemBomb(KrawamsID).setUnlocalizedName("Krawams").setCreativeTab(tabTest);
 		// Krawams.setTextureName("kalle:Bomb");
 
-		// Intit-Aufrufe
+		LOG.info("Registering items...");
 		registerItems();
+		LOG.info("Registering blocks...");
 		registerBlocks();
+		LOG.info("Updating language...");
 		updateLanguage();
+		LOG.info("Adding crafting recipes...");
 		initCraftingRecipes();
+		LOG.info("Adding smelting recipes...");
 		initSmeltingRecipes();
-	}
-
-	@EventHandler
-	public static void postInit(FMLPostInitializationEvent event) {
+		LOG.info("All done.");
 	}
 
 	// ----- Methoden -----
-	private static void initCraftingRecipes() {
+	private void initCraftingRecipes() {
 		// Fixes
 		GameRegistry.addRecipe(new ItemStack(Items.book), "#", "#", "#", '#', Items.paper);
 
@@ -309,15 +315,23 @@ public class Basis {
 
 		// Items
 		GameRegistry.addRecipe(new ItemStack(Items.saddle), "###", "#0#", "*0*", '#', Items.leather, '*', Items.iron_ingot);
-//		GameRegistry.addRecipe(new ItemStack(Items.lead), "0#0", "#0#", "0#0", '#', Items.silk);
-//		GameRegistry.addRecipe(new ItemStack(Items.name_tag), "00#", "**0", "**0", '#', Items.silk, '*', Items.paper);
+		// GameRegistry.addRecipe(new ItemStack(Items.lead), "0#0", "#0#",
+		// "0#0", '#', Items.silk);
+		// GameRegistry.addRecipe(new ItemStack(Items.name_tag), "00#", "**0",
+		// "**0", '#', Items.silk, '*', Items.paper);
 		GameRegistry.addRecipe(new ItemStack(ketten_glieder, 6), "0#0", "#0#", "0#0", '#', Items.iron_ingot);
 		GameRegistry.addRecipe(new ItemStack(milch, 3), "0#0", "***", '#', Items.milk_bucket, '*', Items.glass_bottle);
 
 		// Horse Armor Iron, Gold, Diamant
-//		GameRegistry.addRecipe(new ItemStack(Items.iron_horse_armor), "00#", "#*#", "###", '#', Items.iron_ingot, '*', new ItemStack(Blocks.cloth, 1, 15));
-//		GameRegistry.addRecipe(new ItemStack(Items.golden_horse_armor), "00#", "#*#", "###", '#', Items.gold_ingot, '*', new ItemStack(Blocks.cloth, 1, 14));
-//		GameRegistry.addRecipe(new ItemStack(Items.diamond_horse_armor), "00#", "#*#", "###", '#', Items.diamond, '*', new ItemStack(Blocks.cloth, 1, 11));
+		// GameRegistry.addRecipe(new ItemStack(Items.iron_horse_armor), "00#",
+		// "#*#", "###", '#', Items.iron_ingot, '*', new ItemStack(Blocks.cloth,
+		// 1, 15));
+		// GameRegistry.addRecipe(new ItemStack(Items.golden_horse_armor),
+		// "00#", "#*#", "###", '#', Items.gold_ingot, '*', new
+		// ItemStack(Blocks.cloth, 1, 14));
+		// GameRegistry.addRecipe(new ItemStack(Items.diamond_horse_armor),
+		// "00#", "#*#", "###", '#', Items.diamond, '*', new
+		// ItemStack(Blocks.cloth, 1, 11));
 
 		// Armor Chain
 		GameRegistry.addRecipe(new ItemStack(Items.chainmail_boots), "000", "#0#", "#0#", '#', ketten_glieder);
@@ -335,14 +349,14 @@ public class Basis {
 	}
 
 	// Ofen-Rezepte
-	private static void initSmeltingRecipes() {
+	private void initSmeltingRecipes() {
 		GameRegistry.addSmelting(Items.egg, new ItemStack(coockedEgg), 0.25f);
 		GameRegistry.addSmelting(Items.poisonous_potato, new ItemStack(Items.potato), 0.25f);
 		GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.beef), 0.25f);
 		GameRegistry.addSmelting(Items.reeds, new ItemStack(schnaps), 0.25f);
 	}
 
-	private static void registerItems() {
+	private void registerItems() {
 		GameRegistry.registerItem(bier, "Bier");
 		GameRegistry.registerItem(kakao, "Schokomilch");
 		GameRegistry.registerItem(saft, "Multivitaminsaft");
@@ -374,7 +388,7 @@ public class Basis {
 		// GameRegistry.registerItem(Krawams, "Krawams");
 	}
 
-	private static void registerBlocks() {
+	private void registerBlocks() {
 		GameRegistry.registerBlock(unobtanium, "Unobtanium");
 		GameRegistry.registerBlock(theke, "Theke");
 		GameRegistry.registerBlock(kiste, "Kiste");
@@ -406,7 +420,7 @@ public class Basis {
 		GameRegistry.registerBlock(fensterOW, "Fenster Ost-West");
 	}
 
-	private static void updateLanguage() {
+	private void updateLanguage() {
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabKalle", "Kalles Modding");
 
 		LanguageRegistry.addName(bier, "Bier");

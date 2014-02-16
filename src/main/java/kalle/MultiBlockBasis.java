@@ -57,12 +57,13 @@ public class MultiBlockBasis extends Block {
 		}
 	}
 
-	public void setBlockTextureName(String bottom, String top, String north, String south, String west, String east) {
+	public Block setBlockTextureName(String bottom, String top, String north, String south, String west, String east) {
 		texturebottom = bottom;
 		texturetop = top;
 		texturenorth = north;
 		texturesouth = south;
 		texturewest = west;
 		textureeast = east;
+		return this;
 	}
 }
