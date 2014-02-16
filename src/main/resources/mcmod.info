@@ -1,6 +1,6 @@
 [
 {
-  "modid": "kalle",
+  "modid": "${group}",
   "name": "Kalle's Mod Commpilation",
   "description": "Useful utilities and decorations",
   "version": "${version}",
