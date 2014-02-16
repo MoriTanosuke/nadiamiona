@@ -203,7 +203,7 @@ public class Basis {
 		emeraldPickaxe = new ItemPickaxeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldPickaxe").setCreativeTab(tabKalle);
 		emeraldAxe = new ItemAxeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldAxe").setCreativeTab(tabKalle);
 		emeraldSpade = new ItemSpadeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldSpade").setCreativeTab(tabKalle);
-		emeraldHoe = new ItemHoeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldHoe").setCreativeTab(tabKalle);
+		emeraldHoe = new ItemHoeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldHoe").setCreativeTab(tabKalle).setTextureName("kalle:emerald_hoe");
 
 		// Weapon
 		// Ammo = (ItemBasis) new

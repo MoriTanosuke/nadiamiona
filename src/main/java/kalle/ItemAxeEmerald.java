@@ -11,9 +11,8 @@ public class ItemAxeEmerald extends ItemAxeBasis {
 		super(Material);
 	}
 
-	
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg){
+	public void registerIcons(IIconRegister reg) {
 		this.itemIcon = reg.registerIcon("kalle:emerald_axe");
 	}
 }

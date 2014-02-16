@@ -11,9 +11,8 @@ public class ItemPickaxeEmerald extends ItemPickaxeBasis {
 		super(Material);
 	}
 
-	
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg){
+	public void registerIcons(IIconRegister reg) {
 		this.itemIcon = reg.registerIcon("kalle:emerald_pickaxe");
 	}
 }

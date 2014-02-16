@@ -26,8 +26,7 @@ public class ItemToolBasis extends ItemTool {
 	/** The material this tool is made from. */
 	protected Item.ToolMaterial toolMaterial;
 
-	protected ItemToolBasis(float p_i45333_1_, ToolMaterial p_i45333_2_,
-			Set p_i45333_3_) {
+	protected ItemToolBasis(float p_i45333_1_, ToolMaterial p_i45333_2_, Set p_i45333_3_) {
 		super(p_i45333_1_, p_i45333_2_, p_i45333_3_);
 		// TODO Auto-generated constructor stub
 	}
@@ -66,18 +65,13 @@ public class ItemToolBasis extends ItemTool {
 	/**
 	 * Return whether this item is repairable in an anvil.
 	 */
-	public boolean getIsRepairable(ItemStack par1ItemStack,
-			ItemStack par2ItemStack) {
-		return this.toolMaterial.func_150995_f() == par2ItemStack.getItem() ? true
-				: super.getIsRepairable(par1ItemStack, par2ItemStack);
+	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
+		return this.toolMaterial.func_150995_f() == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
 	}
 
 	public Multimap getItemAttributeModifiers() {
 		Multimap multimap = super.getItemAttributeModifiers();
-		multimap.put(SharedMonsterAttributes.attackDamage
-				.getAttributeUnlocalizedName(), new AttributeModifier(
-				field_111210_e, "Tool modifier", (double) this.damageVsEntity,
-				0));
+		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Tool modifier", (double) this.damageVsEntity, 0));
 		return multimap;
 	}
 }

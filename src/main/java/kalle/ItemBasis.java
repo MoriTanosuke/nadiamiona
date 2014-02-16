@@ -13,8 +13,7 @@ public class ItemBasis extends Item {
 	private String filename;
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemStack, World world,
-			EntityPlayer player) {
+	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 		return itemStack;
 	}
 

@@ -23,6 +23,6 @@ public class ItemAxeBasis extends ItemToolBasis {
 	 * (Quality+1)*2 if correct blocktype, 1.5F if sword
 	 */
 	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-		return par2Block != null && (par2Block.getMaterial() == Material.wood || par2Block.getMaterial() == Material.plants || par2Block .getMaterial() == Material.vine) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
+		return par2Block != null && (par2Block.getMaterial() == Material.wood || par2Block.getMaterial() == Material.plants || par2Block.getMaterial() == Material.vine) ? this.efficiencyOnProperMaterial : super.getStrVsBlock(par1ItemStack, par2Block);
 	}
 }

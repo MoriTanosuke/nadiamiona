@@ -8,12 +8,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemHoeEmerald extends ItemHoeBasis {
 
 	public ItemHoeEmerald(Item.ToolMaterial Material) {
-		super( Material);
+		super(Material);
 	}
 
-	
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg){
+	public void registerIcons(IIconRegister reg) {
 		this.itemIcon = reg.registerIcon("kalle:emerald_hoe");
 	}
 }
