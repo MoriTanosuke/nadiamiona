@@ -1,3 +1,6 @@
 itemGroup.tabKalle=Kalles Mod
 item.EmeraldPickaxe.name=Emerald Pickaxe
+
 tile.KisteKarotte.name=box of carrots
+tile.Theke.name=Bar
+tile.ParkettHell.name=Bright parquet

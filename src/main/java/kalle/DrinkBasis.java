@@ -1,19 +1,13 @@
 package kalle;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class DrinkBasis extends ItemFood {
-
-	private String filename;
 
 	public DrinkBasis(int healAmount, float saturationModifier, boolean isWolfsFavoriteMeat) {
 		super(healAmount, saturationModifier, isWolfsFavoriteMeat);
@@ -38,17 +32,6 @@ public class DrinkBasis extends ItemFood {
 		}
 
 		return par1ItemStack;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg) {
-		this.itemIcon = reg.registerIcon(filename);
-	}
-
-	@Override
-	public Item setTextureName(String name) {
-		filename = name;
-		return this;
 	}
 
 }

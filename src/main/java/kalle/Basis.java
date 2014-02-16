@@ -1,6 +1,6 @@
 package kalle;
 
-import kalle.Proxies.BasisCommonProxy;
+import kalle.proxies.BasisCommonProxy;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -18,7 +18,6 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -29,7 +28,7 @@ public class Basis {
 	@Instance("kalle")
 	public static Basis instance;
 
-	@SidedProxy(clientSide = "kalle.Proxies.BasisClientProxy", serverSide = "kalle.Proxies.BasisCommonProxy")
+	@SidedProxy(clientSide = "kalle.proxies.BasisClientProxy", serverSide = "kalle.proxies.BasisCommonProxy")
 	public static BasisCommonProxy proxy;
 
 	private static MultiBlockBasis unobtanium;
@@ -58,9 +57,9 @@ public class Basis {
 
 	private static ItemFood likoer;
 
-	private static ItemBasis ketten_glieder;
+	private static Item ketten_glieder;
 
-	private static ItemBasis milch;
+	private static Item milch;
 
 	private static MultiBlockBasis theke;
 
@@ -137,8 +136,8 @@ public class Basis {
 		likoer = (DrinkBasis) new DrinkBasis(5, 0.3F, false).setUnlocalizedName("Eierlikoer").setCreativeTab(tabKalle).setTextureName("kalle:Likoer");
 
 		// Teile zum Craften
-		ketten_glieder = (ItemBasis) new ItemBasis().setUnlocalizedName("Kettenglieder").setCreativeTab(tabKalle).setTextureName("kalle:Kettenglieder");
-		milch = (ItemBasis) new ItemBasis().setUnlocalizedName("Milchflasche").setCreativeTab(tabKalle).setTextureName("kalle:Milchflasche");
+		ketten_glieder = new Item().setUnlocalizedName("Kettenglieder").setCreativeTab(tabKalle).setTextureName("kalle:Kettenglieder");
+		milch = new Item().setUnlocalizedName("Milchflasche").setCreativeTab(tabKalle).setTextureName("kalle:Milchflasche");
 
 		// Specialblock
 		unobtanium = (MultiBlockBasis) new MultiBlockBasis(Material.rock).setBlockName("Unobtanium").setCreativeTab(tabKalle).setBlockUnbreakable().setResistance(65535.0F);
@@ -224,8 +223,6 @@ public class Basis {
 		registerItems();
 		LOG.info("Registering blocks...");
 		registerBlocks();
-		LOG.info("Updating language...");
-		updateLanguage();
 		LOG.info("Adding crafting recipes...");
 		initCraftingRecipes();
 		LOG.info("Adding smelting recipes...");
@@ -418,70 +415,6 @@ public class Basis {
 		GameRegistry.registerBlock(fensterSN, "Fenster Sued-Nord");
 		GameRegistry.registerBlock(fensterWO, "Fenster West-Ost");
 		GameRegistry.registerBlock(fensterOW, "Fenster Ost-West");
-	}
-
-	private void updateLanguage() {
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabKalle", "Kalles Modding");
-
-		LanguageRegistry.addName(bier, "Bier");
-		LanguageRegistry.addName(kakao, "Schokomilch");
-		LanguageRegistry.addName(saft, "Multivitaminsaft");
-		LanguageRegistry.addName(milch, "Milchflasche");
-
-		LanguageRegistry.addName(breadslicetoast, "getoastete Brotscheibe");
-		LanguageRegistry.addName(coockedEgg, "gekochtes Ei");
-
-		LanguageRegistry.addName(sandwich_c, "Chickensandwich");
-		LanguageRegistry.addName(sandwich_f, "Lachssandwich");
-		LanguageRegistry.addName(sandwich_p, "Schinkensandwich");
-		LanguageRegistry.addName(sandwich_b, "Roastbeefsandwich");
-
-		LanguageRegistry.addName(eiertoast, "Eiertoast");
-		LanguageRegistry.addName(schnaps, "Schnaps");
-		LanguageRegistry.addName(likoer, "Eierlikoer");
-
-		LanguageRegistry.addName(ketten_glieder, "Kettenglieder");
-
-		LanguageRegistry.addName(unobtanium, "Unobtanium");
-		LanguageRegistry.addName(theke, "Theke");
-		LanguageRegistry.addName(kiste, "Kiste");
-		LanguageRegistry.addName(parkettHell, "helles Parkett");
-		LanguageRegistry.addName(parkettDunkel, "dunkles Parkett");
-
-		LanguageRegistry.addName(kisteKohle, "Kohlekiste");
-		LanguageRegistry.addName(kisteEisen, "Eisenkiste");
-		LanguageRegistry.addName(kisteGold, "Goldkiste");
-		LanguageRegistry.addName(kisteDiamant, "Diamantenkiste");
-		LanguageRegistry.addName(kisteEmerald, "Edelsteinkiste");
-		LanguageRegistry.addName(kisteLapis, "Lapiskiste");
-
-		LanguageRegistry.addName(kisteCookie, "Keksekiste");
-		LanguageRegistry.addName(kisteKartoffel, "Kartoffelkiste");
-		LanguageRegistry.addName(kisteApfel, "Apfelkiste");
-		LanguageRegistry.addName(kisteFisch, "Fischkiste");
-		LanguageRegistry.addName(kisteKarotte, "Karottenkiste");
-
-		LanguageRegistry.addName(booksSpruce, "Fichtenholzregal");
-		LanguageRegistry.addName(booksJungle, "Jungelholzregal");
-		LanguageRegistry.addName(booksBirch, "Birkenholzregal");
-
-		LanguageRegistry.addName(lamp, "Lightstone-Lampe");
-
-		LanguageRegistry.addName(fensterNS, "Fenster Nord-Sued");
-		LanguageRegistry.addName(fensterSN, "Fenster Sued-Nord");
-		LanguageRegistry.addName(fensterWO, "Fenster West-Ost");
-		LanguageRegistry.addName(fensterOW, "Fenster Ost-West");
-
-		LanguageRegistry.addName(emeraldPickaxe, "Edelsteinspitzhacke");
-		LanguageRegistry.addName(emeraldAxe, "Edelsteinaxt");
-		LanguageRegistry.addName(emeraldSpade, "Edelsteinschaufel");
-		LanguageRegistry.addName(emeraldHoe, "Edelsteinhacke");
-
-		// LanguageRegistry.addName(Ammo, "Munition");
-		// LanguageRegistry.addName(Revolver, "Revolver");
-
-		// LanguageRegistry.addName(Zauberstab, "Zauberstab der Zeit");
-		// LanguageRegistry.addName(Krawams, "Krawams");
 	}
 
 	// ----- met-end -----

@@ -22,12 +22,14 @@ public class MultiBlockBasis extends Block {
 		super(mat);
 	}
 
+	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister reg) {
+	public void registerBlockIcons(IIconRegister reg) {
 		this.bottomTexture = reg.registerIcon(texturebottom);
 		this.topTexture = reg.registerIcon(texturetop);
 		this.northTexture = reg.registerIcon(texturenorth);
@@ -36,9 +38,9 @@ public class MultiBlockBasis extends Block {
 		this.eastTexture = reg.registerIcon(textureeast);
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-
 		switch (side) {
 		case 0:
 			return this.bottomTexture;
@@ -55,6 +57,11 @@ public class MultiBlockBasis extends Block {
 		default:
 			return this.topTexture;
 		}
+	}
+
+	@Override
+	public Block setBlockTextureName(String p_149658_1_) {
+		return setBlockTextureName(p_149658_1_, p_149658_1_, p_149658_1_, p_149658_1_, p_149658_1_, p_149658_1_);
 	}
 
 	public Block setBlockTextureName(String bottom, String top, String north, String south, String west, String east) {

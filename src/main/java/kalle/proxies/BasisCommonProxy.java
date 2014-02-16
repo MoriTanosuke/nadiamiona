@@ -1,4 +1,4 @@
-package kalle.Proxies;
+package kalle.proxies;
 
 public class BasisCommonProxy {
 
