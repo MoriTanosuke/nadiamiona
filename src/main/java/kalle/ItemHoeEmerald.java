@@ -7,8 +7,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemHoeEmerald extends ItemHoeBasis {
 
-	public ItemHoeEmerald(Item.ToolMaterial Material) {
-		super(Material);
+	public ItemHoeEmerald() {
+		super(Item.ToolMaterial.EMERALD);
 	}
 
 	@SideOnly(Side.CLIENT)

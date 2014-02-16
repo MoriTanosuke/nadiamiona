@@ -7,8 +7,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemPickaxeEmerald extends ItemPickaxeBasis {
 
-	public ItemPickaxeEmerald(Item.ToolMaterial Material) {
-		super(Material);
+	public ItemPickaxeEmerald() {
+		super(Item.ToolMaterial.EMERALD);
 	}
 
 	@SideOnly(Side.CLIENT)

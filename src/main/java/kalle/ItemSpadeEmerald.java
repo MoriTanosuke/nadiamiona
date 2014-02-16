@@ -2,13 +2,14 @@ package kalle;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSpade;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemSpadeEmerald extends ItemSpadeBasis {
+public class ItemSpadeEmerald extends ItemSpade {
 
-	public ItemSpadeEmerald(Item.ToolMaterial Material) {
-		super(Material);
+	public ItemSpadeEmerald() {
+		super(Item.ToolMaterial.EMERALD);
 	}
 
 	@SideOnly(Side.CLIENT)

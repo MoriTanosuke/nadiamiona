@@ -200,10 +200,10 @@ public class Basis {
 		kisteKarotte.setBlockTextureName("kalle:Kiste", "kalle:KisteKarotte", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste", "kalle:Kiste");
 
 		// Tools
-		emeraldPickaxe = new ItemPickaxeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldPickaxe").setCreativeTab(tabKalle);
-		emeraldAxe = new ItemAxeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldAxe").setCreativeTab(tabKalle);
-		emeraldSpade = new ItemSpadeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldSpade").setCreativeTab(tabKalle);
-		emeraldHoe = new ItemHoeEmerald(Item.ToolMaterial.EMERALD).setUnlocalizedName("EmeraldHoe").setCreativeTab(tabKalle).setTextureName("kalle:emerald_hoe");
+		emeraldPickaxe = new ItemPickaxeEmerald().setUnlocalizedName("EmeraldPickaxe").setCreativeTab(tabKalle);
+		emeraldAxe = new ItemAxeEmerald().setUnlocalizedName("EmeraldAxe").setCreativeTab(tabKalle);
+		emeraldSpade = new ItemSpadeEmerald().setUnlocalizedName("EmeraldSpade").setCreativeTab(tabKalle);
+		emeraldHoe = new ItemHoeEmerald().setUnlocalizedName("EmeraldHoe").setCreativeTab(tabKalle);
 
 		// Weapon
 		// Ammo = (ItemBasis) new

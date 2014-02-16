@@ -7,8 +7,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemAxeEmerald extends ItemAxeBasis {
 
-	public ItemAxeEmerald(Item.ToolMaterial Material) {
-		super(Material);
+	public ItemAxeEmerald() {
+		super(Item.ToolMaterial.EMERALD);
 	}
 
 	@SideOnly(Side.CLIENT)
