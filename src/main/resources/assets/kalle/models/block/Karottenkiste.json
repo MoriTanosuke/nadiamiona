@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/Kiste",
+        "up": "kalle:blocks/KisteKarotte",
+        "north": "kalle:blocks/Kiste",
+        "east": "kalle:blocks/Kiste",
+        "south": "kalle:blocks/Kiste",
+        "west": "kalle:blocks/Kiste"
+    }
+}
