@@ -1,7 +1,7 @@
 {
     "parent": "block/cube",
     "textures": {
-        "down": "kalle:blocks/books_birch_side",
+        "down": "kalle:blocks/books_birch",
         "up": "kalle:blocks/books_birch",
         "north": "kalle:blocks/books_birch_side",
         "east": "kalle:blocks/books_birch_side",

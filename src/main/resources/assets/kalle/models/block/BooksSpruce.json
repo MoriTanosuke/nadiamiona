@@ -1,7 +1,7 @@
 {
     "parent": "block/cube",
     "textures": {
-        "down": "kalle:blocks/books_spruce_side",
+        "down": "kalle:blocks/books_spruce",
         "up": "kalle:blocks/books_spruce",
         "north": "kalle:blocks/books_spruce_side",
         "east": "kalle:blocks/books_spruce_side",

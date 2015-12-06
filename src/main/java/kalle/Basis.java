@@ -22,7 +22,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 //TODO replace with build.gradle properties
-@Mod(modid = "kalle", name = "Kalle's Mod Compilation", version = "0.0.1")
+@Mod(modid = "kalle", name = "Kalle's Mod Compilation", version = "0.0.2")
 public class Basis {
 	private static final String MOD_PREFIX = "kalle";
 
@@ -118,6 +118,13 @@ public class Basis {
 		// Moebel
 		final Block theke = new Block(Material.wood).setUnlocalizedName("Theke").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(theke, "Theke");
+		GameRegistry.addRecipe(new ItemStack(theke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 0), 'B', new ItemStack(Blocks.wooden_slab, 1, 0));
+		final Block spruceTheke = new Block(Material.wood).setUnlocalizedName("SpruceTheke").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
+		registerBlock(spruceTheke, "SpruceTheke");
+		GameRegistry.addRecipe(new ItemStack(theke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 1), 'B', new ItemStack(Blocks.wooden_slab, 1, 1));
+		final Block jungleTheke = new Block(Material.wood).setUnlocalizedName("JungleTheke").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
+		registerBlock(jungleTheke, "JungleTheke");
+		GameRegistry.addRecipe(new ItemStack(theke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 2), 'B', new ItemStack(Blocks.wooden_slab, 1, 2));
 		final Block parkettHell = new Block(Material.wood).setUnlocalizedName("ParkettHell").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(parkettHell, "ParkettHell");
 		final Block parkettDunkel = new Block(Material.wood).setUnlocalizedName("ParkettDunkel").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
@@ -125,39 +132,73 @@ public class Basis {
 
 		final Block booksSpruce = new Block(Material.wood).setUnlocalizedName("BooksSpruce").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(booksSpruce, "BooksSpruce");
+		GameRegistry.addRecipe(new ItemStack(booksSpruce), "###", "#*#", "###", '#', new ItemStack(Blocks.planks, 1, 1), '*', Items.book);
 		final Block booksJungle = new Block(Material.wood).setUnlocalizedName("BooksJungle").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(booksJungle, "BooksJungle");
+		GameRegistry.addRecipe(new ItemStack(booksJungle), "###", "#*#", "###", '#', new ItemStack(Blocks.planks, 1, 3), '*', Items.book);
 		final Block booksBirch = new Block(Material.wood).setUnlocalizedName("BooksBirch").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(booksBirch, "BooksBirch");
+		GameRegistry.addRecipe(new ItemStack(booksBirch), "###", "#*#", "###", '#', new ItemStack(Blocks.planks, 1, 2), '*', Items.book);
 
 		// Kisten
 		final Block kiste = new Block(Material.wood).setUnlocalizedName("Kiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kiste, "Kiste");
+		GameRegistry.addRecipe(new ItemStack(kiste), "#0#", "#0#", "###", '#', Blocks.planks);
 
 		final Block kisteKohle = new Block(Material.wood).setUnlocalizedName("Kohlekiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteKohle, "Kohlekiste");
+		GameRegistry.addRecipe(new ItemStack(kisteKohle), "*", "#", '*', Items.coal, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteKohle), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.coal);
+		
 		final Block kisteEisen = new Block(Material.wood).setUnlocalizedName("Eisenkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteEisen, "Eisenkiste");
+		GameRegistry.addRecipe(new ItemStack(kisteEisen), "*", "#", '*', Items.iron_ingot, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteEisen), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.iron_ingot);
+		
 		final Block kisteGold = new Block(Material.wood).setUnlocalizedName("Goldkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteGold, "Goldkiste");
+		GameRegistry.addRecipe(new ItemStack(kisteGold), "*", "#", '*', Items.gold_ingot, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteGold), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.gold_ingot);
+		
 		final Block kisteDiamant = new Block(Material.wood).setUnlocalizedName("Diamantkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteDiamant, "Diamantkiste");
+		GameRegistry.addRecipe(new ItemStack(kisteDiamant), "*", "#", '*', Items.diamond, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteDiamant), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.diamond);
+		
 		final Block kisteEmerald = new Block(Material.wood).setUnlocalizedName("Edelsteinkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteEmerald, "Edelsteinkiste");
+		GameRegistry.addRecipe(new ItemStack(kisteEmerald), "*", "#", '*', Items.emerald, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteEmerald), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.emerald);
+		
 		final Block kisteLapis = new Block(Material.wood).setUnlocalizedName("Lapiskiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteLapis, "Lapiskiste");
+		GameRegistry.addRecipe(new ItemStack(kisteEmerald), "*", "#", '*', Items.dye, '#', kiste);
 
 		final Block kisteApfel = new Block(Material.wood).setUnlocalizedName("Apfelkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteApfel, "Apfelkiste");
+		GameRegistry.addRecipe(new ItemStack(kisteApfel), "*", "#", '*', Items.apple, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteApfel), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.apple);
+		
 		final Block kisteCookie = new Block(Material.wood).setUnlocalizedName("Keksekiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteCookie, "Keksekiste");
+		GameRegistry.addRecipe(new ItemStack(kisteCookie), "*", "#", '*', Items.cookie, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteCookie), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.cookie);
+		
 		final Block kisteKartoffel = new Block(Material.wood).setUnlocalizedName("Kartoffelkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteKartoffel, "Kartoffelkiste");
+		GameRegistry.addRecipe(new ItemStack(kisteKartoffel), "*", "#", '*', Items.potato, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteKartoffel), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.potato);
+		
 		final Block kisteFisch = new Block(Material.wood).setUnlocalizedName("Fischkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteFisch, "Fischkiste");
+		GameRegistry.addRecipe(new ItemStack(kisteFisch), "*", "#", '*', Items.fish, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteFisch), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.fish);
+		
 		final Block kisteKarotte = new Block(Material.wood).setUnlocalizedName("Karottenkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteKarotte, "Karottenkiste");
-
+		GameRegistry.addRecipe(new ItemStack(kisteKarotte), "*", "#", '*', Items.carrot, '#', kiste);
+		GameRegistry.addRecipe(new ItemStack(kisteKarotte), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.carrot);
+				
 		// Tools
 		final Item emeraldAxe = new ItemAxeEmerald().setUnlocalizedName("EmeraldAxe").setCreativeTab(tabKalle);
 		GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.stick);
@@ -183,10 +224,6 @@ public class Basis {
 		// Krawams = (ItemBomb) new
 		// ItemBomb(KrawamsID).setUnlocalizedName("Krawams").setCreativeTab(tabTest);
 		// Krawams.setTextureName(ASSETS_PREFIX + "Bomb");
-		
-		// some additional smelting recipes
-		GameRegistry.addSmelting(Items.poisonous_potato, new ItemStack(Items.potato), 0.25f);
-		GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.beef), 0.25f);
 
 		LOG.info("Adding crafting recipes...");
 		initCraftingRecipes();
@@ -195,12 +232,16 @@ public class Basis {
 
 	// ----- Methoden -----
 	private void initCraftingRecipes() {
+		// some additional smelting recipes
+		GameRegistry.addSmelting(Items.poisonous_potato, new ItemStack(Items.potato), 0.25f);
+		GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.beef), 0.25f);
+
 		// Fixes
 		GameRegistry.addRecipe(new ItemStack(Items.book), "#", "#", "#", '#', Items.paper);
 
 		// Block-Rezepte
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.mossy_cobblestone), new ItemStack(Blocks.cobblestone), new ItemStack(Items.wheat_seeds));
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.stonebrick, 1, 1), new ItemStack(Blocks.stonebrick), new ItemStack(Items.wheat_seeds));
+//		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.mossy_cobblestone), new ItemStack(Blocks.cobblestone), new ItemStack(Items.wheat_seeds));
+//		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.stonebrick, 1, 1), new ItemStack(Blocks.stonebrick), new ItemStack(Items.wheat_seeds));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.diamond, 1), new ItemStack(Items.emerald), new ItemStack(Items.emerald), new ItemStack(Items.emerald));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.emerald, 3), new ItemStack(Items.diamond));
 
@@ -210,10 +251,17 @@ public class Basis {
 		GameRegistry.addRecipe(new ItemStack(Blocks.planks, 1, 2), "#0#", "000", "#0#", '#', new ItemStack(Blocks.planks, 1, 2));
 		GameRegistry.addRecipe(new ItemStack(Blocks.planks, 1, 3), "#0#", "000", "#0#", '#', new ItemStack(Blocks.planks, 1, 3));
 
+		// chiseled stone bricks
 		GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 1, 3), "+++", "+#+", "+++", '+', Items.flint, '#', Blocks.stonebrick);
 
 		// Items
 		GameRegistry.addRecipe(new ItemStack(Items.saddle), "###", "#0#", "*0*", '#', Items.leather, '*', Items.iron_ingot);
+		GameRegistry.addRecipe(new ItemStack(Items.iron_horse_armor), "00*", "*#*", "***", '#', Blocks.wool, '*', Items.iron_ingot);
+		GameRegistry.addRecipe(new ItemStack(Items.golden_horse_armor), "00*", "*#*", "***", '#', Blocks.wool, '*', Items.gold_ingot);
+		GameRegistry.addRecipe(new ItemStack(Items.diamond_horse_armor), "00*", "*#*", "***", '#', Blocks.wool, '*', Items.diamond);
+		GameRegistry.addRecipe(new ItemStack(Items.name_tag), "00#", "**0", "**0", '#', Items.string, '*', Items.paper);
+		GameRegistry.addRecipe(new ItemStack(Items.lead), "##0", "##0", "00#", '#', Items.string);
+		
 		// GameRegistry.addRecipe(new ItemStack(Items.lead), "0#0", "#0#",
 		// "0#0", '#', Items.silk);
 		// GameRegistry.addRecipe(new ItemStack(Items.name_tag), "00#", "**0",
@@ -237,6 +285,7 @@ public class Basis {
 		// Ammo
 		// GameRegistry.addRecipe(new ItemStack(Ammo, 16), "###", "#0#", "###",
 		// '#', Blocks.stone);
+		
 	}
 
 	private void registerBlock(final Block block, final String blockname) {
