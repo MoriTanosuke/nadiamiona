@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/books_jungle_side",
+        "up": "kalle:blocks/books_jungle",
+        "north": "kalle:blocks/books_jungle_side",
+        "east": "kalle:blocks/books_jungle_side",
+        "south": "kalle:blocks/books_jungle_side",
+        "west": "kalle:blocks/books_jungle_side"
+    }
+}

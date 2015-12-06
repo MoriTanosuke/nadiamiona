@@ -1,5 +1,9 @@
 itemGroup.tabKalle=Kalles Mod
+
 item.EmeraldPickaxe.name=Emerald Pickaxe
+item.EmeraldAxe.name=Emerald Axe
+item.EmeraldSpade.name=Emerald Spade
+item.EmeraldHoe.name=Emerald Hoe
 
 tile.Kiste.name=Crate
 tile.Apfelkiste.name=Crate of apples
@@ -13,5 +17,3 @@ tile.Kartoffelkiste.name=Crate of potatoes
 tile.Keksekiste.name=Crate of cookies
 tile.Kohlekiste.name=Crate of coal
 tile.Lapiskiste.name=Crate of lapislazuli
-tile.Theke.name=Bar
-tile.ParkettHell.name=Bright parquet
