@@ -1,6 +1,17 @@
 itemGroup.tabKalle=Kalles Mod
 item.EmeraldPickaxe.name=Emerald Pickaxe
 
-tile.KisteKarotte.name=box of carrots
+tile.Kiste.name=Crate
+tile.Apfelkiste.name=Crate of apples
+tile.Diamantkiste.name=Crate of diamonds
+tile.Edelsteinkiste.name=Crate of emeralds
+tile.Eisenkiste.name=Crate of iron
+tile.Fischkiste.name=Crate of fish
+tile.Goldkiste.name=Crate of gold
+tile.Karottenkiste.name=Crate of carrots
+tile.Kartoffelkiste.name=Crate of potatoes
+tile.Keksekiste.name=Crate of cookies
+tile.Kohlekiste.name=Crate of coal
+tile.Lapiskiste.name=Crate of lapislazuli
 tile.Theke.name=Bar
 tile.ParkettHell.name=Bright parquet

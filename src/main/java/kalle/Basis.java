@@ -144,7 +144,7 @@ public class Basis {
 		// Kisten
 		final Block kiste = new Block(Material.wood).setUnlocalizedName("Kiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kiste, "Kiste");
-		
+
 		final Block kisteKohle = new Block(Material.wood).setUnlocalizedName("Kohlekiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
 		registerBlock(kisteKohle, "Kohlekiste");
 		final Block kisteEisen = new Block(Material.wood).setUnlocalizedName("Eisenkiste").setCreativeTab(tabKalle).setHardness(2.0F).setResistance(5.0F);
@@ -344,10 +344,22 @@ public class Basis {
 
 	private void registerBlock(final Block block, final String blockname) {
 		GameRegistry.registerBlock(block, blockname);
-	    Item itemBlockSimple = GameRegistry.findItem(MOD_PREFIX, blockname);
+	    final Item itemBlockSimple = GameRegistry.findItem(MOD_PREFIX, blockname);
 	    ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(MOD_PREFIX + ":" + blockname, "inventory");
 	    final int DEFAULT_ITEM_SUBTYPE = 0;
 	    Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockSimple, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+	}
+
+	private void registerItem(Block kiste, String itemName) {
+		final Item itemSimple = new Item().setUnlocalizedName(itemName);
+		// required in order for the renderer to know how to render your item.
+		// Likely to change in the near future.
+		final ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(MOD_PREFIX + ":" + itemName,
+				"inventory");
+		final int DEFAULT_ITEM_SUBTYPE = 0;
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemSimple, DEFAULT_ITEM_SUBTYPE,
+				itemModelResourceLocation);
+		GameRegistry.registerItem(itemSimple, itemName);
 	}
 
 	public static CreativeTabs tabKalle = new CreativeTabs("tabKalle") {
