@@ -6,7 +6,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemHoeEmerald extends ItemHoeBasis {
 
-	public ItemHoeEmerald() {
-		super(Item.ToolMaterial.EMERALD);
-	}
+  public ItemHoeEmerald() {
+    super(Item.ToolMaterial.EMERALD);
+  }
 }

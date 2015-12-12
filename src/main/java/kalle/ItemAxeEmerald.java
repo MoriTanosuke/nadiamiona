@@ -6,7 +6,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemAxeEmerald extends ItemAxeBasis {
 
-	public ItemAxeEmerald() {
-		super(Item.ToolMaterial.EMERALD);
-	}
+  public ItemAxeEmerald() {
+    super(Item.ToolMaterial.EMERALD);
+  }
 }

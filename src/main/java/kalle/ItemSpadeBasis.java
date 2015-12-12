@@ -5,8 +5,8 @@ import net.minecraft.item.ItemSpade;
 
 public class ItemSpadeBasis extends ItemSpade {
 
-	public ItemSpadeBasis(Item.ToolMaterial par2EnumToolMaterial) {
-		super(par2EnumToolMaterial);
-	}
+  public ItemSpadeBasis(Item.ToolMaterial par2EnumToolMaterial) {
+    super(par2EnumToolMaterial);
+  }
 
 }

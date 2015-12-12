@@ -5,7 +5,7 @@ import net.minecraft.item.ItemHoe;
 
 public class ItemHoeBasis extends ItemHoe {
 
-	public ItemHoeBasis(Item.ToolMaterial par2EnumToolMaterial) {
-		super(par2EnumToolMaterial);
-	}
+  public ItemHoeBasis(Item.ToolMaterial par2EnumToolMaterial) {
+    super(par2EnumToolMaterial);
+  }
 }

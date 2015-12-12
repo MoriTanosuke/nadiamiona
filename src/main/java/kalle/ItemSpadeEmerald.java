@@ -7,7 +7,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSpadeEmerald extends ItemSpade {
 
-	public ItemSpadeEmerald() {
-		super(Item.ToolMaterial.EMERALD);
-	}
+  public ItemSpadeEmerald() {
+    super(Item.ToolMaterial.EMERALD);
+  }
 }
