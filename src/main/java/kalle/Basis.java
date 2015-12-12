@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Logger;
 
 import kalle.blocks.BlockBar;
 import kalle.blocks.BlockParkett;
+import kalle.blocks.Wall;
 import kalle.foods.Breadslice;
 import kalle.foods.ItemDrink;
 import kalle.proxies.BasisCommonProxy;
@@ -30,7 +31,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 //TODO replace with build.gradle properties
-@Mod(modid = "kalle", name = "Kalle's Mod Compilation", version = "0.0.2")
+@Mod(modid = "kalle", name = "Kalle's Mod Compilation", version = "0.0.3")
 public class Basis {
   private static final String MOD_PREFIX = "kalle";
 
@@ -64,13 +65,20 @@ public class Basis {
     };
     emeraldPickaxe.setCreativeTab(tabKalle);
 
+    LOG.debug("Registering objects...");
     registerFoods(tabKalle);
     registerUtilities(tabKalle);
     registerBlocks(tabKalle);
     registerTools(tabKalle);
 
-    LOG.info("Adding crafting recipes...");
+    LOG.debug("Adding crafting recipes...");
     initCraftingRecipes();
+
+    // try to create a block with custom shape
+    final Block customBlock = new Block(Material.wood).setUnlocalizedName("quarterBlock");
+    customBlock.setCreativeTab(tabKalle);
+    registerBlock(customBlock, "quarterBlock");
+
     LOG.info("All done.");
   }
 
@@ -268,6 +276,14 @@ public class Basis {
     registerBlock(kisteKarotte, "Karottenkiste");
     GameRegistry.addRecipe(new ItemStack(kisteKarotte), "*", "#", '*', Items.carrot, '#', kiste);
     GameRegistry.addRecipe(new ItemStack(kisteKarotte), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.carrot);
+
+    // walls
+    final Wall brickWall = new Wall(tab, Blocks.brick_block, "brick_wall");
+    registerBlock(brickWall, "brick_wall");
+    final Wall stonebrickWall = new Wall(tab, Blocks.stonebrick, "stonebrick_wall");
+    registerBlock(stonebrickWall, "stonebrick_wall");
+    final Wall leaveWall = new Wall(tab, Blocks.leaves, "leave_wall");
+    registerBlock(leaveWall, "leave_wall");
   }
 
   private void registerTools(final CreativeTabs tabKalle) {

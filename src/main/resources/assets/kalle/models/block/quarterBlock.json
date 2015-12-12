@@ -1,0 +1,23 @@
+{
+    "textures": {
+        "down": "kalle:blocks/Theke",
+        "up": "kalle:blocks/Theke_top",
+        "north": "kalle:blocks/Theke",
+        "east": "kalle:blocks/Theke",
+        "south": "kalle:blocks/Theke",
+        "west": "kalle:blocks/Theke"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 8, 8, 8 ],
+            "faces": {
+                "down": { "texture": "#up" },
+                "up":   { "texture": "#down" },
+                "west": { "texture": "#west" },
+                "east": { "texture": "#east" },
+                "north": { "texture": "#south" },
+                "south": { "texture": "#west" }
+            }
+        }
+    ]
+}
