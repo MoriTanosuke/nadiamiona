@@ -1,4 +1,4 @@
-package foods;
+package kalle.foods;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemFood;

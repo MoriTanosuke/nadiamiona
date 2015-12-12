@@ -1,4 +1,4 @@
-package kalle;
+package kalle.tools;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSpade;

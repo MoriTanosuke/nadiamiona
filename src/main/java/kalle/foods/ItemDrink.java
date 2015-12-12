@@ -1,4 +1,4 @@
-package kalle;
+package kalle.foods;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;

@@ -1,10 +1,27 @@
 itemGroup.tabKalle=Kalles Mod
 
+# tools
 item.EmeraldPickaxe.name=Emerald Pickaxe
 item.EmeraldAxe.name=Emerald Axe
 item.EmeraldSpade.name=Emerald Spade
 item.EmeraldHoe.name=Emerald Hoe
 
+# foods
+item.Breadslice.name=Toast
+item.Kakao.name=Cocoa
+item.Schnaps.name=Shot
+item.Eierlikoer.name=Eggnog
+item.Milchflasche.name=Bottle of milk
+item.Lachssandwich.name=Salmon sandwich
+item.Roastbeefsandwich.name=Roastbeef sandwich
+item.Bier.name=Beer
+item.Saft.name=Multivitamin juice
+item.Chickensandwich.name=Chicken sandwich
+item.Schinkensandwich.name=Bacon sandwich
+item.CookedEgg.name=Cooked egg
+item.Eiertoast.name=Egg sandwich
+
+# blocks
 tile.Kiste.name=Crate
 tile.Apfelkiste.name=Crate of apples
 tile.Diamantkiste.name=Crate of diamonds
@@ -17,3 +34,20 @@ tile.Kartoffelkiste.name=Crate of potatoes
 tile.Keksekiste.name=Crate of cookies
 tile.Kohlekiste.name=Crate of coal
 tile.Lapiskiste.name=Crate of lapislazuli
+
+tile.Theke.name=Bar
+tile.SpruceTheke.name=Spruce Bar
+tile.AcaciaTheke.name=Acacia Bar
+tile.BirchTheke.name=Birch Bar
+tile.JungleTheke.name=Jungle Bar
+tile.DarkOakTheke.name=Dark Oak Bar
+
+tile.ParkettHell.name=Bright parquet floor
+tile.ParkettDunkel.name=Dark parquet floor
+
+tile.BooksBirch.name=Birch books
+tile.BooksSpruce.name=Spruce books
+tile.BooksJungle.name=Jungle books
+
+# utilities
+item.Kettenglieder.name=Chains

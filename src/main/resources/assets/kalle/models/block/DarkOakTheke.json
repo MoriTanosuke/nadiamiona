@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/Theke",
+        "up": "kalle:blocks/Theke_darkoak_top",
+        "north": "kalle:blocks/Theke",
+        "east": "kalle:blocks/Theke",
+        "south": "kalle:blocks/Theke",
+        "west": "kalle:blocks/Theke"
+    }
+}
