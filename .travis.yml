@@ -3,5 +3,7 @@ language: java
 addons:
   artifacts: true
   s3_region: "eu-west-1" # defaults to "us-east-1"
+  paths:
+  - build/libs/*.jar
   local_dir: build/libs
   upload-dir: minecraft/builds
