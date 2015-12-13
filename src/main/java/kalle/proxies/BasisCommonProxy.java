@@ -23,6 +23,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -61,9 +63,29 @@ public class BasisCommonProxy {
     initCraftingRecipes();
 
     // try to create a block with custom shape
-    final Block customBlock = new Block(Material.wood).setUnlocalizedName("quarterBlock");
+    final Block customBlock = new Block(Material.wood) {
+      @Override
+      public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos) {
+        setBlockBounds(0.25f, 0f, 0.25f, 0.75f, 0.5f, 0.75f);
+      }
+
+      @Override
+      public boolean isFullCube() {
+        return false;
+      }
+
+      @Override
+      public boolean isOpaqueCube() {
+        return false;
+      }
+
+      @Override
+      public String getUnlocalizedName() {
+        return "smallBlock";
+      }
+    };
     customBlock.setCreativeTab(tabKalle);
-    registerBlock(customBlock, "quarterBlock");
+    registerBlock(customBlock, "smallBlock");
 
     LOG.info("All done.");
   };
@@ -281,13 +303,13 @@ public class BasisCommonProxy {
   }
 
   private void registerTools(final CreativeTabs tabKalle) {
-    final Item emeraldAxe = new ItemAxeEmerald().setUnlocalizedName("EmeraldAxe").setCreativeTab(tabKalle);
+    final Item emeraldAxe = new ItemAxeEmerald(tabKalle, "EmeraldAxe");
     GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.stick);
     registerItem(emeraldAxe, "EmeraldAxe");
-    final Item emeraldSpade = new ItemSpadeEmerald().setUnlocalizedName("EmeraldSpade").setCreativeTab(tabKalle);
+    final Item emeraldSpade = new ItemSpadeEmerald(tabKalle, "EmeraldSpade");
     GameRegistry.addRecipe(new ItemStack(emeraldSpade), "0#0", "0*0", "0*0", '#', Items.emerald, '*', Items.stick);
     registerItem(emeraldSpade, "EmeraldSpade");
-    final Item emeraldHoe = new ItemHoeEmerald().setUnlocalizedName("EmeraldHoe").setCreativeTab(tabKalle);
+    final Item emeraldHoe = new ItemHoeEmerald(tabKalle, "EmeraldHoe");
     GameRegistry.addRecipe(new ItemStack(emeraldHoe), "##0", "0*0", "0*0", '#', Items.emerald, '*', Items.stick);
     registerItem(emeraldHoe, "EmeraldHoe");
   }

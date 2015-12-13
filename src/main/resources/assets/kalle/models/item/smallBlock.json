@@ -1,5 +1,5 @@
 {
-    "parent": "kalle:block/quarterBlock",
+    "parent": "kalle:block/smallBlock",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
