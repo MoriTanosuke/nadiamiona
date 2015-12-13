@@ -7,7 +7,7 @@ All rights reserved. Textures made by [Flyrija][0].
 
 # Mod Review
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bj9sP5jPlbE" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/bj9sP5jPlbE?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ([Open on youtube][1])
 
