@@ -3,6 +3,7 @@ package kalle.blocks;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -25,16 +26,7 @@ public class WallLeaves extends Wall implements IShearable {
     super(tab, modelBlock, unlocalizedName);
     setHardness(0.2F);
     setLightOpacity(1);
-  }
-
-  @Override
-  public boolean isOpaqueCube() {
-    return isTransparent;
-  }
-
-  @Override
-  public boolean isVisuallyOpaque() {
-    return isTransparent;
+    setGraphicsLevel(true);
   }
 
   @SideOnly(Side.CLIENT)
@@ -43,9 +35,15 @@ public class WallLeaves extends Wall implements IShearable {
   }
 
   @Override
+  public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos) {
+    Block block = worldIn.getBlockState(pos).getBlock();
+    return block instanceof BlockLeaves || super.canConnectTo(worldIn, pos);
+  }
+
+  @Override
   @SideOnly(Side.CLIENT)
   public EnumWorldBlockLayer getBlockLayer() {
-    return this.isTransparent ? EnumWorldBlockLayer.CUTOUT_MIPPED : EnumWorldBlockLayer.SOLID;
+    return isTransparent ? EnumWorldBlockLayer.CUTOUT_MIPPED : EnumWorldBlockLayer.SOLID;
   }
 
   @Override
