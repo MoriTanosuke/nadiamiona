@@ -7,5 +7,5 @@ deploy:
   region: eu-west-1
   bucket: "$ARTIFACTS_BUCKET"
   acl: public_read
-  local_dir: build/libs
+  local_dir: $HOME/build/libs
   upload-dir: minecraft/builds
