@@ -7,5 +7,6 @@ deploy:
   region: eu-west-1
   bucket: "$ARTIFACTS_BUCKET"
   acl: public_read
-  local_dir: $HOME/build/libs
+  skip_cleanup: true # stop Travis from deleting all things in build...
+  local_dir: build/libs
   upload-dir: minecraft/builds
