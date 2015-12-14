@@ -1,8 +1,11 @@
 language: java
 
-addons:
-  artifacts:
-    paths:
-    - $(ls build/libs/*.jar|tr "\n" ":")
-  s3_region: eu-west-1
+deploy:
+  provider: s3
+  access_key_id: "$ARTIFACTS_KEY"
+  secret_access_key: "$ARTIFACTS_SECRET"
+  region: eu-west-1
+  bucket: "$ARTIFACTS_BUCKET"
+  acl: public_read
+  local_dir: build/libs
   upload-dir: minecraft/builds
