@@ -1,5 +1,10 @@
 {
     "variants": {
-        "normal": { "model": "kalle:Kiste" }
+        "normal": {
+            "model": "kalle:Kiste"
+        },
+        "cookies": {
+            "model": "kalle:Keksekiste"
+        }
     }
 }

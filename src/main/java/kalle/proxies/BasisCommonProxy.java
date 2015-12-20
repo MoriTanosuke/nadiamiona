@@ -1,7 +1,5 @@
 package kalle.proxies;
 
-import org.apache.logging.log4j.Logger;
-
 import kalle.Basis;
 import kalle.blocks.BlockBar;
 import kalle.blocks.BlockParkett;
@@ -16,6 +14,7 @@ import kalle.tools.ItemSpadeEmerald;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -25,18 +24,24 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BasisCommonProxy {
-  static final Logger LOG = FMLLog.getLogger();
+  protected final Logger LOG;
+
+  public BasisCommonProxy() {
+    LOG = LogManager.getLogger(getClass());
+  }
 
   public void preInit() {
+    LOG.info("Pre-Initializing common proxy...");
     // TODO what to do on both sides?
 
     LOG.debug("Creating objects...");
     // initialize EmeraldPickaxe first, to use as creative tab icon
-    final ItemPickaxeEmerald emeraldPickaxe = new ItemPickaxeEmerald();
+    final ItemPickaxeEmerald emeraldPickaxe = new ItemPickaxeEmerald("EmeraldPickaxe");
     GameRegistry.addRecipe(new ItemStack(emeraldPickaxe), "###", "0*0", "0*0", '#', Items.emerald, '*', Items.stick);
     registerItem(emeraldPickaxe, "EmeraldPickaxe");
 
@@ -225,7 +230,7 @@ public class BasisCommonProxy {
     // Kisten
     final Block kiste = new Block(Material.wood).setUnlocalizedName("Kiste").setCreativeTab(tab).setHardness(2.0F)
         .setResistance(5.0F);
-    registerBlock(kiste, "Kiste");
+    registerBlock(kiste, "Kiste", "Keksekiste");
     GameRegistry.addRecipe(new ItemStack(kiste), "#0#", "#0#", "###", '#', Blocks.planks);
 
     final Block kisteKohle = new Block(Material.wood).setUnlocalizedName("Kohlekiste").setCreativeTab(tab)
@@ -319,7 +324,6 @@ public class BasisCommonProxy {
     // some additional smelting recipes
     GameRegistry.addSmelting(Items.poisonous_potato, new ItemStack(Items.potato), 0.25f);
     GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.beef), 0.25f);
-    GameRegistry.addSmelting(Blocks.quartz_ore, new ItemStack(Items.quartz, 8), 0.25f);
 
     // add old book recipe
     GameRegistry.addRecipe(new ItemStack(Items.book), "#", "#", "#", '#', Items.paper);
@@ -357,15 +361,16 @@ public class BasisCommonProxy {
 
   /**
    * Registers a {@link Block} in the {@link GameRegistry} and registers a
-   * {@link ModelResourceLocation} using the {@link #MOD_PREFIX} and given
+   * {@link ModelResourceLocation} using the {@link Basis#MOD_PREFIX} and given
    * blockname.
    * 
    * @param block
    *          new {@link Block} to register
    * @param blockname
    *          name to use for block and inventory resource
+   * @param variantNames additional variants for the block
    */
-  private void registerBlock(final Block block, final String blockname) {
+  private void registerBlock(final Block block, final String blockname, String... variantNames) {
     LOG.debug("Registering block " + blockname);
     GameRegistry.registerBlock(block, blockname);
     final Item itemBlockSimple = GameRegistry.findItem(Basis.MOD_PREFIX, blockname);
@@ -374,11 +379,15 @@ public class BasisCommonProxy {
     final int DEFAULT_ITEM_SUBTYPE = 0;
     Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockSimple, DEFAULT_ITEM_SUBTYPE,
         itemModelResourceLocation);
+    for (String variant : variantNames) {
+      LOG.debug("Adding variant " + variant);
+      ModelBakery.addVariantName(itemBlockSimple, variant);
+    }
   }
 
   /**
    * Registers an {@link Item} in the {@link GameRegistry} and registers a
-   * {@link ModelResourceLocation} using the {@link #MOD_PREFIX} and given
+   * {@link ModelResourceLocation} using the {@link Basis#MOD_PREFIX} and given
    * itemName.
    * 
    * @param item
