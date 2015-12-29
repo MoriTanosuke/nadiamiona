@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
 //TODO replace with build.gradle properties
-@Mod(modid = "kalle", name = "Kalle's Mod Compilation", version = "0.0.3", updateJSON = "https://raw.githubusercontent.com/MoriTanosuke/nadiamiona/master/update.json")
+@Mod(modid = "kalle", name = "Nadiamiona", version = "0.0.3", updateJSON = "https://raw.githubusercontent.com/MoriTanosuke/nadiamiona/master/update.json")
 public class Basis {
   public static final String MOD_PREFIX = "kalle";
 
