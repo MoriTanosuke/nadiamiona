@@ -1,0 +1,9 @@
+{
+  "homepage": "https://github.com/MoriTanosuke/nadiamiona/wiki",
+  "promos": {
+    "1.8-recommended": "0.0.3"
+  },
+  "1.8": {
+    "0.0.3": "First public version"
+  }
+}
