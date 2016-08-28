@@ -5,7 +5,6 @@ import kalle.blocks.BlockBar;
 import kalle.blocks.BlockParkett;
 import kalle.blocks.Wall;
 import kalle.blocks.WallLeaves;
-import kalle.foods.Breadslice;
 import kalle.foods.ItemDrink;
 import kalle.tools.ItemAxeEmerald;
 import kalle.tools.ItemHoeEmerald;
@@ -24,16 +23,12 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class BasisCommonProxy {
-  protected final Logger LOG;
-
-  public BasisCommonProxy() {
-    LOG = LogManager.getLogger(getClass());
-  }
+  static final Logger LOG = FMLLog.getLogger();
 
   public void preInit() {
     LOG.info("Pre-Initializing common proxy...");
@@ -83,13 +78,8 @@ public class BasisCommonProxy {
       public boolean isOpaqueCube() {
         return false;
       }
-
-      @Override
-      public String getUnlocalizedName() {
-        return "smallBlock";
-      }
     };
-    customBlock.setCreativeTab(tabKalle);
+    customBlock.setUnlocalizedName("smallBlock").setCreativeTab(tabKalle);
     registerBlock(customBlock, "smallBlock");
 
     LOG.info("All done.");
@@ -118,27 +108,33 @@ public class BasisCommonProxy {
 
   private void registerFoods(final CreativeTabs tabKalle) {
     // Food
-    final Breadslice breadslicetoast = new Breadslice(tabKalle);
-    GameRegistry.addShapelessRecipe(new ItemStack(breadslicetoast, 4), new ItemStack(Items.bread));
-    registerItem(breadslicetoast, "Breadslice");
+    final Item breadslice = new ItemFood(1, 0.1F, false).setUnlocalizedName("Breadslice")
+            .setCreativeTab(tabKalle);
+    GameRegistry.addShapelessRecipe(new ItemStack(breadslice, 4), new ItemStack(Items.bread));
+    registerItem(breadslice, "Breadslice");
+    // toast
+    final Item toast = new ItemFood(1, 0.2F, false).setUnlocalizedName("Toast")
+            .setCreativeTab(tabKalle);
+    GameRegistry.addSmelting(breadslice, new ItemStack(toast), 0.25f);
+    registerItem(toast, "Toast");
     // TODO replace with variants?
     final Item sandwich_chicken = new ItemFood(8, 0.66F, false).setUnlocalizedName("Chickensandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_chicken), "#", "*", "#", '#', breadslicetoast, '*',
+    GameRegistry.addRecipe(new ItemStack(sandwich_chicken), "#", "*", "#", '#', breadslice, '*',
         Items.cooked_chicken);
     registerItem(sandwich_chicken, "Chickensandwich");
     final Item sandwich_fish = new ItemFood(7, 0.66F, false).setUnlocalizedName("Lachssandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_fish);
+    GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', breadslice, '*', Items.cooked_fish);
     registerItem(sandwich_fish, "Lachssandwich");
     final Item sandwich_bacon = new ItemFood(10, 0.75F, false).setUnlocalizedName("Schinkensandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_bacon), "#", "*", "#", '#', breadslicetoast, '*',
+    GameRegistry.addRecipe(new ItemStack(sandwich_bacon), "#", "*", "#", '#', breadslice, '*',
         Items.cooked_porkchop);
     registerItem(sandwich_bacon, "Schinkensandwich");
     final Item sandwich_beef = new ItemFood(10, 0.75F, false).setUnlocalizedName("Roastbeefsandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_beef), "#", "*", "#", '#', breadslicetoast, '*', Items.cooked_beef);
+    GameRegistry.addRecipe(new ItemStack(sandwich_beef), "#", "*", "#", '#', breadslice, '*', Items.cooked_beef);
     registerItem(sandwich_beef, "Roastbeefsandwich");
 
     final Item cookedEgg = new ItemFood(2, 0.1F, false).setUnlocalizedName("CookedEgg").setCreativeTab(tabKalle);
@@ -146,7 +142,7 @@ public class BasisCommonProxy {
     registerItem(cookedEgg, "CookedEgg");
 
     final Item eiertoast = new ItemFood(5, 0.5F, false).setUnlocalizedName("Eiertoast").setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(eiertoast), "*", "#", '#', breadslicetoast, '*', cookedEgg);
+    GameRegistry.addRecipe(new ItemStack(eiertoast), "*", "#", '#', breadslice, '*', cookedEgg);
     registerItem(eiertoast, "Eiertoast");
 
     // Drinks
@@ -230,7 +226,7 @@ public class BasisCommonProxy {
     // Kisten
     final Block kiste = new Block(Material.wood).setUnlocalizedName("Kiste").setCreativeTab(tab).setHardness(2.0F)
         .setResistance(5.0F);
-    registerBlock(kiste, "Kiste", "Keksekiste");
+    registerBlock(kiste, "Kiste");
     GameRegistry.addRecipe(new ItemStack(kiste), "#0#", "#0#", "###", '#', Blocks.planks);
 
     final Block kisteKohle = new Block(Material.wood).setUnlocalizedName("Kohlekiste").setCreativeTab(tab)

@@ -1,11 +1,11 @@
 {
     "parent": "block/cube",
     "textures": {
-        "down": "kalle:blocks/Theke",
+        "down": "kalle:blocks/Theke_birch",
         "up": "kalle:blocks/Theke_birch_top",
-        "north": "kalle:blocks/Theke",
-        "east": "kalle:blocks/Theke",
-        "south": "kalle:blocks/Theke",
-        "west": "kalle:blocks/Theke"
+        "north": "kalle:blocks/Theke_birch",
+        "east": "kalle:blocks/Theke_birch",
+        "south": "kalle:blocks/Theke_birch",
+        "west": "kalle:blocks/Theke_birch"
     }
 }

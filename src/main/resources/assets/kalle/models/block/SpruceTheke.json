@@ -2,7 +2,7 @@
     "parent": "block/cube",
     "textures": {
         "down": "kalle:blocks/Theke_spruce",
-        "up": "kalle:blocks/Theke_darkoak_top",
+        "up": "kalle:blocks/Theke_top",
         "north": "kalle:blocks/Theke_spruce",
         "east": "kalle:blocks/Theke_spruce",
         "south": "kalle:blocks/Theke_spruce",

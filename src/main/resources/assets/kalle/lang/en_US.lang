@@ -7,7 +7,8 @@ item.EmeraldSpade.name=Emerald Spade
 item.EmeraldHoe.name=Emerald Hoe
 
 # foods
-item.Breadslice.name=Toast
+item.Breadslice.name=Breadslice
+item.Toast.name=Toast
 item.Kakao.name=Cocoa
 item.Schnaps.name=Shot
 item.Eierlikoer.name=Eggnog
@@ -51,3 +52,7 @@ tile.BooksJungle.name=Jungle books
 
 # utilities
 item.Kettenglieder.name=Chains
+
+# small custom block
+item.smallBlock.name=Small block
+tile.smallBlock.name=Small block
