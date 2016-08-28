@@ -120,21 +120,21 @@ public class BasisCommonProxy {
     // TODO replace with variants?
     final Item sandwich_chicken = new ItemFood(8, 0.66F, false).setUnlocalizedName("Chickensandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_chicken), "#", "*", "#", '#', breadslice, '*',
+    GameRegistry.addRecipe(new ItemStack(sandwich_chicken), "#", "*", "#", '#', toast, '*',
         Items.cooked_chicken);
     registerItem(sandwich_chicken, "Chickensandwich");
     final Item sandwich_fish = new ItemFood(7, 0.66F, false).setUnlocalizedName("Lachssandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', breadslice, '*', Items.cooked_fish);
+    GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', toast, '*', Items.cooked_fish);
     registerItem(sandwich_fish, "Lachssandwich");
     final Item sandwich_bacon = new ItemFood(10, 0.75F, false).setUnlocalizedName("Schinkensandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_bacon), "#", "*", "#", '#', breadslice, '*',
+    GameRegistry.addRecipe(new ItemStack(sandwich_bacon), "#", "*", "#", '#', toast, '*',
         Items.cooked_porkchop);
     registerItem(sandwich_bacon, "Schinkensandwich");
     final Item sandwich_beef = new ItemFood(10, 0.75F, false).setUnlocalizedName("Roastbeefsandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_beef), "#", "*", "#", '#', breadslice, '*', Items.cooked_beef);
+    GameRegistry.addRecipe(new ItemStack(sandwich_beef), "#", "*", "#", '#', toast, '*', Items.cooked_beef);
     registerItem(sandwich_beef, "Roastbeefsandwich");
 
     final Item cookedEgg = new ItemFood(2, 0.1F, false).setUnlocalizedName("CookedEgg").setCreativeTab(tabKalle);
@@ -142,7 +142,7 @@ public class BasisCommonProxy {
     registerItem(cookedEgg, "CookedEgg");
 
     final Item eiertoast = new ItemFood(5, 0.5F, false).setUnlocalizedName("Eiertoast").setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(eiertoast), "*", "#", '#', breadslice, '*', cookedEgg);
+    GameRegistry.addRecipe(new ItemStack(eiertoast), "*", "#", '#', toast, '*', cookedEgg);
     registerItem(eiertoast, "Eiertoast");
 
     // Drinks
