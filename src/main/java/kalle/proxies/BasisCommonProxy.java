@@ -206,6 +206,18 @@ public class BasisCommonProxy {
     registerBlock(parkettHell, "ParkettHell");
     final BlockParkett parkettDunkel = new BlockParkett(tab, "ParkettDunkel");
     registerBlock(parkettDunkel, "ParkettDunkel");
+    final BlockParkett parkettAkazie = new BlockParkett(tab, "ParkettAkazie");
+    registerBlock(parkettAkazie, "ParkettAkazie");
+    final BlockParkett parkettBirch = new BlockParkett(tab, "ParkettBirke");
+    registerBlock(parkettBirch, "ParkettBirke");
+    final BlockParkett parkettDjungle = new BlockParkett(tab, "ParkettDschungel");
+    registerBlock(parkettDjungle, "ParkettDschungel");
+    final BlockParkett parkettDarkoak = new BlockParkett(tab, "ParkettDarkOak");
+    registerBlock(parkettDarkoak, "ParkettDarkOak");
+    final BlockParkett parkettOak = new BlockParkett(tab, "ParkettOak");
+    registerBlock(parkettOak, "ParkettOak");
+    final BlockParkett parkettSpruce = new BlockParkett(tab, "ParkettSpruce");
+    registerBlock(parkettSpruce, "ParkettSpruce");
 
     final Block booksSpruce = new Block(Material.wood).setUnlocalizedName("BooksSpruce").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);

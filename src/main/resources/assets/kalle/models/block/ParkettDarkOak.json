@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/ParkettDunkleeiche",
+        "up": "kalle:blocks/ParkettDunkleeiche",
+        "north": "kalle:blocks/ParkettDunkleeiche",
+        "east": "kalle:blocks/ParkettDunkleeiche",
+        "south": "kalle:blocks/ParkettDunkleeiche",
+        "west": "kalle:blocks/ParkettDunkleeiche"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/ParkettDschungel",
+        "up": "kalle:blocks/ParkettDschungel",
+        "north": "kalle:blocks/ParkettDschungel",
+        "east": "kalle:blocks/ParkettDschungel",
+        "south": "kalle:blocks/ParkettDschungel",
+        "west": "kalle:blocks/ParkettDschungel"
+    }
+}

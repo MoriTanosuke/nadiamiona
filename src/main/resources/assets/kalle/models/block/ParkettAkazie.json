@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/ParkettAkazie",
+        "up": "kalle:blocks/ParkettAkazie",
+        "north": "kalle:blocks/ParkettAkazie",
+        "east": "kalle:blocks/ParkettAkazie",
+        "south": "kalle:blocks/ParkettAkazie",
+        "west": "kalle:blocks/ParkettAkazie"
+    }
+}

@@ -45,10 +45,18 @@ tile.DarkOakTheke.name=Dark Oak Bar
 
 tile.ParkettHell.name=Bright parquet floor
 tile.ParkettDunkel.name=Dark parquet floor
+tile.ParkettAkazie.name=Acacia parquet floor
+tile.ParkettBirke.name=Birch parquet floor
+tile.ParkettDschungel.name=Jungle parquet floor
+tile.ParkettDarkOak.name=Dark Oak parquet floor
+tile.ParkettOak.name=Oak parquet floor
+tile.ParkettSpruce.name=Spruce parquet floor
 
 tile.BooksBirch.name=Birch books
 tile.BooksSpruce.name=Spruce books
 tile.BooksJungle.name=Jungle books
+
+tile.leave_wall.name=Hedge
 
 # utilities
 item.Kettenglieder.name=Chains
