@@ -284,7 +284,7 @@ public class BasisCommonProxy {
     final Block kisteLapis = new Block(Material.wood).setUnlocalizedName("Lapiskiste").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
     registerBlock(kisteLapis, "Lapiskiste");
-    GameRegistry.addRecipe(new ItemStack(kisteEmerald), "*", "#", '*', Items.dye, '#', kiste);
+    GameRegistry.addRecipe(new ItemStack(kisteLapis), "*", "#", '*', Items.dye, '#', kiste);
 
     final Block kisteApfel = new Block(Material.wood).setUnlocalizedName("Apfelkiste").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
