@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "kalle:items/emerald_axe"
+        "layer0": "kalle:items/emerald_axe_neu"
     },
     "display": {
         "thirdperson": {

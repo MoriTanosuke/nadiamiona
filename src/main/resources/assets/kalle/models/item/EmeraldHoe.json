@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "kalle:items/emerald_hoe"
+        "layer0": "kalle:items/emerald_hoe_neu"
     },
     "display": {
         "thirdperson": {

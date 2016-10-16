@@ -335,6 +335,9 @@ public class BasisCommonProxy {
     final Item emeraldHoe = new ItemHoeEmerald(tabKalle, "EmeraldHoe");
     GameRegistry.addRecipe(new ItemStack(emeraldHoe), "##0", "0*0", "0*0", '#', Items.emerald, '*', Items.stick);
     registerItem(emeraldHoe, "EmeraldHoe");
+    final Item emeraldSword = new ItemHoeEmerald(tabKalle, "EmeraldSword");
+    GameRegistry.addRecipe(new ItemStack(emeraldSword), "0#0", "0#0", "0*0", '#', Items.emerald, '*', Items.diamond);
+    registerItem(emeraldSword, "EmeraldSword");
   }
 
   // ----- Methoden -----

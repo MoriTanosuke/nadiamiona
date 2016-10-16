@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "kalle:items/emerald_pickaxe"
+        "layer0": "kalle:items/emerald_pickaxe_neu"
     },
     "display": {
         "thirdperson": {
