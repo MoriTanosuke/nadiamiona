@@ -1,0 +1,7 @@
+{
+    "parent": "block/wall_nsew",
+    "textures": {
+        "top": "blocks/red_sandstone_top",
+        "wall": "blocks/red_sandstone_normal"
+    }
+}

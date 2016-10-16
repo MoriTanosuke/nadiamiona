@@ -326,12 +326,22 @@ public class BasisCommonProxy {
     GameRegistry.addRecipe(new ItemStack(kisteKarotte), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.carrot);
 
     // walls
+    final Wall stoneWall = new Wall(tab, Blocks.stone, "stone_wall");
+    registerBlock(stoneWall, "stone_wall");
+    GameRegistry.addRecipe(new ItemStack(stoneWall), "###", "AAA", "AAA", 'A', Blocks.stone);
     final Wall brickWall = new Wall(tab, Blocks.brick_block, "brick_wall");
     registerBlock(brickWall, "brick_wall");
     GameRegistry.addRecipe(new ItemStack(brickWall), "###", "AAA", "AAA", 'A', Blocks.brick_block);
     final Wall stonebrickWall = new Wall(tab, Blocks.stonebrick, "stonebrick_wall");
     registerBlock(stonebrickWall, "stonebrick_wall");
     GameRegistry.addRecipe(new ItemStack(stonebrickWall),"###", "AAA", "AAA", 'A', Blocks.stonebrick);
+    final Wall sandstoneWall = new Wall(tab, Blocks.stone, "sandstone_wall");
+    registerBlock(sandstoneWall, "sandstone_wall");
+    GameRegistry.addRecipe(new ItemStack(sandstoneWall), "###", "AAA", "AAA", 'A', Blocks.sandstone);
+    final Wall redSandstoneWall = new Wall(tab, Blocks.stone, "redsandstone_wall");
+    registerBlock(redSandstoneWall, "redsandstone_wall");
+    GameRegistry.addRecipe(new ItemStack(redSandstoneWall), "###", "AAA", "AAA", 'A', Blocks.red_sandstone);
+
     final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");
     registerBlock(leaveWall, "leave_wall");
     GameRegistry.addRecipe(new ItemStack(leaveWall), "###", "AAA", "AAA", 'A', Blocks.leaves);
