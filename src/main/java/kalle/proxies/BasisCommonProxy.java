@@ -179,27 +179,27 @@ public class BasisCommonProxy {
   private void registerBlocks(final CreativeTabs tab) {
     final BlockBar theke = new BlockBar(tab);
     registerBlock(theke, "Theke");
-    GameRegistry.addRecipe(new ItemStack(theke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 0), 'B',
+    GameRegistry.addRecipe(new ItemStack(theke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 0), 'B',
         new ItemStack(Blocks.wooden_slab, 1, 0));
     final BlockBar spruceTheke = new BlockBar(tab, "SpruceTheke");
     registerBlock(spruceTheke, "SpruceTheke");
-    GameRegistry.addRecipe(new ItemStack(spruceTheke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 1),
+    GameRegistry.addRecipe(new ItemStack(spruceTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 1),
         'B', new ItemStack(Blocks.wooden_slab, 1, 1));
     final BlockBar jungleTheke = new BlockBar(tab, "JungleTheke");
     registerBlock(jungleTheke, "JungleTheke");
-    GameRegistry.addRecipe(new ItemStack(jungleTheke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 2),
+    GameRegistry.addRecipe(new ItemStack(jungleTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 2),
         'B', new ItemStack(Blocks.wooden_slab, 1, 2));
     final BlockBar acaciaTheke = new BlockBar(tab, "AcaciaTheke");
     registerBlock(acaciaTheke, "AcaciaTheke");
-    GameRegistry.addRecipe(new ItemStack(acaciaTheke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3),
+    GameRegistry.addRecipe(new ItemStack(acaciaTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3),
         'B', new ItemStack(Blocks.wooden_slab, 1, 3));
     final BlockBar birchTheke = new BlockBar(tab, "BirchTheke");
     registerBlock(birchTheke, "BirchTheke");
-    GameRegistry.addRecipe(new ItemStack(birchTheke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3), 'B',
+    GameRegistry.addRecipe(new ItemStack(birchTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3), 'B',
         new ItemStack(Blocks.wooden_slab, 1, 4));
     final BlockBar darkOakTheke = new BlockBar(tab, "DarkOakTheke");
     registerBlock(darkOakTheke, "DarkOakTheke");
-    GameRegistry.addRecipe(new ItemStack(darkOakTheke), "BBB", "A0A", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3),
+    GameRegistry.addRecipe(new ItemStack(darkOakTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3),
         'B', new ItemStack(Blocks.wooden_slab, 1, 5));
 
     final BlockParkett parkettHell = new BlockParkett(tab, "ParkettHell");
