@@ -328,10 +328,13 @@ public class BasisCommonProxy {
     // walls
     final Wall brickWall = new Wall(tab, Blocks.brick_block, "brick_wall");
     registerBlock(brickWall, "brick_wall");
+    GameRegistry.addRecipe(new ItemStack(brickWall), "###", "AAA", "AAA", 'A', Blocks.brick_block);
     final Wall stonebrickWall = new Wall(tab, Blocks.stonebrick, "stonebrick_wall");
     registerBlock(stonebrickWall, "stonebrick_wall");
+    GameRegistry.addRecipe(new ItemStack(stonebrickWall),"###", "AAA", "AAA", 'A', Blocks.stonebrick);
     final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");
     registerBlock(leaveWall, "leave_wall");
+    GameRegistry.addRecipe(new ItemStack(leaveWall), "###", "AAA", "AAA", 'A', Blocks.leaves);
   }
 
   private void registerTools(final CreativeTabs tabKalle) {
