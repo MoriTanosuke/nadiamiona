@@ -1,16 +1,15 @@
 package kalle.proxies;
 
 import kalle.Basis;
-import kalle.blocks.BlockBar;
-import kalle.blocks.BlockParkett;
-import kalle.blocks.Wall;
-import kalle.blocks.WallLeaves;
+import kalle.blocks.*;
 import kalle.foods.ItemDrink;
 import kalle.tools.ItemAxeEmerald;
 import kalle.tools.ItemHoeEmerald;
 import kalle.tools.ItemPickaxeEmerald;
 import kalle.tools.ItemSpadeEmerald;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
@@ -335,12 +334,16 @@ public class BasisCommonProxy {
     final Wall stonebrickWall = new Wall(tab, Blocks.stonebrick, "stonebrick_wall");
     registerBlock(stonebrickWall, "stonebrick_wall");
     GameRegistry.addRecipe(new ItemStack(stonebrickWall),"###", "AAA", "AAA", 'A', Blocks.stonebrick);
-    final Wall sandstoneWall = new Wall(tab, Blocks.stone, "sandstone_wall");
+    final Wall sandstoneWall = new Wall(tab, Blocks.sandstone, "sandstone_wall");
     registerBlock(sandstoneWall, "sandstone_wall");
     GameRegistry.addRecipe(new ItemStack(sandstoneWall), "###", "AAA", "AAA", 'A', Blocks.sandstone);
-    final Wall redSandstoneWall = new Wall(tab, Blocks.stone, "redsandstone_wall");
+    final Wall redSandstoneWall = new Wall(tab, Blocks.sandstone, "redsandstone_wall");
     registerBlock(redSandstoneWall, "redsandstone_wall");
     GameRegistry.addRecipe(new ItemStack(redSandstoneWall), "###", "AAA", "AAA", 'A', Blocks.red_sandstone);
+
+    final Stairs woolStairs = new Stairs(tab, Blocks.wool, "wool_stairs");
+    registerBlock(woolStairs, "wool_stairs");
+    GameRegistry.addRecipe(new ItemStack(woolStairs), "A##", "AA#", "AAA", 'A', Blocks.wool);
 
     final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");
     registerBlock(leaveWall, "leave_wall");

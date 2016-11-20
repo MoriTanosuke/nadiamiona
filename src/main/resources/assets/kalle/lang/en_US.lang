@@ -57,6 +57,7 @@ tile.BooksSpruce.name=Spruce books
 tile.BooksJungle.name=Jungle books
 
 tile.leave_wall.name=Hedge
+tile.wool_stairs.name=Wool Stairs
 
 # utilities
 item.Kettenglieder.name=Chains
