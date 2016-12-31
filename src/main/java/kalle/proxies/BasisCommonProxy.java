@@ -338,8 +338,8 @@ public class BasisCommonProxy {
     final Wall sandstoneWall = new Wall(tab, Blocks.stone, "sandstone_wall");
     registerBlock(sandstoneWall, "sandstone_wall");
     GameRegistry.addRecipe(new ItemStack(sandstoneWall), "###", "AAA", "AAA", 'A', Blocks.sandstone);
-    final Wall redSandstoneWall = new Wall(tab, Blocks.stone, "redsandstone_wall");
-    registerBlock(redSandstoneWall, "redsandstone_wall");
+    final Wall redSandstoneWall = new Wall(tab, Blocks.stone, "red_sandstone_wall");
+    registerBlock(redSandstoneWall, "red_sandstone_wall");
     GameRegistry.addRecipe(new ItemStack(redSandstoneWall), "###", "AAA", "AAA", 'A', Blocks.red_sandstone);
 
     final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");

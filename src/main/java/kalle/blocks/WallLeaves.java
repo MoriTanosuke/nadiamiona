@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockWall;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -37,7 +38,7 @@ public class WallLeaves extends Wall implements IShearable {
   @Override
   public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos) {
     Block block = worldIn.getBlockState(pos).getBlock();
-    return block instanceof BlockLeaves || super.canConnectTo(worldIn, pos);
+    return block instanceof BlockLeaves || block instanceof BlockWall || super.canConnectTo(worldIn, pos);
   }
 
   @Override

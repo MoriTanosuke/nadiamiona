@@ -57,6 +57,8 @@ tile.BooksSpruce.name=Spruce books
 tile.BooksJungle.name=Jungle books
 
 tile.leave_wall.name=Hedge
+tile.red_sandstone_wall.name=Red Sandstone Wall
+item.red_sandstone_wall.name=Red Sandstone Wall
 
 # utilities
 item.Kettenglieder.name=Chains
