@@ -21,7 +21,7 @@ plugins {
 */
 
 //TODO add timestamp for development builds
-version = "1.8.9-3"
+version = "1.8.9-4"
 group = "nadiamiona" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nadiamiona"
 
