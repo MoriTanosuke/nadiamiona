@@ -1,5 +1,6 @@
-package net.minecraft.block;
+package kalle.blocks;
 
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 

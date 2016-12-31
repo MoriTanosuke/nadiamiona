@@ -57,6 +57,15 @@ tile.BooksSpruce.name=Spruce books
 tile.BooksJungle.name=Jungle books
 
 tile.leave_wall.name=Hedge
+item.leave_wall.name=Hedge
+tile.stone_wall.name=Stone Wall
+item.stone_wall.name=Stone Wall
+tile.brick_wall.name=Brick Wall
+item.brick_wall.name=Brick Wall
+tile.stonebrick_wall.name=Stone Brick Wall
+item.stonebrick_wall.name=Stone Brick Wall
+tile.sandstone_wall.name=Red Sandstone Wall
+item.sandstone_wall.name=Red Sandstone Wall
 tile.red_sandstone_wall.name=Red Sandstone Wall
 item.red_sandstone_wall.name=Red Sandstone Wall
 

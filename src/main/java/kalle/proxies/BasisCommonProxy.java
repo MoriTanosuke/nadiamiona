@@ -12,7 +12,7 @@ import kalle.tools.ItemPickaxeEmerald;
 import kalle.tools.ItemSpadeEmerald;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
-import net.minecraft.block.WoolStairs;
+import kalle.blocks.WoolStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
