@@ -5,6 +5,7 @@ import kalle.blocks.BlockBar;
 import kalle.blocks.BlockParkett;
 import kalle.blocks.Wall;
 import kalle.blocks.WallLeaves;
+import kalle.blocks.WoolStairs;
 import kalle.foods.ItemDrink;
 import kalle.tools.ItemAxeEmerald;
 import kalle.tools.ItemHoeEmerald;
@@ -12,7 +13,6 @@ import kalle.tools.ItemPickaxeEmerald;
 import kalle.tools.ItemSpadeEmerald;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
-import kalle.blocks.WoolStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
@@ -343,6 +343,9 @@ public class BasisCommonProxy {
     final Wall redSandstoneWall = new Wall(tab, Blocks.stone, "red_sandstone_wall");
     registerBlock(redSandstoneWall, "red_sandstone_wall");
     GameRegistry.addRecipe(new ItemStack(redSandstoneWall), "###", "AAA", "AAA", 'A', Blocks.red_sandstone);
+      final Wall woolWall = new Wall(tab, Blocks.wool, "wool_wall");
+      registerBlock(woolWall, "wool_wall");
+      GameRegistry.addRecipe(new ItemStack(woolWall), "###", "AAA", "AAA", 'A', Blocks.wool);
 
     final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");
     registerBlock(leaveWall, "leave_wall");
