@@ -2,7 +2,9 @@ package kalle.proxies;
 
 import kalle.Basis;
 import kalle.blocks.BlockBar;
+import kalle.blocks.BlockHalfWoolSlab;
 import kalle.blocks.BlockParkett;
+import kalle.blocks.BlockWoolSlab;
 import kalle.blocks.Wall;
 import kalle.blocks.WallLeaves;
 import kalle.foods.ItemDrink;
@@ -350,6 +352,8 @@ public class BasisCommonProxy {
 
     final BlockStairs woolStairs = new WoolStairs(tab, Blocks.wool.getDefaultState(), "wool_stairs");
     registerBlock(woolStairs, "wool_stairs");
+    final BlockWoolSlab blockWoolSlab = new BlockHalfWoolSlab(tab, Blocks.wool.getBlockState(), "half_wool_slab");
+    registerBlock(blockWoolSlab, "half_wool_slab");
   }
 
   private void registerTools(final CreativeTabs tabKalle) {
