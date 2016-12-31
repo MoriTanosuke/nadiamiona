@@ -22,8 +22,8 @@ plugins {
 
 //TODO add timestamp for development builds
 version = "1.8.9-3"
-group = "kalle" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "kalle"
+group = "nadiamiona" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "nadiamiona"
 
 minecraft {
     version = "1.8.9-11.15.1.1902-1.8.9"
