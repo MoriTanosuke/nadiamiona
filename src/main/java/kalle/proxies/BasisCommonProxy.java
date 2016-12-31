@@ -11,6 +11,8 @@ import kalle.tools.ItemHoeEmerald;
 import kalle.tools.ItemPickaxeEmerald;
 import kalle.tools.ItemSpadeEmerald;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.WoolStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
@@ -345,6 +347,9 @@ public class BasisCommonProxy {
     final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");
     registerBlock(leaveWall, "leave_wall");
     GameRegistry.addRecipe(new ItemStack(leaveWall), "###", "AAA", "AAA", 'A', Blocks.leaves);
+
+    final BlockStairs woolStairs = new WoolStairs(tab, Blocks.wool.getDefaultState(), "wool_stairs");
+    registerBlock(woolStairs, "wool_stairs");
   }
 
   private void registerTools(final CreativeTabs tabKalle) {

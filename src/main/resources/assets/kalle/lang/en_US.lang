@@ -60,6 +60,9 @@ tile.leave_wall.name=Hedge
 tile.red_sandstone_wall.name=Red Sandstone Wall
 item.red_sandstone_wall.name=Red Sandstone Wall
 
+tile.wool_stairs.name=Wool Stairs
+item.wool_stairs.name=Wool Stairs
+
 # utilities
 item.Kettenglieder.name=Chains
 
