@@ -104,8 +104,51 @@ public class BasisCommonProxy {
     GameRegistry.addRecipe(new ItemStack(Items.chainmail_chestplate), "#0#", "###", "###", '#', ketten_glieder);
     registerItem(ketten_glieder, "Kettenglieder");
 
-    // Spawner
-    GameRegistry.addRecipe(new ItemStack(Blocks.mob_spawner, 1, 2), "#", "#", "#", '#', ketten_glieder);
+      // To build spawners for specific mobs, use the meta value from http://minecraft.gamepedia.com/Data_values/Entity_IDs
+
+      // zombie egg
+      final ItemStack zombieEggStack = new ItemStack(Items.spawn_egg, 1, 54);
+      final Item zombieEgg = zombieEggStack.getItem();
+      GameRegistry.addRecipe(zombieEggStack, "AAA", "AAA", "AAA", 'A', Items.rotten_flesh);
+      // TODO zombie head
+      GameRegistry.addRecipe(new ItemStack(buildSkull(SkullType.ZOMBIE), 1, 54), "AAA", "AAA", "AAA", 'A', zombieEgg);
+      // zombie spawner
+      GameRegistry.addRecipe(new ItemStack(Blocks.mob_spawner, 1, 54), "ABA", "ACA", "ADA", 'A', ketten_glieder, 'B', Items.ender_eye, 'C', buildSkull(SkullType.ZOMBIE), 'D', Blocks.redstone_block);
+      // skeleton egg
+      final ItemStack skeletonEggStack = new ItemStack(Items.spawn_egg, 1, 51);
+      final Item skeletonEgg = skeletonEggStack.getItem();
+      GameRegistry.addRecipe(skeletonEggStack, "AAA", "AAA", "AAA", 'A', Items.bone);
+      // TODO skeleton head
+      // skeleton spawner
+      GameRegistry.addRecipe(new ItemStack(Blocks.mob_spawner, 1, 51), "ABA", "ACA", "ADA", 'A', ketten_glieder, 'B', Items.ender_eye, 'C', buildSkull(SkullType.SKELETON), 'D', Blocks.redstone_block);
+      // spider egg
+      final ItemStack spiderEggStack = new ItemStack(Items.spawn_egg, 1, 52);
+      final Item spiderEgg = spiderEggStack.getItem();
+      GameRegistry.addRecipe(spiderEggStack, "AAA", "AAA", "AAA", 'A', Items.spider_eye);
+      // TODO wither skeleton head
+      // TODO wither skeleton spawner
+      GameRegistry.addRecipe(new ItemStack(Blocks.mob_spawner, 1, 52), "ABA", "ACA", "ADA", 'A', ketten_glieder, 'B', Items.ender_eye, 'C', buildSkull(SkullType.WITHER_SKELETON), 'D', Blocks.redstone_block);
+  }
+
+    private Item buildSkull(SkullType skullType) {
+        final int datavalue = 1;
+        return new ItemStack(Items.skull, datavalue, skullType.getMeta()).getItem();
+    }
+
+    enum SkullType {
+        ZOMBIE(2),
+        SKELETON(0),
+        WITHER_SKELETON(1);
+
+        private final int meta;
+
+        private SkullType(int meta) {
+            this.meta = meta;
+        }
+
+        public int getMeta() {
+            return meta;
+        }
   }
 
   private void registerFoods(final CreativeTabs tabKalle) {
@@ -375,6 +418,7 @@ public class BasisCommonProxy {
     // some additional smelting recipes
     GameRegistry.addSmelting(Items.poisonous_potato, new ItemStack(Items.potato), 0.25f);
     GameRegistry.addSmelting(Items.rotten_flesh, new ItemStack(Items.beef), 0.25f);
+      GameRegistry.addSmelting(Blocks.quartz_block, new ItemStack(Items.quartz, 8), 0.25f);
 
     // add old book recipe
     GameRegistry.addRecipe(new ItemStack(Items.book), "#", "#", "#", '#', Items.paper);
@@ -393,6 +437,10 @@ public class BasisCommonProxy {
         new ItemStack(Blocks.planks, 1, 2));
     GameRegistry.addRecipe(new ItemStack(Blocks.planks, 1, 3), "#0#", "000", "#0#", '#',
         new ItemStack(Blocks.planks, 1, 3));
+
+      // mossy cobblestone
+      GameRegistry.addRecipe(new ItemStack(Blocks.mossy_cobblestone, 1, 3), "000", "0AB", "000", 'A', Blocks.cobblestone, '#',
+              Items.wheat_seeds);
 
     // chiseled stone bricks
     GameRegistry.addRecipe(new ItemStack(Blocks.stonebrick, 1, 3), "+++", "+#+", "+++", '+', Items.flint, '#',
@@ -414,7 +462,7 @@ public class BasisCommonProxy {
    * Registers a {@link Block} in the {@link GameRegistry} and registers a
    * {@link ModelResourceLocation} using the {@link Basis#MOD_PREFIX} and given
    * blockname.
-   * 
+   *
    * @param block
    *          new {@link Block} to register
    * @param blockname
@@ -440,7 +488,7 @@ public class BasisCommonProxy {
    * Registers an {@link Item} in the {@link GameRegistry} and registers a
    * {@link ModelResourceLocation} using the {@link Basis#MOD_PREFIX} and given
    * itemName.
-   * 
+   *
    * @param item
    *          new {@link Item} to register
    * @param itemName
