@@ -5,6 +5,7 @@ item.EmeraldPickaxe.name=Emerald Pickaxe
 item.EmeraldAxe.name=Emerald Axe
 item.EmeraldSpade.name=Emerald Spade
 item.EmeraldHoe.name=Emerald Hoe
+item.EmeraldSword.name=Emerald Sword
 
 # foods
 item.Breadslice.name=Breadslice
@@ -13,6 +14,7 @@ item.Kakao.name=Cocoa
 item.Schnaps.name=Shot
 item.Eierlikoer.name=Eggnog
 item.Milchflasche.name=Bottle of milk
+item.Fischsandwich.name=Fish sandwich
 item.Lachssandwich.name=Salmon sandwich
 item.Roastbeefsandwich.name=Roastbeef sandwich
 item.Bier.name=Beer
@@ -29,6 +31,7 @@ tile.Diamantkiste.name=Crate of diamonds
 tile.Edelsteinkiste.name=Crate of emeralds
 tile.Eisenkiste.name=Crate of iron
 tile.Fischkiste.name=Crate of fish
+tile.Lachskiste.name=Crate of salmon
 tile.Goldkiste.name=Crate of gold
 tile.Karottenkiste.name=Crate of carrots
 tile.Kartoffelkiste.name=Crate of potatoes
@@ -64,8 +67,8 @@ tile.brick_wall.name=Brick Wall
 item.brick_wall.name=Brick Wall
 tile.stonebrick_wall.name=Stone Brick Wall
 item.stonebrick_wall.name=Stone Brick Wall
-tile.sandstone_wall.name=Red Sandstone Wall
-item.sandstone_wall.name=Red Sandstone Wall
+tile.sandstone_wall.name=Sandstone Wall
+item.sandstone_wall.name=Sandstone Wall
 tile.red_sandstone_wall.name=Red Sandstone Wall
 item.red_sandstone_wall.name=Red Sandstone Wall
 

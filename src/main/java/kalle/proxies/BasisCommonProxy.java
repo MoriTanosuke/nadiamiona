@@ -168,10 +168,14 @@ public class BasisCommonProxy {
     GameRegistry.addRecipe(new ItemStack(sandwich_chicken), "#", "*", "#", '#', toast, '*',
         Items.cooked_chicken);
     registerItem(sandwich_chicken, "Chickensandwich");
-    final Item sandwich_fish = new ItemFood(7, 0.66F, false).setUnlocalizedName("Lachssandwich")
+    final Item sandwich_fish = new ItemFood(7, 0.66F, false).setUnlocalizedName("Fischsandwich")
         .setCreativeTab(tabKalle);
-    GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', toast, '*', Items.cooked_fish);
-    registerItem(sandwich_fish, "Lachssandwich");
+    GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', toast, '*', new ItemStack(Items.fish, 1, 0));
+    registerItem(sandwich_fish, "Fischsandwich");
+    final Item sandwich_salmon = new ItemFood(7, 0.66F, false).setUnlocalizedName("Lachssandwich")
+        .setCreativeTab(tabKalle);
+    GameRegistry.addRecipe(new ItemStack(sandwich_salmon), "#", "*", "#", '#', toast, '*', new ItemStack(Items.fish, 1, 1));
+    registerItem(sandwich_salmon, "Lachssandwich");
     final Item sandwich_bacon = new ItemFood(10, 0.75F, false).setUnlocalizedName("Schinkensandwich")
         .setCreativeTab(tabKalle);
     GameRegistry.addRecipe(new ItemStack(sandwich_bacon), "#", "*", "#", '#', toast, '*',
@@ -232,19 +236,19 @@ public class BasisCommonProxy {
         'B', new ItemStack(Blocks.wooden_slab, 1, 1));
     final BlockBar jungleTheke = new BlockBar(tab, "JungleTheke");
     registerBlock(jungleTheke, "JungleTheke");
-    GameRegistry.addRecipe(new ItemStack(jungleTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 2),
-        'B', new ItemStack(Blocks.wooden_slab, 1, 2));
+    GameRegistry.addRecipe(new ItemStack(jungleTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3),
+        'B', new ItemStack(Blocks.wooden_slab, 1, 3));
     final BlockBar acaciaTheke = new BlockBar(tab, "AcaciaTheke");
     registerBlock(acaciaTheke, "AcaciaTheke");
-    GameRegistry.addRecipe(new ItemStack(acaciaTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3),
-        'B', new ItemStack(Blocks.wooden_slab, 1, 3));
+    GameRegistry.addRecipe(new ItemStack(acaciaTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 4),
+        'B', new ItemStack(Blocks.wooden_slab, 1, 4));
     final BlockBar birchTheke = new BlockBar(tab, "BirchTheke");
     registerBlock(birchTheke, "BirchTheke");
-    GameRegistry.addRecipe(new ItemStack(birchTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3), 'B',
-        new ItemStack(Blocks.wooden_slab, 1, 4));
+    GameRegistry.addRecipe(new ItemStack(birchTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 2), 'B',
+        new ItemStack(Blocks.wooden_slab, 1, 2));
     final BlockBar darkOakTheke = new BlockBar(tab, "DarkOakTheke");
     registerBlock(darkOakTheke, "DarkOakTheke");
-    GameRegistry.addRecipe(new ItemStack(darkOakTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 3),
+    GameRegistry.addRecipe(new ItemStack(darkOakTheke), "0000", "BBB", "AAA", 'A', new ItemStack(Blocks.planks, 1, 5),
         'B', new ItemStack(Blocks.wooden_slab, 1, 5));
 
     final BlockParkett parkettOak = new BlockParkett(tab, "ParkettOak");
@@ -338,7 +342,8 @@ public class BasisCommonProxy {
     final Block kisteLapis = new Block(Material.wood).setUnlocalizedName("Lapiskiste").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
     registerBlock(kisteLapis, "Lapiskiste");
-    GameRegistry.addRecipe(new ItemStack(kisteLapis), "*", "#", '*', Items.dye, '#', kiste);
+    // check out dye meta IDs at http://minecraft.gamepedia.com/Data_values#Dyes
+    GameRegistry.addRecipe(new ItemStack(kisteLapis), "*", "#", '*', new ItemStack(Items.dye, 1, 4), '#', kiste);
 
     final Block kisteApfel = new Block(Material.wood).setUnlocalizedName("Apfelkiste").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
@@ -361,8 +366,14 @@ public class BasisCommonProxy {
     final Block kisteFisch = new Block(Material.wood).setUnlocalizedName("Fischkiste").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
     registerBlock(kisteFisch, "Fischkiste");
-    GameRegistry.addRecipe(new ItemStack(kisteFisch), "*", "#", '*', Items.fish, '#', kiste);
-    GameRegistry.addRecipe(new ItemStack(kisteFisch), "#0#", "#*#", "###", '#', Blocks.planks, '*', Items.fish);
+    GameRegistry.addRecipe(new ItemStack(kisteFisch), "*", "#", '*', new ItemStack(Items.fish, 1, 0), '#', kiste);
+    GameRegistry.addRecipe(new ItemStack(kisteFisch), "#0#", "#*#", "###", '#', Blocks.planks, '*', new ItemStack(Items.fish, 1, 0));
+
+    final Block kisteLachs = new Block(Material.wood).setUnlocalizedName("Lachskiste").setCreativeTab(tab)
+        .setHardness(2.0F).setResistance(5.0F);
+    registerBlock(kisteLachs, "Lachskiste");
+    GameRegistry.addRecipe(new ItemStack(kisteLachs), "*", "#", '*', new ItemStack(Items.fish, 1, 1), '#', kiste);
+    GameRegistry.addRecipe(new ItemStack(kisteLachs), "#0#", "#*#", "###", '#', Blocks.planks, '*', new ItemStack(Items.fish, 1, 1));
 
     final Block kisteKarotte = new Block(Material.wood).setUnlocalizedName("Karottenkiste").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
@@ -400,13 +411,13 @@ public class BasisCommonProxy {
 
   private void registerTools(final CreativeTabs tabKalle) {
     final Item emeraldAxe = new ItemAxeEmerald(tabKalle, "EmeraldAxe");
-    GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.stick);
+    GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldAxe, "EmeraldAxe");
     final Item emeraldSpade = new ItemSpadeEmerald(tabKalle, "EmeraldSpade");
-    GameRegistry.addRecipe(new ItemStack(emeraldSpade), "0#0", "0*0", "0*0", '#', Items.emerald, '*', Items.stick);
+    GameRegistry.addRecipe(new ItemStack(emeraldSpade), "0#0", "0*0", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldSpade, "EmeraldSpade");
     final Item emeraldHoe = new ItemHoeEmerald(tabKalle, "EmeraldHoe");
-    GameRegistry.addRecipe(new ItemStack(emeraldHoe), "##0", "0*0", "0*0", '#', Items.emerald, '*', Items.stick);
+    GameRegistry.addRecipe(new ItemStack(emeraldHoe), "##0", "0*0", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldHoe, "EmeraldHoe");
     final Item emeraldSword = new ItemHoeEmerald(tabKalle, "EmeraldSword");
     GameRegistry.addRecipe(new ItemStack(emeraldSword), "0#0", "0#0", "0*0", '#', Items.emerald, '*', Items.diamond);
