@@ -401,6 +401,7 @@ public class BasisCommonProxy {
 
     final BlockStairs woolStairs = new WoolStairs(tab, Blocks.wool.getDefaultState(), "wool_stairs");
     registerBlock(woolStairs, "wool_stairs");
+    GameRegistry.addRecipe(new ItemStack(woolStairs), "A##", "AA#", "AAA", 'A', Blocks.wool);
   }
 
   private void registerTools(final CreativeTabs tabKalle) {
