@@ -337,6 +337,7 @@ public class BasisCommonProxy {
     registerBlock(kisteLapis, "Lapiskiste");
     // check out dye meta IDs at http://minecraft.gamepedia.com/Data_values#Dyes
     GameRegistry.addRecipe(new ItemStack(kisteLapis), "*", "#", '*', new ItemStack(Items.dye, 1, 4), '#', kiste);
+    GameRegistry.addRecipe(new ItemStack(kisteLapis), "#0#", "#*#", "###", '#', Blocks.planks, '*', new ItemStack(Items.dye, 1, 4));
 
     final Block kisteApfel = new Block(Material.wood).setUnlocalizedName("Apfelkiste").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
