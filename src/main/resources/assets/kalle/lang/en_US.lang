@@ -56,8 +56,15 @@ tile.ParkettOak.name=Oak parquet floor
 tile.ParkettSpruce.name=Spruce parquet floor
 
 tile.BooksBirch.name=Birch books
+item.BooksBirch.name=Birch books
 tile.BooksSpruce.name=Spruce books
+item.BooksSpruce.name=Spruce books
 tile.BooksJungle.name=Jungle books
+item.BooksJungle.name=Jungle books
+tile.BooksDarkOak.name=Dark Oak books
+item.BooksDarkOak.name=Dark Oak books
+tile.BooksAcacia.name=Acacia books
+item.BooksAcacia.name=Acacia books
 
 tile.leave_wall.name=Hedge
 item.leave_wall.name=Hedge
