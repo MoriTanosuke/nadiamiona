@@ -288,12 +288,12 @@ public class BasisCommonProxy {
     final Block booksAcacia = new Block(Material.wood).setUnlocalizedName("BooksAcacia").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
     registerBlock(booksAcacia, "BooksAcacia");
-    GameRegistry.addRecipe(new ItemStack(booksAcacia), "###", "#*#", "###", '#', new ItemStack(Blocks.planks, 1, 2), '*',
+      GameRegistry.addRecipe(new ItemStack(booksAcacia), "###", "#*#", "###", '#', new ItemStack(Blocks.planks, 1, 4), '*',
         Items.book);
     final Block booksDarkOak = new Block(Material.wood).setUnlocalizedName("BooksDarkOak").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
     registerBlock(booksDarkOak, "BooksDarkOak");
-    GameRegistry.addRecipe(new ItemStack(booksDarkOak), "###", "#*#", "###", '#', new ItemStack(Blocks.planks, 1, 2), '*',
+      GameRegistry.addRecipe(new ItemStack(booksDarkOak), "###", "#*#", "###", '#', new ItemStack(Blocks.planks, 1, 5), '*',
         Items.book);
 
     // Kisten
