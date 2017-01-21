@@ -72,6 +72,8 @@ item.sandstone_wall.name=Sandstone Wall
 tile.red_sandstone_wall.name=Red Sandstone Wall
 item.red_sandstone_wall.name=Red Sandstone Wall
 
+tile.wool_wall.name=Wool Wall
+item.wool_wall.name=Wool Wall
 tile.wool_stairs.name=Wool Stairs
 item.wool_stairs.name=Wool Stairs
 
