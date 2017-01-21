@@ -378,22 +378,22 @@ public class BasisCommonProxy {
     // walls
     final Wall stoneWall = new Wall(tab, Blocks.stone, "stone_wall");
     registerBlock(stoneWall, "stone_wall");
-    GameRegistry.addRecipe(new ItemStack(stoneWall), "###", "AAA", "AAA", 'A', Blocks.stone);
+    GameRegistry.addRecipe(new ItemStack(stoneWall, 6), "###", "AAA", "AAA", 'A', Blocks.stone);
     final Wall brickWall = new Wall(tab, Blocks.brick_block, "brick_wall");
     registerBlock(brickWall, "brick_wall");
-    GameRegistry.addRecipe(new ItemStack(brickWall), "###", "AAA", "AAA", 'A', Blocks.brick_block);
+    GameRegistry.addRecipe(new ItemStack(brickWall, 6), "###", "AAA", "AAA", 'A', Blocks.brick_block);
     final Wall stonebrickWall = new Wall(tab, Blocks.stonebrick, "stonebrick_wall");
     registerBlock(stonebrickWall, "stonebrick_wall");
-    GameRegistry.addRecipe(new ItemStack(stonebrickWall),"###", "AAA", "AAA", 'A', Blocks.stonebrick);
+    GameRegistry.addRecipe(new ItemStack(stonebrickWall, 6), "###", "AAA", "AAA", 'A', Blocks.stonebrick);
     final Wall sandstoneWall = new Wall(tab, Blocks.stone, "sandstone_wall");
     registerBlock(sandstoneWall, "sandstone_wall");
-    GameRegistry.addRecipe(new ItemStack(sandstoneWall), "###", "AAA", "AAA", 'A', Blocks.sandstone);
+    GameRegistry.addRecipe(new ItemStack(sandstoneWall, 6), "###", "AAA", "AAA", 'A', Blocks.sandstone);
     final Wall redSandstoneWall = new Wall(tab, Blocks.stone, "red_sandstone_wall");
     registerBlock(redSandstoneWall, "red_sandstone_wall");
-    GameRegistry.addRecipe(new ItemStack(redSandstoneWall), "###", "AAA", "AAA", 'A', Blocks.red_sandstone);
+    GameRegistry.addRecipe(new ItemStack(redSandstoneWall, 6), "###", "AAA", "AAA", 'A', Blocks.red_sandstone);
       final Wall woolWall = new Wall(tab, Blocks.wool, "wool_wall");
       registerBlock(woolWall, "wool_wall");
-      GameRegistry.addRecipe(new ItemStack(woolWall), "###", "AAA", "AAA", 'A', Blocks.wool);
+    GameRegistry.addRecipe(new ItemStack(woolWall, 6), "###", "AAA", "AAA", 'A', Blocks.wool);
 
     final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");
     registerBlock(leaveWall, "leave_wall");
