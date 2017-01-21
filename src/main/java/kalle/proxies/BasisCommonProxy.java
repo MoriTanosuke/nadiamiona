@@ -8,9 +8,11 @@ import kalle.blocks.WallLeaves;
 import kalle.blocks.WoolStairs;
 import kalle.foods.ItemDrink;
 import kalle.tools.ItemAxeEmerald;
+import kalle.tools.ItemBattleAxeEmerald;
 import kalle.tools.ItemHoeEmerald;
 import kalle.tools.ItemPickaxeEmerald;
 import kalle.tools.ItemSpadeEmerald;
+import kalle.tools.ItemSwordEmerald;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
@@ -406,9 +408,9 @@ public class BasisCommonProxy {
 
   private void registerTools(final CreativeTabs tabKalle) {
     final Item emeraldAxe = new ItemAxeEmerald(tabKalle, "EmeraldAxe");
-    GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.diamond);
+    GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.stick);
     registerItem(emeraldAxe, "EmeraldAxe");
-    final Item emeraldBattleAxe = new ItemAxeEmerald(tabKalle, "EmeraldBattleAxe");
+    final ItemBattleAxeEmerald emeraldBattleAxe = new ItemBattleAxeEmerald(tabKalle, "EmeraldBattleAxe");
     GameRegistry.addRecipe(new ItemStack(emeraldBattleAxe), "###", "#*#", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldBattleAxe, "EmeraldBattleAxe");
     final Item emeraldSpade = new ItemSpadeEmerald(tabKalle, "EmeraldSpade");
@@ -417,7 +419,7 @@ public class BasisCommonProxy {
     final Item emeraldHoe = new ItemHoeEmerald(tabKalle, "EmeraldHoe");
     GameRegistry.addRecipe(new ItemStack(emeraldHoe), "##0", "0*0", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldHoe, "EmeraldHoe");
-    final Item emeraldSword = new ItemHoeEmerald(tabKalle, "EmeraldSword");
+    final Item emeraldSword = new ItemSwordEmerald(tabKalle, "EmeraldSword");
     GameRegistry.addRecipe(new ItemStack(emeraldSword), "0#0", "0#0", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldSword, "EmeraldSword");
   }
