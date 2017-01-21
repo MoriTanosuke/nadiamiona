@@ -413,6 +413,9 @@ public class BasisCommonProxy {
     final Item emeraldAxe = new ItemAxeEmerald(tabKalle, "EmeraldAxe");
     GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldAxe, "EmeraldAxe");
+    final Item emeraldBattleAxe = new ItemAxeEmerald(tabKalle, "EmeraldBattleAxe");
+    GameRegistry.addRecipe(new ItemStack(emeraldBattleAxe), "###", "#*#", "0*0", '#', Items.emerald, '*', Items.diamond);
+    registerItem(emeraldBattleAxe, "EmeraldBattleAxe");
     final Item emeraldSpade = new ItemSpadeEmerald(tabKalle, "EmeraldSpade");
     GameRegistry.addRecipe(new ItemStack(emeraldSpade), "0#0", "0*0", "0*0", '#', Items.emerald, '*', Items.diamond);
     registerItem(emeraldSpade, "EmeraldSpade");
