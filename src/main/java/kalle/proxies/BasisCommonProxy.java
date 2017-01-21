@@ -270,13 +270,6 @@ public class BasisCommonProxy {
     registerBlock(parkettDarkoak, "ParkettDarkOak");
     GameRegistry.addRecipe(new ItemStack(parkettDarkoak), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 5));
 
-    final BlockParkett parkettHell = new BlockParkett(tab, "ParkettHell");
-    registerBlock(parkettHell, "ParkettHell");
-    // TODO add recipe for parkettHell
-    final BlockParkett parkettDunkel = new BlockParkett(tab, "ParkettDunkel");
-    registerBlock(parkettDunkel, "ParkettDunkel");
-    // TODO add recipe for parkettDunkel
-
     final Block booksSpruce = new Block(Material.wood).setUnlocalizedName("BooksSpruce").setCreativeTab(tab)
         .setHardness(2.0F).setResistance(5.0F);
     registerBlock(booksSpruce, "BooksSpruce");
