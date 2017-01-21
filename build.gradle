@@ -20,8 +20,18 @@ plugins {
 }
 */
 
-//TODO add timestamp for development builds
-version = "1.8.9-4"
+/**
+ * Creates a timestamp for JAR filename.
+ *
+ * @return timestamp to append to filenames
+ */
+def buildTime() {
+    def df = new java.text.SimpleDateFormat("yyyyMMdd'T'HHmmSS'Z'")
+    df.setTimeZone(TimeZone.getTimeZone("UTC"))
+    return df.format(new Date())
+}
+
+version = "1.8.9-${buildTime()}"
 group = "nadiamiona" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nadiamiona"
 
