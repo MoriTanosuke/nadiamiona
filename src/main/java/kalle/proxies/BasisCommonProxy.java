@@ -178,11 +178,11 @@ public class BasisCommonProxy {
         registerItem(sandwich_chicken, "Chickensandwich");
         final Item sandwich_fish = new ItemFood(7, 0.66F, false).setUnlocalizedName("Fischsandwich")
                 .setCreativeTab(tabKalle);
-        GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', toast, '*', new ItemStack(Items.fish, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', toast, '*', new ItemStack(Items.cooked_fish, 1, 0));
         registerItem(sandwich_fish, "Fischsandwich");
         final Item sandwich_salmon = new ItemFood(7, 0.66F, false).setUnlocalizedName("Lachssandwich")
                 .setCreativeTab(tabKalle);
-        GameRegistry.addRecipe(new ItemStack(sandwich_salmon), "#", "*", "#", '#', toast, '*', new ItemStack(Items.fish, 1, 1));
+        GameRegistry.addRecipe(new ItemStack(sandwich_salmon), "#", "*", "#", '#', toast, '*', new ItemStack(Items.cooked_fish, 1, 1));
         registerItem(sandwich_salmon, "Lachssandwich");
         final Item sandwich_bacon = new ItemFood(10, 0.75F, false).setUnlocalizedName("Schinkensandwich")
                 .setCreativeTab(tabKalle);
