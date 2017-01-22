@@ -41,7 +41,7 @@ public class BasisCommonProxy {
         LOG.debug("Creating objects...");
         // initialize EmeraldPickaxe first, to use as creative tab icon
         final ItemPickaxeEmerald emeraldPickaxe = new ItemPickaxeEmerald("EmeraldPickaxe");
-        GameRegistry.addRecipe(new ItemStack(emeraldPickaxe), "###", "0*0", "0*0", '#', Items.emerald, '*', Items.stick);
+        GameRegistry.addRecipe(new ItemStack(emeraldPickaxe), "###", "0*0", "0*0", '#', Items.emerald, '*', Items.diamond);
         registerItem(emeraldPickaxe, "EmeraldPickaxe");
 
         final CreativeTabs tabKalle = new CreativeTabs("tabKalle") {
@@ -417,7 +417,7 @@ public class BasisCommonProxy {
 
     private void registerTools(final CreativeTabs tabKalle) {
         final Item emeraldAxe = new ItemAxeEmerald(tabKalle, "EmeraldAxe");
-        GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.stick);
+        GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.emerald, '*', Items.diamond);
         registerItem(emeraldAxe, "EmeraldAxe");
         final ItemBattleAxeEmerald emeraldBattleAxe = new ItemBattleAxeEmerald(tabKalle, "EmeraldBattleAxe");
         GameRegistry.addRecipe(new ItemStack(emeraldBattleAxe), "###", "#*#", "0*0", '#', Items.emerald, '*', Items.diamond);
