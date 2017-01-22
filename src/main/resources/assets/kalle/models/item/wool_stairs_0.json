@@ -1,5 +1,5 @@
 {
-  "parent": "kalle:block/wool_stairs",
+  "parent": "kalle:block/wool_stairs_0",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

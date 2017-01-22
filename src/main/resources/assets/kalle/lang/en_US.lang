@@ -82,8 +82,22 @@ item.red_sandstone_wall.name=Red Sandstone Wall
 
 tile.wool_wall.name=Wool Wall
 item.wool_wall.name=Wool Wall
-tile.wool_stairs.name=Wool Stairs
-item.wool_stairs.name=Wool Stairs
+tile.wool_stairs_0.name=White Wool Stairs
+tile.wool_stairs_1.name=Orange Wool Stairs
+tile.wool_stairs_2.name=Magenta Wool Stairs
+tile.wool_stairs_3.name=Light Bue Wool Stairs
+tile.wool_stairs_4.name=Yellow Wool Stairs
+tile.wool_stairs_5.name=Lime Wool Stairs
+tile.wool_stairs_6.name=Pink Wool Stairs
+tile.wool_stairs_7.name=Gray Wool Stairs
+tile.wool_stairs_8.name=Light Gray Wool Stairs
+tile.wool_stairs_9.name=Cyan Wool Stairs
+tile.wool_stairs_10.name=Purple Wool Stairs
+tile.wool_stairs_11.name=Blue Wool Stairs
+tile.wool_stairs_12.name=Brown Wool Stairs
+tile.wool_stairs_13.name=Green Wool Stairs
+tile.wool_stairs_14.name=Red Wool Stairs
+tile.wool_stairs_15.name=Black Wool Stairs
 
 # utilities
 item.Kettenglieder.name=Chains
