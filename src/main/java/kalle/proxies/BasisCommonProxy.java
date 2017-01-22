@@ -261,22 +261,22 @@ public class BasisCommonProxy {
 
         final BlockParkett parkettOak = new BlockParkett(tab, "ParkettOak");
         registerBlock(parkettOak, "ParkettOak");
-        GameRegistry.addRecipe(new ItemStack(parkettOak), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 0));
+        GameRegistry.addRecipe(new ItemStack(parkettOak, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 0));
         final BlockParkett parkettSpruce = new BlockParkett(tab, "ParkettSpruce");
         registerBlock(parkettSpruce, "ParkettSpruce");
-        GameRegistry.addRecipe(new ItemStack(parkettSpruce), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 1));
+        GameRegistry.addRecipe(new ItemStack(parkettSpruce, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 1));
         final BlockParkett parkettBirch = new BlockParkett(tab, "ParkettBirke");
         registerBlock(parkettBirch, "ParkettBirke");
-        GameRegistry.addRecipe(new ItemStack(parkettBirch), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 2));
+        GameRegistry.addRecipe(new ItemStack(parkettBirch, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 2));
         final BlockParkett parkettDjungle = new BlockParkett(tab, "ParkettDschungel");
         registerBlock(parkettDjungle, "ParkettDschungel");
-        GameRegistry.addRecipe(new ItemStack(parkettDjungle), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 3));
+        GameRegistry.addRecipe(new ItemStack(parkettDjungle, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 3));
         final BlockParkett parkettAkazie = new BlockParkett(tab, "ParkettAkazie");
         registerBlock(parkettAkazie, "ParkettAkazie");
-        GameRegistry.addRecipe(new ItemStack(parkettAkazie), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 4));
+        GameRegistry.addRecipe(new ItemStack(parkettAkazie, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 4));
         final BlockParkett parkettDarkoak = new BlockParkett(tab, "ParkettDarkOak");
         registerBlock(parkettDarkoak, "ParkettDarkOak");
-        GameRegistry.addRecipe(new ItemStack(parkettDarkoak), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 5));
+        GameRegistry.addRecipe(new ItemStack(parkettDarkoak, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.planks, 1, 5));
 
         final Block booksSpruce = new Block(Material.wood).setUnlocalizedName("BooksSpruce").setCreativeTab(tab)
                 .setHardness(2.0F).setResistance(5.0F);

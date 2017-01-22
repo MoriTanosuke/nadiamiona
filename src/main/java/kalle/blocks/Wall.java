@@ -163,5 +163,4 @@ public class Wall extends Block {
   protected BlockState createBlockState() {
     return new BlockState(this, new IProperty[] { UP, NORTH, EAST, WEST, SOUTH });
   }
-
 }
