@@ -405,7 +405,7 @@ public class BasisCommonProxy {
 
         final Wall leaveWall = new WallLeaves(tab, Blocks.leaves2, "leave_wall");
         registerBlock(leaveWall, "leave_wall");
-        GameRegistry.addRecipe(new ItemStack(leaveWall), "###", "AAA", "AAA", 'A', Blocks.leaves);
+        GameRegistry.addRecipe(new ItemStack(leaveWall, 6), "###", "AAA", "AAA", 'A', Blocks.leaves);
 
         for (int color = 0; color <= 15; color++) {
             final BlockStairs woolStairs = new WoolStairs(tab, Blocks.wool.getDefaultState(), "wool_stairs_" + color);
