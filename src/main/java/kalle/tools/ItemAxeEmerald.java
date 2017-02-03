@@ -7,7 +7,7 @@ import net.minecraft.item.ItemAxe;
 public class ItemAxeEmerald extends ItemAxe {
 
   public ItemAxeEmerald(CreativeTabs tab, String unlocalizedName) {
-    super(Item.ToolMaterial.EMERALD);
+    super(ToolMaterial.DIAMOND);
     setCreativeTab(tab);
     setUnlocalizedName(unlocalizedName);
     // double diamond durability

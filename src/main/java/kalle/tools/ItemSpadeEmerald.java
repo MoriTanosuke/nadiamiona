@@ -7,7 +7,7 @@ import net.minecraft.item.ItemSpade;
 public class ItemSpadeEmerald extends ItemSpade {
 
   public ItemSpadeEmerald(CreativeTabs tab, String unlocalizedName) {
-    super(Item.ToolMaterial.EMERALD);
+    super(ToolMaterial.DIAMOND);
     setCreativeTab(tab);
     setUnlocalizedName(unlocalizedName);
     // double diamond durability

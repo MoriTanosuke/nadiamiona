@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockParkett extends Block {
 
   public BlockParkett(CreativeTabs tab, String unlocalizedName) {
-    super(Material.wood);
+    super(Material.WOOD);
     setUnlocalizedName(unlocalizedName);
     setCreativeTab(tab);
     setHardness(2.0F);
