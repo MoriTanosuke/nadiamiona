@@ -1,7 +1,6 @@
 {
     "parent": "block/wall_post",
     "textures": {
-        "top": "blocks/sandstone_top",
         "wall": "blocks/sandstone_normal"
     }
 }

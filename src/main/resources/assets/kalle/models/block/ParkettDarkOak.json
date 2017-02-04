@@ -6,6 +6,7 @@
         "north": "kalle:blocks/ParkettDunkleeiche",
         "east": "kalle:blocks/ParkettDunkleeiche",
         "south": "kalle:blocks/ParkettDunkleeiche",
-        "west": "kalle:blocks/ParkettDunkleeiche"
+        "west": "kalle:blocks/ParkettDunkleeiche",
+        "particle": "kalle:blocks/ParkettDunkleeiche"
     }
 }

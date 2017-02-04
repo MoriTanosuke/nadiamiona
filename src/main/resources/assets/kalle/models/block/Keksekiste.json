@@ -6,6 +6,7 @@
         "north": "kalle:blocks/Kiste",
         "east": "kalle:blocks/Kiste",
         "south": "kalle:blocks/Kiste",
-        "west": "kalle:blocks/Kiste"
+        "west": "kalle:blocks/Kiste",
+        "particle": "#down"
     }
 }

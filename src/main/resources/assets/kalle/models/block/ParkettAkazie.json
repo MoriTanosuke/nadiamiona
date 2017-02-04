@@ -6,6 +6,7 @@
         "north": "kalle:blocks/ParkettAkazie",
         "east": "kalle:blocks/ParkettAkazie",
         "south": "kalle:blocks/ParkettAkazie",
-        "west": "kalle:blocks/ParkettAkazie"
+        "west": "kalle:blocks/ParkettAkazie",
+        "particle": "kalle:blocks/ParkettAkazie"
     }
 }

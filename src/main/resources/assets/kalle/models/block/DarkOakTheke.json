@@ -6,6 +6,7 @@
         "north": "kalle:blocks/Theke_darkoak",
         "east": "kalle:blocks/Theke_darkoak",
         "south": "kalle:blocks/Theke_darkoak",
-        "west": "kalle:blocks/Theke_darkoak"
+        "west": "kalle:blocks/Theke_darkoak",
+        "particle": "#up"
     }
 }

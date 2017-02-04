@@ -6,6 +6,7 @@
         "north": "kalle:blocks/books_jungle_side",
         "east": "kalle:blocks/books_jungle_side",
         "south": "kalle:blocks/books_jungle_side",
-        "west": "kalle:blocks/books_jungle_side"
+        "west": "kalle:blocks/books_jungle_side",
+        "particle": "kalle:blocks/books_jungle"
     }
 }

@@ -1,7 +1,7 @@
 package kalle.tools;
 
+import kalle.Basis;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemSpade;
 
 public class ItemSpadeEmerald extends ItemSpade {
@@ -9,7 +9,7 @@ public class ItemSpadeEmerald extends ItemSpade {
   public ItemSpadeEmerald(CreativeTabs tab, String unlocalizedName) {
     super(ToolMaterial.DIAMOND);
     setCreativeTab(tab);
-    setUnlocalizedName(unlocalizedName);
+    setRegistryName(Basis.MOD_PREFIX, unlocalizedName);
     // double diamond durability
     setMaxDamage(1561 * 2);
     // TODO need to set efficiencyOnProperMaterial?

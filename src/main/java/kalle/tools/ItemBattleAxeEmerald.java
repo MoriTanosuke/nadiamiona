@@ -1,7 +1,9 @@
 package kalle.tools;
 
-import com.google.common.collect.Sets;
 import java.util.Set;
+
+import com.google.common.collect.Sets;
+import kalle.Basis;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +19,7 @@ public class ItemBattleAxeEmerald extends ItemTool {
     public ItemBattleAxeEmerald(CreativeTabs tab, String unlocalizedName) {
         super(3.0F, 3.0F, ToolMaterial.DIAMOND, EFFECTIVE_ON);
         setCreativeTab(tab);
-        setUnlocalizedName(unlocalizedName);
+        setRegistryName(Basis.MOD_PREFIX, unlocalizedName);
         setMaxDamage(1561 * 4);
         // TODO need to set efficiencyOnProperMaterial?
         efficiencyOnProperMaterial = 4.0f;

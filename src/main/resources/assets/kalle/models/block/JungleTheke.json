@@ -6,6 +6,7 @@
         "north": "kalle:blocks/Theke_jungle",
         "east": "kalle:blocks/Theke_jungle",
         "south": "kalle:blocks/Theke_jungle",
-        "west": "kalle:blocks/Theke_jungle"
+        "west": "kalle:blocks/Theke_jungle",
+        "particle": "#up"
     }
 }
