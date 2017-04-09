@@ -376,7 +376,7 @@ public class BasisCommonProxy {
         registerBlock(woolWall);
         GameRegistry.addRecipe(new ItemStack(woolWall, 6), "###", "AAA", "AAA", 'A', Blocks.WOOL);
 
-        final Wall leaveWall = new WallLeaves(tab, Blocks.LEAVES2, "leave_wall");
+        final Wall leaveWall = new WallLeaves(tab, Blocks.LEAVES, "leave_wall");
         registerBlock(leaveWall);
         GameRegistry.addRecipe(new ItemStack(leaveWall, 6), "###", "AAA", "AAA", 'A', Blocks.LEAVES);
 
@@ -464,11 +464,7 @@ public class BasisCommonProxy {
         final ItemBlock itemBlock = new ItemBlock(block);
         itemBlock.setUnlocalizedName(block.getRegistryName().toString());
         itemBlock.setRegistryName(block.getRegistryName());
-        ModelResourceLocation inventoryResourceLocation = new ModelResourceLocation(itemBlock.getRegistryName(), "inventory");
-        ModelLoader.setCustomModelResourceLocation(itemBlock, 0, inventoryResourceLocation);
-        GameRegistry.register(itemBlock);
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlock, 0, inventoryResourceLocation);
-
+        registerItem(itemBlock);
     }
 
     /**
