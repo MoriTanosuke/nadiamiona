@@ -6,6 +6,7 @@
         "north": "kalle:blocks/ParkettDunkel",
         "east": "kalle:blocks/ParkettDunkel",
         "south": "kalle:blocks/ParkettDunkel",
-        "west": "kalle:blocks/ParkettDunkel"
+        "west": "kalle:blocks/ParkettDunkel",
+        "particle": "kalle:blocks/ParkettDunkel"
     }
 }

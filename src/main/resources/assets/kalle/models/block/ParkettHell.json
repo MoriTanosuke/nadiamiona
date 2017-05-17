@@ -6,6 +6,7 @@
         "north": "kalle:blocks/ParkettHell",
         "east": "kalle:blocks/ParkettHell",
         "south": "kalle:blocks/ParkettHell",
-        "west": "kalle:blocks/ParkettHell"
+        "west": "kalle:blocks/ParkettHell",
+        "particle": "kalle:blocks/ParkettHell"
     }
 }

@@ -2,9 +2,10 @@ language: java
 
 deploy:
   provider: releases
-  api_key: "${OAUTH_TOKEN}"
+  api_key:
+    secure: "${OAUTH_TOKEN}"
   file_glob: true
   file: "build/libs/nadiamiona-*.jar"
-  skip_cleanup: true
   on:
+    repo: MoriTanosuke/nadiamiona
     tags: true
