@@ -9,6 +9,7 @@ public class BlockParkett extends Block {
   public BlockParkett(CreativeTabs tab, String unlocalizedName) {
     super(Material.WOOD);
     setUnlocalizedName(unlocalizedName);
+    setRegistryName(unlocalizedName);
     setCreativeTab(tab);
     setHardness(2.0F);
     setResistance(5.0F);

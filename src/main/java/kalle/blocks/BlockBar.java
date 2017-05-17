@@ -13,6 +13,7 @@ public class BlockBar extends Block {
   public BlockBar(CreativeTabs tab, String unlocalizedName) {
     super(Material.WOOD);
     setUnlocalizedName(unlocalizedName);
+    setRegistryName(unlocalizedName);
     setCreativeTab(tab);
     setHardness(2.0f);
     setResistance(5.0f);

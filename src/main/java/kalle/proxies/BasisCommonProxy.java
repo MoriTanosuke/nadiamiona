@@ -1,24 +1,9 @@
 package kalle.proxies;
 
 import kalle.Basis;
-import kalle.blocks.BlockBar;
-import kalle.blocks.BlockParkett;
-import kalle.blocks.Wall;
-import kalle.blocks.WallLeaves;
-import kalle.blocks.WoolStairs;
 import kalle.foods.ItemDrink;
-import kalle.tools.ItemAxeEmerald;
-import kalle.tools.ItemBattleAxeEmerald;
-import kalle.tools.ItemHoeEmerald;
-import kalle.tools.ItemPickaxeEmerald;
-import kalle.tools.ItemSpadeEmerald;
-import kalle.tools.ItemSwordEmerald;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
+import kalle.tools.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -26,8 +11,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
@@ -61,26 +44,10 @@ public class BasisCommonProxy {
         LOG.debug("Registering objects...");
         registerFoods(tabKalle);
         registerUtilities(tabKalle);
-        registerBlocks(tabKalle);
         registerTools(tabKalle);
 
         LOG.debug("Adding crafting recipes...");
         initCraftingRecipes();
-
-        // try to create a block with custom shape
-        final Block customBlock = new Block(Material.WOOD) {
-            @Override
-            public boolean isFullCube(IBlockState state) {
-                return false;
-            }
-
-            @Override
-            public boolean isFullyOpaque(IBlockState state) {
-                return false;
-            }
-        };
-        customBlock.setUnlocalizedName("smallBlock").setCreativeTab(tabKalle);
-        registerBlock(customBlock, "smallBlock");
 
         LOG.info("All done.");
     }
@@ -229,188 +196,6 @@ public class BasisCommonProxy {
         registerItem(likoer, "Eierlikoer");
     }
 
-    private void registerBlocks(final CreativeTabs tab) {
-        final BlockBar theke = new BlockBar(tab);
-        registerBlock(theke, "Theke");
-        GameRegistry.addRecipe(new ItemStack(theke, 2), "000", "0BB", "0AA", 'A', new ItemStack(Blocks.PLANKS, 1, 0), 'B',
-                new ItemStack(Blocks.WOODEN_SLAB, 1, 0));
-        final BlockBar spruceTheke = new BlockBar(tab, "SpruceTheke");
-        registerBlock(spruceTheke, "SpruceTheke");
-        GameRegistry.addRecipe(new ItemStack(spruceTheke, 2), "000", "0BB", "0AA", 'A', new ItemStack(Blocks.PLANKS, 1, 1),
-                'B', new ItemStack(Blocks.WOODEN_SLAB, 1, 1));
-        final BlockBar jungleTheke = new BlockBar(tab, "JungleTheke");
-        registerBlock(jungleTheke, "JungleTheke");
-        GameRegistry.addRecipe(new ItemStack(jungleTheke, 2), "000", "0BB", "0AA", 'A', new ItemStack(Blocks.PLANKS, 1, 3),
-                'B', new ItemStack(Blocks.WOODEN_SLAB, 1, 3));
-        final BlockBar acaciaTheke = new BlockBar(tab, "AcaciaTheke");
-        registerBlock(acaciaTheke, "AcaciaTheke");
-        GameRegistry.addRecipe(new ItemStack(acaciaTheke, 2), "000", "0BB", "0AA", 'A', new ItemStack(Blocks.PLANKS, 1, 4),
-                'B', new ItemStack(Blocks.WOODEN_SLAB, 1, 4));
-        final BlockBar birchTheke = new BlockBar(tab, "BirchTheke");
-        registerBlock(birchTheke, "BirchTheke");
-        GameRegistry.addRecipe(new ItemStack(birchTheke, 2), "000", "0BB", "0AA", 'A', new ItemStack(Blocks.PLANKS, 1, 2), 'B',
-                new ItemStack(Blocks.WOODEN_SLAB, 1, 2));
-        final BlockBar darkOakTheke = new BlockBar(tab, "DarkOakTheke");
-        registerBlock(darkOakTheke, "DarkOakTheke");
-        GameRegistry.addRecipe(new ItemStack(darkOakTheke, 2), "000", "0BB", "0AA", 'A', new ItemStack(Blocks.PLANKS, 1, 5),
-                'B', new ItemStack(Blocks.WOODEN_SLAB, 1, 5));
-
-        final BlockParkett parkettOak = new BlockParkett(tab, "ParkettOak");
-        registerBlock(parkettOak, "ParkettOak");
-        GameRegistry.addRecipe(new ItemStack(parkettOak, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.PLANKS, 1, 0));
-        final BlockParkett parkettSpruce = new BlockParkett(tab, "ParkettSpruce");
-        registerBlock(parkettSpruce, "ParkettSpruce");
-        GameRegistry.addRecipe(new ItemStack(parkettSpruce, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.PLANKS, 1, 1));
-        final BlockParkett parkettBirch = new BlockParkett(tab, "ParkettBirke");
-        registerBlock(parkettBirch, "ParkettBirke");
-        GameRegistry.addRecipe(new ItemStack(parkettBirch, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.PLANKS, 1, 2));
-        final BlockParkett parkettDjungle = new BlockParkett(tab, "ParkettDschungel");
-        registerBlock(parkettDjungle, "ParkettDschungel");
-        GameRegistry.addRecipe(new ItemStack(parkettDjungle, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.PLANKS, 1, 3));
-        final BlockParkett parkettAkazie = new BlockParkett(tab, "ParkettAkazie");
-        registerBlock(parkettAkazie, "ParkettAkazie");
-        GameRegistry.addRecipe(new ItemStack(parkettAkazie, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.PLANKS, 1, 4));
-        final BlockParkett parkettDarkoak = new BlockParkett(tab, "ParkettDarkOak");
-        registerBlock(parkettDarkoak, "ParkettDarkOak");
-        GameRegistry.addRecipe(new ItemStack(parkettDarkoak, 4), "A#A", "#A#", "A#A", 'A', new ItemStack(Blocks.PLANKS, 1, 5));
-
-        final Block booksSpruce = new Block(Material.WOOD).setUnlocalizedName("BooksSpruce").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(booksSpruce, "BooksSpruce");
-        GameRegistry.addRecipe(new ItemStack(booksSpruce), "###", "#*#", "###", '#', new ItemStack(Blocks.PLANKS, 1, 1),
-                '*', Items.BOOK);
-        final Block booksJungle = new Block(Material.WOOD).setUnlocalizedName("BooksJungle").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(booksJungle, "BooksJungle");
-        GameRegistry.addRecipe(new ItemStack(booksJungle), "###", "#*#", "###", '#', new ItemStack(Blocks.PLANKS, 1, 3),
-                '*', Items.BOOK);
-        final Block booksBirch = new Block(Material.WOOD).setUnlocalizedName("BooksBirch").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(booksBirch, "BooksBirch");
-        GameRegistry.addRecipe(new ItemStack(booksBirch), "###", "#*#", "###", '#', new ItemStack(Blocks.PLANKS, 1, 2), '*',
-                Items.BOOK);
-        final Block booksAcacia = new Block(Material.WOOD).setUnlocalizedName("BooksAcacia").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(booksAcacia, "BooksAcacia");
-        GameRegistry.addRecipe(new ItemStack(booksAcacia), "###", "#*#", "###", '#', new ItemStack(Blocks.PLANKS, 1, 4), '*',
-                Items.BOOK);
-        final Block booksDarkOak = new Block(Material.WOOD).setUnlocalizedName("BooksDarkOak").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(booksDarkOak, "BooksDarkOak");
-        GameRegistry.addRecipe(new ItemStack(booksDarkOak), "###", "#*#", "###", '#', new ItemStack(Blocks.PLANKS, 1, 5), '*',
-                Items.BOOK);
-
-        // Kisten
-        final Block kiste = new Block(Material.WOOD).setUnlocalizedName("Kiste").setCreativeTab(tab).setHardness(2.0F)
-                .setResistance(5.0F);
-        registerBlock(kiste, "Kiste");
-        GameRegistry.addRecipe(new ItemStack(kiste), "#0#", "#0#", "###", '#', Blocks.PLANKS);
-
-        final Block kisteKohle = new Block(Material.WOOD).setUnlocalizedName("Kohlekiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteKohle, "Kohlekiste");
-        GameRegistry.addRecipe(new ItemStack(kisteKohle), "*", "#", '*', Items.COAL, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteKohle), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.COAL);
-
-        final Block kisteEisen = new Block(Material.WOOD).setUnlocalizedName("Eisenkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteEisen, "Eisenkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteEisen), "*", "#", '*', Items.IRON_INGOT, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteEisen), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.IRON_INGOT);
-
-        final Block kisteGold = new Block(Material.WOOD).setUnlocalizedName("Goldkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteGold, "Goldkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteGold), "*", "#", '*', Items.GOLD_INGOT, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteGold), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.GOLD_INGOT);
-
-        final Block kisteDiamant = new Block(Material.WOOD).setUnlocalizedName("Diamantkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteDiamant, "Diamantkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteDiamant), "*", "#", '*', Items.DIAMOND, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteDiamant), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.DIAMOND);
-
-        final Block kisteEmerald = new Block(Material.WOOD).setUnlocalizedName("Edelsteinkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteEmerald, "Edelsteinkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteEmerald), "*", "#", '*', Items.EMERALD, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteEmerald), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.EMERALD);
-
-        final Block kisteLapis = new Block(Material.WOOD).setUnlocalizedName("Lapiskiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteLapis, "Lapiskiste");
-        // check out dye meta IDs at http://minecraft.gamepedia.com/Data_values#Dyes
-        GameRegistry.addRecipe(new ItemStack(kisteLapis), "*", "#", '*', new ItemStack(Items.DYE, 1, 4), '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteLapis), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', new ItemStack(Items.DYE, 1, 4));
-
-        final Block kisteApfel = new Block(Material.WOOD).setUnlocalizedName("Apfelkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteApfel, "Apfelkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteApfel), "*", "#", '*', Items.APPLE, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteApfel), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.APPLE);
-
-        final Block kisteCookie = new Block(Material.WOOD).setUnlocalizedName("Keksekiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteCookie, "Keksekiste");
-        GameRegistry.addRecipe(new ItemStack(kisteCookie), "*", "#", '*', Items.COOKIE, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteCookie), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.COOKIE);
-
-        final Block kisteKartoffel = new Block(Material.WOOD).setUnlocalizedName("Kartoffelkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteKartoffel, "Kartoffelkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteKartoffel), "*", "#", '*', Items.POTATO, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteKartoffel), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.POTATO);
-
-        final Block kisteFisch = new Block(Material.WOOD).setUnlocalizedName("Fischkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteFisch, "Fischkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteFisch), "*", "#", '*', new ItemStack(Items.FISH, 1, 0), '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteFisch), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', new ItemStack(Items.FISH, 1, 0));
-
-        final Block kisteLachs = new Block(Material.WOOD).setUnlocalizedName("Lachskiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteLachs, "Lachskiste");
-        GameRegistry.addRecipe(new ItemStack(kisteLachs), "*", "#", '*', new ItemStack(Items.FISH, 1, 1), '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteLachs), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', new ItemStack(Items.FISH, 1, 1));
-
-        final Block kisteKarotte = new Block(Material.WOOD).setUnlocalizedName("Karottenkiste").setCreativeTab(tab)
-                .setHardness(2.0F).setResistance(5.0F);
-        registerBlock(kisteKarotte, "Karottenkiste");
-        GameRegistry.addRecipe(new ItemStack(kisteKarotte), "*", "#", '*', Items.CARROT, '#', kiste);
-        GameRegistry.addRecipe(new ItemStack(kisteKarotte), "#0#", "#*#", "###", '#', Blocks.PLANKS, '*', Items.CARROT);
-
-        // walls
-        final Wall stoneWall = new Wall(tab, Blocks.STONE, "stone_wall");
-        registerBlock(stoneWall, "stone_wall");
-        GameRegistry.addRecipe(new ItemStack(stoneWall, 6), "###", "AAA", "AAA", 'A', Blocks.STONE);
-        final Wall brickWall = new Wall(tab, Blocks.BRICK_BLOCK, "brick_wall");
-        registerBlock(brickWall, "brick_wall");
-        GameRegistry.addRecipe(new ItemStack(brickWall, 6), "###", "AAA", "AAA", 'A', Blocks.BRICK_BLOCK);
-        final Wall stonebrickWall = new Wall(tab, Blocks.STONEBRICK, "stonebrick_wall");
-        registerBlock(stonebrickWall, "stonebrick_wall");
-        GameRegistry.addRecipe(new ItemStack(stonebrickWall, 6), "###", "AAA", "AAA", 'A', Blocks.STONEBRICK);
-        final Wall sandstoneWall = new Wall(tab, Blocks.SANDSTONE, "sandstone_wall");
-        registerBlock(sandstoneWall, "sandstone_wall");
-        GameRegistry.addRecipe(new ItemStack(sandstoneWall, 6), "###", "AAA", "AAA", 'A', Blocks.SANDSTONE);
-        final Wall redSandstoneWall = new Wall(tab, Blocks.RED_SANDSTONE, "red_sandstone_wall");
-        registerBlock(redSandstoneWall, "red_sandstone_wall");
-        GameRegistry.addRecipe(new ItemStack(redSandstoneWall, 6), "###", "AAA", "AAA", 'A', Blocks.RED_SANDSTONE);
-        final Wall woolWall = new Wall(tab, Blocks.WOOL, "wool_wall");
-        registerBlock(woolWall, "wool_wall");
-        GameRegistry.addRecipe(new ItemStack(woolWall, 6), "###", "AAA", "AAA", 'A', Blocks.WOOL);
-
-        final Wall leaveWall = new WallLeaves(tab, Blocks.LEAVES2, "leave_wall");
-        registerBlock(leaveWall, "leave_wall");
-        GameRegistry.addRecipe(new ItemStack(leaveWall, 6), "###", "AAA", "AAA", 'A', Blocks.LEAVES);
-
-        for (int color = 0; color <= 15; color++) {
-            final BlockStairs woolStairs = new WoolStairs(tab, Blocks.WOOL.getDefaultState(), "wool_stairs_" + color);
-            registerBlock(woolStairs, "wool_stairs_" + color);
-            GameRegistry.addRecipe(new ItemStack(woolStairs, 4), "A##", "AA#", "AAA", 'A', new ItemStack(Blocks.WOOL, 1, color));
-        }
-        //TODO add wool slabs
-    }
-
     private void registerTools(final CreativeTabs tabKalle) {
         final Item emeraldAxe = new ItemAxeEmerald(tabKalle, "EmeraldAxe");
         GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
@@ -475,30 +260,6 @@ public class BasisCommonProxy {
     }
 
     /**
-     * Registers a {@link Block} in the {@link GameRegistry} and registers a
-     * {@link ModelResourceLocation} using the {@link Basis#MOD_PREFIX} and given
-     * blockname.
-     *
-     * @param block        new {@link Block} to register
-     * @param blockname    name to use for block and inventory resource
-     * @param variantNames additional variants for the block
-     */
-    private void registerBlock(final Block block, final String blockname, String... variantNames) {
-        LOG.debug("Registering block " + blockname);
-        GameRegistry.registerBlock(block, blockname);
-        final Item itemBlockSimple = GameRegistry.findItem(Basis.MOD_PREFIX, blockname);
-        ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(Basis.MOD_PREFIX + ":" + blockname,
-                "inventory");
-        final int DEFAULT_ITEM_SUBTYPE = 0;
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockSimple, DEFAULT_ITEM_SUBTYPE,
-                itemModelResourceLocation);
-        for (String variant : variantNames) {
-            LOG.debug("Adding variant " + variant);
-            //TODO ModelBakery.registerItemVariants(itemBlockSimple, variant);
-        }
-    }
-
-    /**
      * Registers an {@link Item} in the {@link GameRegistry} and registers a
      * {@link ModelResourceLocation} using the {@link Basis#MOD_PREFIX} and given
      * itemName.
@@ -517,5 +278,4 @@ public class BasisCommonProxy {
                 itemModelResourceLocation);
         GameRegistry.registerItem(item, itemName);
     }
-
 }
