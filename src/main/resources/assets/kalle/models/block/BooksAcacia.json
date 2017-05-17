@@ -6,6 +6,7 @@
         "north": "kalle:blocks/books_acacia_side",
         "east": "kalle:blocks/books_acacia_side",
         "south": "kalle:blocks/books_acacia_side",
-        "west": "kalle:blocks/books_acacia_side"
+        "west": "kalle:blocks/books_acacia_side",
+        "particle": "kalle:blocks/books_acacia_side"
     }
 }

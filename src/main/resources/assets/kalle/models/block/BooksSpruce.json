@@ -6,6 +6,7 @@
         "north": "kalle:blocks/books_spruce_side",
         "east": "kalle:blocks/books_spruce_side",
         "south": "kalle:blocks/books_spruce_side",
-        "west": "kalle:blocks/books_spruce_side"
+        "west": "kalle:blocks/books_spruce_side",
+        "particle": "kalle:blocks/books_spruce_side"
     }
 }
