@@ -6,6 +6,7 @@
         "north": "kalle:blocks/Theke_acacia",
         "east": "kalle:blocks/Theke_acacia",
         "south": "kalle:blocks/Theke_acacia",
-        "west": "kalle:blocks/Theke_acacia"
+        "west": "kalle:blocks/Theke_acacia",
+        "particle": "kalle:blocks/Theke_acacia"
     }
 }

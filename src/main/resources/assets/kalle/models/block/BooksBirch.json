@@ -6,6 +6,7 @@
         "north": "kalle:blocks/books_birch_side",
         "east": "kalle:blocks/books_birch_side",
         "south": "kalle:blocks/books_birch_side",
-        "west": "kalle:blocks/books_birch_side"
+        "west": "kalle:blocks/books_birch_side",
+        "particle": "kalle:blocks/books_birch_side"
     }
 }

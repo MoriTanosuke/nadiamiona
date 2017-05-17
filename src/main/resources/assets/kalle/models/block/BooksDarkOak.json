@@ -6,6 +6,7 @@
         "north": "kalle:blocks/books_darkoak_side",
         "east": "kalle:blocks/books_darkoak_side",
         "south": "kalle:blocks/books_darkoak_side",
-        "west": "kalle:blocks/books_darkoak_side"
+        "west": "kalle:blocks/books_darkoak_side",
+        "particle": "kalle:blocks/books_darkoak_side"
     }
 }
