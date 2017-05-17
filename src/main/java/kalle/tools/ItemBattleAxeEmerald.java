@@ -9,9 +9,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -20,7 +21,7 @@ import java.util.Set;
 
 public class ItemBattleAxeEmerald extends Item {
 
-    private static final ToolMaterial material = ToolMaterial.EMERALD;
+    private static final ToolMaterial material = ToolMaterial.DIAMOND;
     /**
      * Effective blocks for this weapon/tool.
      */
@@ -32,7 +33,6 @@ public class ItemBattleAxeEmerald extends Item {
     private final float attackDamage;
 
     public ItemBattleAxeEmerald(CreativeTabs tab, String unlocalizedName) {
-        super(3.0F, 5.0F, ToolMaterial.DIAMOND, EFFECTIVE_ON);
         setCreativeTab(tab);
         setUnlocalizedName(unlocalizedName);
         setMaxDamage(1561 * 4);
@@ -47,7 +47,7 @@ public class ItemBattleAxeEmerald extends Item {
     // methods taken from ItemSword
 
     public float getStrVsBlock(ItemStack stack, Block state) {
-        if (state == Blocks.web) {
+        if (state == Blocks.WEB) {
             return 15.0F;
         } else {
             return EFFECTIVE_ON.contains(state) ? EFFICIENCY_ON_EFFECTIVE_BLOCKS : 1.0F;
@@ -59,16 +59,16 @@ public class ItemBattleAxeEmerald extends Item {
         return true;
     }
 
-    public boolean onBlockDestroyed(ItemStack stack, World worldIn, Block blockIn, BlockPos pos, EntityLivingBase playerIn) {
-        if ((double) blockIn.getBlockHardness(worldIn, pos) != 0.0D) {
-            stack.damageItem(2, playerIn);
+    public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving) {
+        if ((double) state.getBlockHardness(worldIn, pos) != 0.0D) {
+            stack.damageItem(2, entityLiving);
         }
 
         return true;
     }
 
     public boolean canHarvestBlock(IBlockState blockIn) {
-        return blockIn.getBlock() == Blocks.web;
+        return blockIn.getBlock() == Blocks.WEB;
     }
 
     @SideOnly(Side.CLIENT)
@@ -91,9 +91,14 @@ public class ItemBattleAxeEmerald extends Item {
         return super.getIsRepairable(toRepair, repair);
     }
 
-    public Multimap<String, AttributeModifier> getItemAttributeModifiers() {
-        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", (double) this.attackDamage, 0));
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+
+        if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
+        }
+
         return multimap;
     }
 }
