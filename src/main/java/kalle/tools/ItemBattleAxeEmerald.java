@@ -1,7 +1,6 @@
 package kalle.tools;
 
 import com.google.common.collect.Sets;
-import java.util.Set;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -9,12 +8,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 
+import java.util.Set;
+
 public class ItemBattleAxeEmerald extends ItemTool {
 
-    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(new Block[]{Blocks.planks, Blocks.bookshelf, Blocks.log, Blocks.log2, Blocks.chest, Blocks.pumpkin, Blocks.lit_pumpkin, Blocks.melon_block, Blocks.ladder});
+    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(new Block[]{Blocks.PLANKS, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.LIT_PUMPKIN, Blocks.MELON_BLOCK, Blocks.LADDER});
 
     public ItemBattleAxeEmerald(CreativeTabs tab, String unlocalizedName) {
-        super(3.0F, ToolMaterial.EMERALD, EFFECTIVE_ON);
+        super(3.0F, 5.0F, ToolMaterial.DIAMOND, EFFECTIVE_ON);
         setCreativeTab(tab);
         setUnlocalizedName(unlocalizedName);
         setMaxDamage(1561 * 4);
@@ -23,6 +24,7 @@ public class ItemBattleAxeEmerald extends ItemTool {
     }
 
     public float getStrVsBlock(ItemStack stack, Block state) {
-        return state.getMaterial() != Material.wood && state.getMaterial() != Material.plants && state.getMaterial() != Material.vine ? super.getStrVsBlock(stack, state) : this.efficiencyOnProperMaterial;
+        Material material = state.getDefaultState().getMaterial();
+        return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE ? super.getStrVsBlock(stack, state.getDefaultState()) : this.efficiencyOnProperMaterial;
     }
 }

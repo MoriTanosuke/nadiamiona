@@ -6,7 +6,7 @@ import net.minecraft.item.ItemPickaxe;
 public class ItemPickaxeEmerald extends ItemPickaxe {
 
   public ItemPickaxeEmerald(String unlocalizedName) {
-    super(Item.ToolMaterial.EMERALD);
+    super(ToolMaterial.DIAMOND);
     setUnlocalizedName(unlocalizedName);
     // double diamond durability
     setMaxDamage(1561 * 2);

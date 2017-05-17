@@ -7,7 +7,7 @@ import net.minecraft.item.ItemHoe;
 public class ItemHoeEmerald extends ItemHoe {
 
   public ItemHoeEmerald(CreativeTabs tab, String unlocalizedName) {
-    super(Item.ToolMaterial.EMERALD);
+    super(ToolMaterial.DIAMOND);
     setCreativeTab(tab);
     setUnlocalizedName(unlocalizedName);
     // double diamond durability
