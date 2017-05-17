@@ -3,14 +3,14 @@ package kalle.tools;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -18,9 +18,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Set;
 
-public class ItemBattleAxeEmerald extends Item {
+public class ItemBattleAxeEmerald extends ItemSword {
 
-    private static final ToolMaterial material = ToolMaterial.EMERALD;
     /**
      * Effective blocks for this weapon/tool.
      */
@@ -32,10 +31,10 @@ public class ItemBattleAxeEmerald extends Item {
     private final float attackDamage;
 
     public ItemBattleAxeEmerald(CreativeTabs tab, String unlocalizedName) {
-        super();
+        super(ToolMaterial.EMERALD);
         setCreativeTab(tab);
         setUnlocalizedName(unlocalizedName);
-        setMaxDamage(1561 * 4);
+        setMaxDamage((int) (ToolMaterial.EMERALD.getMaxUses() * 1.5));
         setMaxStackSize(1);
         attackDamage = 10F; // 10 damage == 5 hearts
     }
@@ -67,33 +66,28 @@ public class ItemBattleAxeEmerald extends Item {
         return true;
     }
 
-    public boolean canHarvestBlock(IBlockState blockIn) {
-        return blockIn.getBlock() == Blocks.web;
-    }
-
     @SideOnly(Side.CLIENT)
     public boolean isFull3D() {
         return true;
     }
 
-    public int getItemEnchantability() {
-        return this.material.getEnchantability();
-    }
-
-    public String getToolMaterialName() {
-        //TODO return emerald name
-        return material.toString();
-    }
-
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
-        ItemStack mat = this.material.getRepairItemStack();
+    /**
+     * Return whether this item is repairable in an anvil.
+     */
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        ItemStack mat = new ItemStack(Items.emerald);
         if (mat != null && net.minecraftforge.oredict.OreDictionary.itemMatches(mat, repair, false)) return true;
         return super.getIsRepairable(toRepair, repair);
     }
 
-    public Multimap<String, AttributeModifier> getItemAttributeModifiers() {
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers()
+    {
         Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", (double) this.attackDamage, 0));
+        // make sure the original attack damage is removed
+        multimap.removeAll(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName());
+        // add our own
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", (double)this.attackDamage, 0));
         return multimap;
     }
 }
