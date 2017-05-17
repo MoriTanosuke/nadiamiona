@@ -6,6 +6,7 @@
         "north": "kalle:blocks/ParkettEiche",
         "east": "kalle:blocks/ParkettEiche",
         "south": "kalle:blocks/ParkettEiche",
-        "west": "kalle:blocks/ParkettEiche"
+        "west": "kalle:blocks/ParkettEiche",
+        "particle": "kalle:blocks/ParkettEiche"
     }
 }

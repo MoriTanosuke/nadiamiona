@@ -6,6 +6,7 @@
         "north": "kalle:blocks/ParkettBirke",
         "east": "kalle:blocks/ParkettBirke",
         "south": "kalle:blocks/ParkettBirke",
-        "west": "kalle:blocks/ParkettBirke"
+        "west": "kalle:blocks/ParkettBirke",
+        "particle": "kalle:blocks/ParkettBirke"
     }
 }

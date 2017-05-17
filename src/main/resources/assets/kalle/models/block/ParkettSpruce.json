@@ -6,6 +6,7 @@
         "north": "kalle:blocks/ParkettFichte",
         "east": "kalle:blocks/ParkettFichte",
         "south": "kalle:blocks/ParkettFichte",
-        "west": "kalle:blocks/ParkettFichte"
+        "west": "kalle:blocks/ParkettFichte",
+        "particle": "kalle:blocks/ParkettFichte"
     }
 }
