@@ -5,39 +5,50 @@ import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Set;
 
-public class ItemBattleAxeEmerald extends Item {
+public class ItemBattleAxeEmerald extends ItemSword {
 
     private static final ToolMaterial material = ToolMaterial.DIAMOND;
     /**
      * Effective blocks for this weapon/tool.
      */
-    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(new Block[]{Blocks.PLANKS, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.LIT_PUMPKIN, Blocks.MELON_BLOCK, Blocks.LADDER});
+    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(new Block[]{
+            // TODO add own custom blocks?
+            Blocks.PLANKS,
+            Blocks.BOOKSHELF,
+            Blocks.LOG,
+            Blocks.LOG2,
+            Blocks.CHEST,
+            Blocks.PUMPKIN,
+            Blocks.LIT_PUMPKIN,
+            Blocks.MELON_BLOCK,
+            Blocks.LADDER});
     /**
      * Tool efficiency on effective blocks. This axe is double efficient.
      */
     private static final float EFFICIENCY_ON_EFFECTIVE_BLOCKS = 2F;
     private final float attackDamage;
+    private final double attackSpeed;
 
     public ItemBattleAxeEmerald(CreativeTabs tab, String unlocalizedName) {
+        super(material);
         setCreativeTab(tab);
         setUnlocalizedName(unlocalizedName);
-        setMaxDamage(1561 * 4);
+        setMaxDamage((int) (material.getMaxUses() * 1.5));
         setMaxStackSize(1);
         attackDamage = 10F; // 10 damage == 5 hearts
+        attackSpeed = 2F;
     }
 
     public float getDamageVsEntity() {
@@ -46,29 +57,17 @@ public class ItemBattleAxeEmerald extends Item {
 
     // methods taken from ItemSword
 
-    public float getStrVsBlock(ItemStack stack, Block state) {
-        if (state == Blocks.WEB) {
+    public float getStrVsBlock(ItemStack stack, IBlockState state) {
+        Block block = state.getBlock();
+
+        if (block == Blocks.WEB)
+        {
             return 15.0F;
-        } else {
-            return EFFECTIVE_ON.contains(state) ? EFFICIENCY_ON_EFFECTIVE_BLOCKS : 1.0F;
         }
-    }
-
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        stack.damageItem(1, attacker);
-        return true;
-    }
-
-    public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving) {
-        if ((double) state.getBlockHardness(worldIn, pos) != 0.0D) {
-            stack.damageItem(2, entityLiving);
+        else
+        {
+            return EFFECTIVE_ON.contains(block) ? EFFICIENCY_ON_EFFECTIVE_BLOCKS : 1.0F;
         }
-
-        return true;
-    }
-
-    public boolean canHarvestBlock(IBlockState blockIn) {
-        return blockIn.getBlock() == Blocks.WEB;
     }
 
     @SideOnly(Side.CLIENT)
@@ -76,17 +75,12 @@ public class ItemBattleAxeEmerald extends Item {
         return true;
     }
 
-    public int getItemEnchantability() {
-        return this.material.getEnchantability();
-    }
-
-    public String getToolMaterialName() {
-        //TODO return emerald name
-        return material.toString();
-    }
-
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
-        ItemStack mat = this.material.getRepairItemStack();
+    /**
+     * Return whether this item is repairable in an anvil.
+     */
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        ItemStack mat = new ItemStack(Items.EMERALD);
         if (mat != null && net.minecraftforge.oredict.OreDictionary.itemMatches(mat, repair, false)) return true;
         return super.getIsRepairable(toRepair, repair);
     }
@@ -95,8 +89,12 @@ public class ItemBattleAxeEmerald extends Item {
         Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
+            // remove old values
+            multimap.removeAll(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName());
+            multimap.removeAll(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName());
+            // add own values
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", this.attackSpeed, 0));
         }
 
         return multimap;
