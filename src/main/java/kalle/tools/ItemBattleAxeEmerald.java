@@ -4,7 +4,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Blocks;
@@ -39,16 +38,13 @@ public class ItemBattleAxeEmerald extends ItemSword {
      */
     private static final float EFFICIENCY_ON_EFFECTIVE_BLOCKS = 2F;
     private final float attackDamage;
-    private final double attackSpeed;
 
-    public ItemBattleAxeEmerald(CreativeTabs tab, String unlocalizedName) {
+    public ItemBattleAxeEmerald() {
         super(material);
-        setCreativeTab(tab);
-        setUnlocalizedName(unlocalizedName);
+        setUnlocalizedName("EmeraldBattleAxe");
         setMaxDamage((int) (material.getMaxUses() * 1.5));
         setMaxStackSize(1);
         attackDamage = 10F; // 10 damage == 5 hearts
-        attackSpeed = 2F;
     }
 
     public float getDamageVsEntity() {
@@ -91,10 +87,8 @@ public class ItemBattleAxeEmerald extends ItemSword {
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
             // remove old values
             multimap.removeAll(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName());
-            multimap.removeAll(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName());
             // add own values
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", this.attackSpeed, 0));
         }
 
         return multimap;

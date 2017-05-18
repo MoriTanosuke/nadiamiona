@@ -1,13 +1,12 @@
 package kalle.tools;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 
 public class ItemPickaxeEmerald extends ItemPickaxe {
 
-  public ItemPickaxeEmerald(String unlocalizedName) {
+  public ItemPickaxeEmerald() {
     super(ToolMaterial.DIAMOND);
-    setUnlocalizedName(unlocalizedName);
+    setUnlocalizedName("EmeraldPickaxe");
     // double diamond durability
     setMaxDamage(1561 * 2);
     // TODO need to set efficiencyOnProperMaterial?

@@ -1,9 +1,6 @@
 package kalle;
 
-import org.apache.logging.log4j.Logger;
-
 import kalle.proxies.BasisCommonProxy;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -15,8 +12,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 @Mod(modid = "kalle", name = "Nadiamiona", version = "0.0.3", updateJSON = "https://raw.githubusercontent.com/MoriTanosuke/nadiamiona/master/update.json")
 public class Basis {
   public static final String MOD_PREFIX = "kalle";
-
-  private static final Logger LOG = FMLLog.getLogger();
 
   @Instance(MOD_PREFIX)
   public static Basis instance;

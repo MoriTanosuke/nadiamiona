@@ -2,7 +2,7 @@ package kalle.proxies;
 
 import kalle.Basis;
 import kalle.foods.ItemDrink;
-import kalle.tools.*;
+import kalle.tools.Tools;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,29 +22,16 @@ public class BasisCommonProxy {
         LOG.info("Pre-Initializing common proxy...");
         // TODO what to do on both sides?
 
-        LOG.debug("Creating objects...");
-        // initialize EmeraldPickaxe first, to use as creative tab icon
-        final ItemPickaxeEmerald emeraldPickaxe = new ItemPickaxeEmerald("EmeraldPickaxe");
-        GameRegistry.addRecipe(new ItemStack(emeraldPickaxe), "###", "0*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
-        registerItem(emeraldPickaxe, "EmeraldPickaxe");
-
-        final CreativeTabs tabKalle = new CreativeTabs("tabKalle") {
-            @Override
-            public ItemStack getIconItemStack() {
-                return new ItemStack(emeraldPickaxe, 1, 0);
-            }
-
-            @Override
-            public Item getTabIconItem() {
-                return emeraldPickaxe;
-            }
-        };
-        emeraldPickaxe.setCreativeTab(tabKalle);
-
         LOG.debug("Registering objects...");
-        registerFoods(tabKalle);
-        registerUtilities(tabKalle);
-        registerTools(tabKalle);
+        registerFoods(Tabs.tab);
+        registerUtilities(Tabs.tab);
+        registerTools();
+
+        LOG.debug("Registering all tools in creative tab...");
+        // register in creative tab
+        for (Item tool : Tools.all()) {
+            tool.setCreativeTab(Tabs.tab);
+        }
 
         LOG.debug("Adding crafting recipes...");
         initCraftingRecipes();
@@ -52,22 +39,16 @@ public class BasisCommonProxy {
         LOG.info("All done.");
     }
 
-    ;
-
     public void load() {
         // TODO what to do on both sides?
     }
-
-    ;
 
     public void postInit() {
         // TODO what to do on both sides?
     }
 
-    ;
-
-    private void registerUtilities(final CreativeTabs tabKalle) {
-        final Item ketten_glieder = new Item().setUnlocalizedName("Kettenglieder").setCreativeTab(tabKalle);
+    private void registerUtilities(final CreativeTabs tab) {
+        final Item ketten_glieder = new Item().setUnlocalizedName("Kettenglieder").setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(ketten_glieder, 6), "0#0", "#0#", "0#0", '#', Items.IRON_INGOT);
         GameRegistry.addRecipe(new ItemStack(Items.CHAINMAIL_BOOTS), "000", "#0#", "#0#", '#', ketten_glieder);
         GameRegistry.addRecipe(new ItemStack(Items.CHAINMAIL_HELMET), "###", "#0#", "000", '#', ketten_glieder);
@@ -122,96 +103,93 @@ public class BasisCommonProxy {
         }
     }
 
-    private void registerFoods(final CreativeTabs tabKalle) {
+    private void registerFoods(final CreativeTabs tab) {
         // Food
         final Item breadslice = new ItemFood(1, 0.1F, false).setUnlocalizedName("Breadslice")
-                .setCreativeTab(tabKalle);
+                .setCreativeTab(tab);
         GameRegistry.addShapelessRecipe(new ItemStack(breadslice, 4), new ItemStack(Items.BREAD));
         registerItem(breadslice, "Breadslice");
         // toast
         final Item toast = new ItemFood(1, 0.2F, false).setUnlocalizedName("Toast")
-                .setCreativeTab(tabKalle);
+                .setCreativeTab(tab);
         GameRegistry.addSmelting(breadslice, new ItemStack(toast), 0.25f);
         registerItem(toast, "Toast");
         // TODO replace with variants?
         final Item sandwich_chicken = new ItemFood(8, 0.66F, false).setUnlocalizedName("Chickensandwich")
-                .setCreativeTab(tabKalle);
+                .setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(sandwich_chicken), "#", "*", "#", '#', toast, '*',
                 Items.COOKED_CHICKEN);
         registerItem(sandwich_chicken, "Chickensandwich");
         final Item sandwich_fish = new ItemFood(7, 0.66F, false).setUnlocalizedName("Fischsandwich")
-                .setCreativeTab(tabKalle);
+                .setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(sandwich_fish), "#", "*", "#", '#', toast, '*', new ItemStack(Items.COOKED_FISH, 1, 0));
         registerItem(sandwich_fish, "Fischsandwich");
         final Item sandwich_salmon = new ItemFood(7, 0.66F, false).setUnlocalizedName("Lachssandwich")
-                .setCreativeTab(tabKalle);
+                .setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(sandwich_salmon), "#", "*", "#", '#', toast, '*', new ItemStack(Items.COOKED_FISH, 1, 1));
         registerItem(sandwich_salmon, "Lachssandwich");
         final Item sandwich_bacon = new ItemFood(10, 0.75F, false).setUnlocalizedName("Schinkensandwich")
-                .setCreativeTab(tabKalle);
+                .setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(sandwich_bacon), "#", "*", "#", '#', toast, '*',
                 Items.COOKED_PORKCHOP);
         registerItem(sandwich_bacon, "Schinkensandwich");
         final Item sandwich_beef = new ItemFood(10, 0.75F, false).setUnlocalizedName("Roastbeefsandwich")
-                .setCreativeTab(tabKalle);
+                .setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(sandwich_beef), "#", "*", "#", '#', toast, '*', Items.COOKED_BEEF);
         registerItem(sandwich_beef, "Roastbeefsandwich");
 
-        final Item cookedEgg = new ItemFood(2, 0.1F, false).setUnlocalizedName("CookedEgg").setCreativeTab(tabKalle);
+        final Item cookedEgg = new ItemFood(2, 0.1F, false).setUnlocalizedName("CookedEgg").setCreativeTab(tab);
         GameRegistry.addSmelting(Items.EGG, new ItemStack(cookedEgg), 0.25f);
         registerItem(cookedEgg, "CookedEgg");
 
-        final Item eiertoast = new ItemFood(5, 0.5F, false).setUnlocalizedName("Eiertoast").setCreativeTab(tabKalle);
+        final Item eiertoast = new ItemFood(5, 0.5F, false).setUnlocalizedName("Eiertoast").setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(eiertoast), "*", "#", '#', toast, '*', cookedEgg);
         registerItem(eiertoast, "Eiertoast");
 
         // Drinks
-        final Item milch = new Item().setUnlocalizedName("Milchflasche").setCreativeTab(tabKalle);
+        final Item milch = new Item().setUnlocalizedName("Milchflasche").setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(milch, 3), "0#0", "***", '#', Items.MILK_BUCKET, '*', Items.GLASS_BOTTLE);
         registerItem(milch, "Milchflasche");
 
-        final Item bier = new ItemDrink(5, 0.5F, false).setUnlocalizedName("Bier").setCreativeTab(tabKalle);
+        final Item bier = new ItemDrink(5, 0.5F, false).setUnlocalizedName("Bier").setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(bier), "A", "B", 'A', Items.WHEAT_SEEDS, 'B', Items.POTIONITEM);
         GameRegistry.addRecipe(new ItemStack(bier, 3), "0A0", "BBB", "CCC", 'A', Items.WATER_BUCKET, 'B', Items.WHEAT_SEEDS,
                 'C', Items.GLASS_BOTTLE);
         registerItem(bier, "Bier");
-        final Item kakao = new ItemDrink(5, 0.5F, false).setUnlocalizedName("Kakao").setCreativeTab(tabKalle);
+        final Item kakao = new ItemDrink(5, 0.5F, false).setUnlocalizedName("Kakao").setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(kakao), "A", "B", "C", 'A', new ItemStack(Items.DYE, 1, 3), 'B', Items.SUGAR,
                 'C', milch);
         GameRegistry.addRecipe(new ItemStack(kakao, 3), "DAD", "BBB", "CCC", 'A', Items.MILK_BUCKET, 'B',
                 new ItemStack(Items.DYE, 1, 3), 'C', Items.GLASS_BOTTLE, 'D', Items.SUGAR);
         registerItem(kakao, "Schokomilch");
-        final Item saft = new ItemDrink(5, 0.5F, false).setUnlocalizedName("Saft").setCreativeTab(tabKalle);
+        final Item saft = new ItemDrink(5, 0.5F, false).setUnlocalizedName("Saft").setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(saft), "A", "B", "C", 'A', Items.APPLE, 'B', Items.CARROT, 'C',
                 Items.GLASS_BOTTLE);
         GameRegistry.addRecipe(new ItemStack(saft, 3), "AAA", "BBB", "CCC", 'A', Items.APPLE, 'B', Items.CARROT, 'C',
                 Items.GLASS_BOTTLE);
         registerItem(saft, "Saft");
 
-        final Item schnaps = new ItemDrink(1, 0.1F, false).setUnlocalizedName("Schnaps").setCreativeTab(tabKalle);
+        final Item schnaps = new ItemDrink(1, 0.1F, false).setUnlocalizedName("Schnaps").setCreativeTab(tab);
         GameRegistry.addSmelting(Items.REEDS, new ItemStack(schnaps), 0.25f);
         registerItem(schnaps, "Schnaps");
-        final Item likoer = new ItemDrink(5, 0.3F, false).setUnlocalizedName("Eierlikoer").setCreativeTab(tabKalle);
+        final Item likoer = new ItemDrink(5, 0.3F, false).setUnlocalizedName("Eierlikoer").setCreativeTab(tab);
         GameRegistry.addRecipe(new ItemStack(likoer), "A", "B", "C", 'A', cookedEgg, 'B', schnaps, 'C', Items.GLASS_BOTTLE);
         registerItem(likoer, "Eierlikoer");
     }
 
-    private void registerTools(final CreativeTabs tabKalle) {
-        final Item emeraldAxe = new ItemAxeEmerald(tabKalle, "EmeraldAxe");
-        GameRegistry.addRecipe(new ItemStack(emeraldAxe), "##0", "#*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
-        registerItem(emeraldAxe, "EmeraldAxe");
-        final ItemBattleAxeEmerald emeraldBattleAxe = new ItemBattleAxeEmerald(tabKalle, "EmeraldBattleAxe");
-        GameRegistry.addRecipe(new ItemStack(emeraldBattleAxe), "###", "#*#", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
-        registerItem(emeraldBattleAxe, "EmeraldBattleAxe");
-        final Item emeraldSpade = new ItemSpadeEmerald(tabKalle, "EmeraldSpade");
-        GameRegistry.addRecipe(new ItemStack(emeraldSpade), "0#0", "0*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
-        registerItem(emeraldSpade, "EmeraldSpade");
-        final Item emeraldHoe = new ItemHoeEmerald(tabKalle, "EmeraldHoe");
-        GameRegistry.addRecipe(new ItemStack(emeraldHoe), "##0", "0*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
-        registerItem(emeraldHoe, "EmeraldHoe");
-        final Item emeraldSword = new ItemSwordEmerald(tabKalle, "EmeraldSword");
-        GameRegistry.addRecipe(new ItemStack(emeraldSword), "0#0", "0#0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
-        registerItem(emeraldSword, "EmeraldSword");
+    private void registerTools() {
+        GameRegistry.addRecipe(new ItemStack(Tools.EMERALD_PICKAXE), "###", "0*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
+        registerItem(Tools.EMERALD_PICKAXE, "EmeraldPickaxe");
+        GameRegistry.addRecipe(new ItemStack(Tools.EMERALD_AXE), "##0", "#*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
+        registerItem(Tools.EMERALD_AXE, "EmeraldAxe");
+        GameRegistry.addRecipe(new ItemStack(Tools.EMERALD_BATTLEAXE), "###", "#*#", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
+        registerItem(Tools.EMERALD_BATTLEAXE, "EmeraldBattleAxe");
+        GameRegistry.addRecipe(new ItemStack(Tools.EMERALD_SPADE), "0#0", "0*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
+        registerItem(Tools.EMERALD_SPADE, "EmeraldSpade");
+        GameRegistry.addRecipe(new ItemStack(Tools.EMERALD_HOE), "##0", "0*0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
+        registerItem(Tools.EMERALD_HOE, "EmeraldHoe");
+        GameRegistry.addRecipe(new ItemStack(Tools.EMERALD_SWORD), "0#0", "0#0", "0*0", '#', Items.EMERALD, '*', Items.DIAMOND);
+        registerItem(Tools.EMERALD_SWORD, "EmeraldSword");
     }
 
     // ----- Methoden -----
@@ -271,6 +249,7 @@ public class BasisCommonProxy {
         LOG.debug("Registering item " + itemName);
         // required in order for the renderer to know how to render your item.
         // Likely to change in the near future.
+        //TODO fix ModelResourceLocation for items
         final ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(Basis.MOD_PREFIX + ":" + itemName,
                 "inventory");
         final int DEFAULT_ITEM_SUBTYPE = 0;

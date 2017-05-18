@@ -1,14 +1,12 @@
 package kalle.tools;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSword;
 
 public class ItemSwordEmerald extends ItemSword {
 
-    public ItemSwordEmerald(CreativeTabs tab, String unlocalizedName) {
+    public ItemSwordEmerald() {
         super(ToolMaterial.DIAMOND);
-        setCreativeTab(tab);
-        setUnlocalizedName(unlocalizedName);
+        setUnlocalizedName("EmeraldSword");
         // double diamond durability
         setMaxDamage(1561 * 2);
     }

@@ -1,5 +1,5 @@
 {
-    "parent": "block/wall_n",
+    "parent": "block/wall_side",
     "textures": {
         "wall": "blocks/stone"
     }

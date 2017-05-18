@@ -1,6 +1,7 @@
 package kalle.events;
 
 import kalle.blocks.*;
+import kalle.proxies.Tabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
@@ -42,7 +43,7 @@ public class BlockRegistry {
 	public static void prepareBlocks(){
 
 		// TODO get own creative tab
-		CreativeTabs tab = CreativeTabs.BUILDING_BLOCKS;
+		CreativeTabs tab = Tabs.tab;
 
 		// try to create a block with custom shape
 		final Block customBlock = new Block(Material.WOOD) {
