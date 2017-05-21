@@ -4,12 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockWall;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class Wall extends BlockWall {
+public class Wall extends BlockWallBase {
 
-  public Wall(CreativeTabs tab, Block modelBlock, String unlocalizedName) {
-    super(modelBlock);
-    this.setCreativeTab(tab);
-    this.setUnlocalizedName(unlocalizedName);
-    this.setRegistryName(unlocalizedName);
+  public Wall(String name, Block modelBlock) {
+    super(name, modelBlock);
   }
 }

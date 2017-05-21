@@ -1,6 +1,6 @@
 package kalle.proxies;
 
-import kalle.tools.Tools;
+import kalle.items.Items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -11,7 +11,7 @@ public class Tabs {
         tab = new CreativeTabs("tabKalle") {
             @Override
             public Item getTabIconItem() {
-                return Tools.EMERALD_PICKAXE;
+                return Items.EMERALD_PICKAXE;
             }
         };
     }
