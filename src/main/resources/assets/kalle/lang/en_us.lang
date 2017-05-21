@@ -1,0 +1,107 @@
+itemGroup.tabKalle=Kalles Mod
+
+# tools
+item.kalle:emeraldpickaxe.name=Emerald Pickaxe
+item.kalle:emeraldaxe.name=Emerald Axe
+item.kalle:emeraldspade.name=Emerald Spade
+item.kalle:emeraldhoe.name=Emerald Hoe
+item.kalle:emeraldsword.name=Emerald Sword
+item.kalle:emeraldbattleaxe.name=Emerald Battle Axe
+
+# foods
+item.kalle:breadslice.name=Breadslice
+item.kalle:toast.name=Toast
+item.kalle:kakao.name=Cocoa
+item.kalle:schnaps.name=Shot
+item.kalle:eierlikoer.name=Eggnog
+item.kalle:milchflasche.name=Bottle of milk
+item.kalle:fischsandwich.name=Fish sandwich
+item.kalle:lachssandwich.name=Salmon sandwich
+item.kalle:roastbeefsandwich.name=Roastbeef sandwich
+item.kalle:bier.name=Beer
+item.kalle:saft.name=Multivitamin juice
+item.kalle:chickensandwich.name=Chicken sandwich
+item.kalle:schinkensandwich.name=Bacon sandwich
+item.kalle:cookedegg.name=Cooked egg
+item.kalle:eiertoast.name=Egg sandwich
+
+# blocks
+tile.kalle:kiste.name=Crate
+tile.kalle:apfelkiste.name=Crate of apples
+tile.kalle:diamantkiste.name=Crate of diamonds
+tile.kalle:edelsteinkiste.name=Crate of emeralds
+tile.kalle:eisenkiste.name=Crate of iron
+tile.kalle:fischkiste.name=Crate of fish
+tile.kalle:lachskiste.name=Crate of salmon
+tile.kalle:goldkiste.name=Crate of gold
+tile.kalle:karottenkiste.name=Crate of carrots
+tile.kalle:kartoffelkiste.name=Crate of potatoes
+tile.kalle:keksekiste.name=Crate of cookies
+tile.kalle:kohlekiste.name=Crate of coal
+tile.kalle:lapiskiste.name=Crate of lapislazuli
+
+tile.kalle:theke.name=Bar
+tile.kalle:sprucetheke.name=Spruce Bar
+tile.kalle:acaciatheke.name=Acacia Bar
+tile.kalle:birchtheke.name=Birch Bar
+tile.kalle:jungletheke.name=Jungle Bar
+tile.kalle:darkoaktheke.name=Dark Oak Bar
+
+tile.kalle:parketthell.name=Bright parquet floor
+tile.kalle:parkettdunkel.name=Dark parquet floor
+tile.kalle:parkettakazie.name=Acacia parquet floor
+tile.kalle:parkettbirke.name=Birch parquet floor
+tile.kalle:parkettdschungel.name=Jungle parquet floor
+tile.kalle:parkettdarkoak.name=Dark Oak parquet floor
+tile.kalle:parkettoak.name=Oak parquet floor
+tile.kalle:parkettspruce.name=Spruce parquet floor
+
+tile.kalle:booksbirch.name=Birch books
+item.kalle:booksbirch.name=Birch books
+tile.kalle:booksspruce.name=Spruce books
+item.kalle:booksspruce.name=Spruce books
+tile.kalle:booksjungle.name=Jungle books
+item.kalle:booksjungle.name=Jungle books
+tile.kalle:booksdarkoak.name=Dark Oak books
+item.kalle:booksdarkoak.name=Dark Oak books
+tile.kalle:booksacacia.name=Acacia books
+item.kalle:booksacacia.name=Acacia books
+
+tile.kalle:leave_wall.name=Hedge
+item.kalle:leave_wall.name=Hedge
+tile.kalle:stone_wall.name=Stone Wall
+item.kalle:stone_wall.name=Stone Wall
+tile.kalle:brick_wall.name=Brick Wall
+item.kalle:brick_wall.name=Brick Wall
+tile.kalle:stonebrick_wall.name=Stone Brick Wall
+item.kalle:stonebrick_wall.name=Stone Brick Wall
+tile.kalle:sandstone_wall.name=Sandstone Wall
+item.kalle:sandstone_wall.name=Sandstone Wall
+tile.kalle:red_sandstone_wall.name=Red Sandstone Wall
+item.kalle:red_sandstone_wall.name=Red Sandstone Wall
+
+tile.kalle:wool_wall.name=Wool Wall
+item.kalle:wool_wall.name=Wool Wall
+tile.kalle:wool_stairs_0.name=White Wool Stairs
+tile.kalle:wool_stairs_1.name=Orange Wool Stairs
+tile.kalle:wool_stairs_2.name=Magenta Wool Stairs
+tile.kalle:wool_stairs_3.name=Light Bue Wool Stairs
+tile.kalle:wool_stairs_4.name=Yellow Wool Stairs
+tile.kalle:wool_stairs_5.name=Lime Wool Stairs
+tile.kalle:wool_stairs_6.name=Pink Wool Stairs
+tile.kalle:wool_stairs_7.name=Gray Wool Stairs
+tile.kalle:wool_stairs_8.name=Light Gray Wool Stairs
+tile.kalle:wool_stairs_9.name=Cyan Wool Stairs
+tile.kalle:wool_stairs_10.name=Purple Wool Stairs
+tile.kalle:wool_stairs_11.name=Blue Wool Stairs
+tile.kalle:wool_stairs_12.name=Brown Wool Stairs
+tile.kalle:wool_stairs_13.name=Green Wool Stairs
+tile.kalle:wool_stairs_14.name=Red Wool Stairs
+tile.kalle:wool_stairs_15.name=Black Wool Stairs
+
+# utilities
+item.kalle:kettenglieder.name=Chains
+
+# small custom block
+item.kalle:smallblock.name=Small block
+tile.kalle:smallblock.name=Small block

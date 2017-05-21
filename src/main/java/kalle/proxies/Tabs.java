@@ -2,7 +2,7 @@ package kalle.proxies;
 
 import kalle.items.Items;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class Tabs {
     public static CreativeTabs tab;
@@ -10,8 +10,8 @@ public class Tabs {
     static {
         tab = new CreativeTabs("tabKalle") {
             @Override
-            public Item getTabIconItem() {
-                return Items.EMERALD_PICKAXE;
+            public ItemStack getTabIconItem() {
+                return new ItemStack(Items.EMERALD_PICKAXE);
             }
         };
     }

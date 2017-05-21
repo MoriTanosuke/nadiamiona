@@ -4,7 +4,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -28,7 +27,7 @@ public class ItemDrink extends ItemFoodBase {
 
     if(entityLiving instanceof EntityPlayer) {
       if (!((EntityPlayer) entityLiving).capabilities.isCreativeMode) {
-        if (stack.stackSize <= 0) {
+        if (stack.getMaxStackSize() <= 0) {
           return new ItemStack(Items.GLASS_BOTTLE);
         }
 

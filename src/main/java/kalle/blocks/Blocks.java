@@ -46,6 +46,23 @@ public class Blocks {
     public static final Block WOOL_WALL = new WoolWall();
     public static final Block LEAVE_WALL = new LeaveWall();
 
+    public static final Block WOOL_STAIRS_WHITE = new WoolStairs("wool_stairs_0", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_ORANGE = new WoolStairs("wool_stairs_1", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_MAGENTA = new WoolStairs("wool_stairs_2", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_LIGHT_BLUE = new WoolStairs("wool_stairs_3", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_YELLOW = new WoolStairs("wool_stairs_4", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_LIME = new WoolStairs("wool_stairs_5", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_PINK = new WoolStairs("wool_stairs_6", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_GRAY = new WoolStairs("wool_stairs_7", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_LIGHT_GRAY = new WoolStairs("wool_stairs_8", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_CYAN = new WoolStairs("wool_stairs_9", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_PURPLE = new WoolStairs("wool_stairs_10", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_BLUE = new WoolStairs("wool_stairs_11", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_BROWN = new WoolStairs("wool_stairs_12", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_GREEN = new WoolStairs("wool_stairs_13", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_RED = new WoolStairs("wool_stairs_14", net.minecraft.init.Blocks.WOOL.getDefaultState());
+    public static final Block WOOL_STAIRS_BLACK = new WoolStairs("wool_stairs_15", net.minecraft.init.Blocks.WOOL.getDefaultState());
+
     public static Block[] all = new Block[]{
             BAR,
             SPRUCE_BAR,
@@ -83,6 +100,22 @@ public class Blocks {
             SANDSTONE_WALL,
             RED_SANDSTONE_WALL,
             WOOL_WALL,
-            LEAVE_WALL
+            LEAVE_WALL,
+            WOOL_STAIRS_WHITE,
+            WOOL_STAIRS_ORANGE,
+            WOOL_STAIRS_MAGENTA,
+            WOOL_STAIRS_LIGHT_BLUE,
+            WOOL_STAIRS_YELLOW,
+            WOOL_STAIRS_LIME,
+            WOOL_STAIRS_PINK,
+            WOOL_STAIRS_GRAY,
+            WOOL_STAIRS_LIGHT_GRAY,
+            WOOL_STAIRS_CYAN,
+            WOOL_STAIRS_PURPLE,
+            WOOL_STAIRS_BLUE,
+            WOOL_STAIRS_BROWN,
+            WOOL_STAIRS_GREEN,
+            WOOL_STAIRS_RED,
+            WOOL_STAIRS_BLACK
     };
 }

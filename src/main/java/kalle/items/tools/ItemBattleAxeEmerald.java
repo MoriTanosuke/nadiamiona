@@ -91,9 +91,9 @@ public class ItemBattleAxeEmerald extends ItemSword {
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
             // remove old values
-            multimap.removeAll(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName());
+            multimap.removeAll(SharedMonsterAttributes.ATTACK_DAMAGE.getName());
             // add own values
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) this.attackDamage, 0));
         }
 
         return multimap;

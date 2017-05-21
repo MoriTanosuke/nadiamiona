@@ -35,12 +35,12 @@ def buildTime() {
     return df.format(new Date())
 }
 
-version = "1.10.2-${buildTime()}"
+version = "1.11.2-${buildTime()}"
 group = "nadiamiona" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nadiamiona"
 
 minecraft {
-    version = "1.10.2-12.18.3.2297"
+    version = "1.11.2-13.20.0.2300"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -49,7 +49,7 @@ minecraft {
     // Use non-default mappings at your own risk. they may not allways work.
     // simply re-run your setup task after changing the mappings to update your workspace.
     //mappings = "snapshot_20161111"
-    mappings = "snapshot_20161111"
+    mappings = "snapshot_20161220"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 

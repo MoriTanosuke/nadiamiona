@@ -81,11 +81,11 @@ public class BlockRegistryEventSubscriber {
     @SubscribeEvent
     public static void registerBlockRenderer(ModelRegistryEvent event) {
         for (Block block : Blocks.all) {
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "normal"));
         }
 
         for (Item item : Items.all) {
-            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
         }
     }
 }

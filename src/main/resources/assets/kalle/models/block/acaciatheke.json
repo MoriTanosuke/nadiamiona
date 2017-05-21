@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/theke_acacia",
+        "up": "kalle:blocks/theke_acacia_top",
+        "north": "kalle:blocks/theke_acacia",
+        "east": "kalle:blocks/theke_acacia",
+        "south": "kalle:blocks/theke_acacia",
+        "west": "kalle:blocks/theke_acacia",
+        "particle": "kalle:blocks/theke_acacia"
+    }
+}

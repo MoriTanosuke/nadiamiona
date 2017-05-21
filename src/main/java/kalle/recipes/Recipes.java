@@ -87,6 +87,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Blocks.LEAVE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.LEAVES);
 
         for (int color = 0; color <= 15; color++) {
+            //TODO register all variants
             final Block woolStairs = new WoolStairs("wool_stairs_" + color, net.minecraft.init.Blocks.WOOL.getDefaultState());
             GameRegistry.addRecipe(new ItemStack(woolStairs, 4), "A##", "AA#", "AAA", 'A', new ItemStack(net.minecraft.init.Blocks.WOOL, 1, color));
         }
