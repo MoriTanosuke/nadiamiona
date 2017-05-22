@@ -77,6 +77,7 @@ public class Blocks {
     public static final Block RED_SANDSTONE_WALL = new RedSandstoneWall();
     public static final Block WOOL_WALL = new WoolWall();
     public static final Block LEAVE_WALL = new LeaveWall();
+    public static final Block SMALL_BLOCK = new SmallBlock();
 
     public static final Block WOOL_STAIRS_WHITE = new WoolStairs("wool_stairs_0", net.minecraft.init.Blocks.WOOL.getDefaultState());
     public static final Block WOOL_STAIRS_ORANGE = new WoolStairs("wool_stairs_1", net.minecraft.init.Blocks.WOOL.getDefaultState());
@@ -133,6 +134,7 @@ public class Blocks {
             RED_SANDSTONE_WALL,
             WOOL_WALL,
             LEAVE_WALL,
+            SMALL_BLOCK,
             WOOL_STAIRS_WHITE,
             WOOL_STAIRS_ORANGE,
             WOOL_STAIRS_MAGENTA,
