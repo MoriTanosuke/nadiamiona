@@ -141,10 +141,6 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 3), "#0#", "000", "#0#", '#',
                 new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 3));
 
-        // mossy cobblestone
-        GameRegistry.addRecipe(new ItemStack(net.minecraft.init.Blocks.MOSSY_COBBLESTONE, 1, 3), "000", "0AB", "000", 'A', net.minecraft.init.Blocks.COBBLESTONE, '#',
-                Items.WHEAT_SEEDS);
-
         // chiseled stone bricks
         GameRegistry.addRecipe(new ItemStack(net.minecraft.init.Blocks.STONEBRICK, 1, 3), "+++", "+#+", "+++", '+', Items.FLINT, '#',
                 net.minecraft.init.Blocks.STONEBRICK);
