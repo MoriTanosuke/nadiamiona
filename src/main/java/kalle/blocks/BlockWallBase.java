@@ -107,7 +107,7 @@ public class BlockWallBase extends BlockBase {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         Block block = iblockstate.getBlock();
         Material material = iblockstate.getMaterial();
-        return block == net.minecraft.init.Blocks.BARRIER ? false : (block != this && !(block instanceof BlockFenceGate) ? (material.isOpaque() && iblockstate.isFullCube() ? material != Material.GOURD : false) : true);
+        return block == net.minecraft.init.Blocks.BARRIER ? false : (block != this && !(block instanceof BlockFenceGate) ? (material.isOpaque() && iblockstate.isFullCube() ? material != Material.GOURD : (block instanceof BlockWallBase)) : true);
     }
 
     /**
