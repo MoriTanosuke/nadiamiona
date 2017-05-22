@@ -1,42 +1,10 @@
 package kalle.blocks;
 
-import kalle.blocks.bars.AcaciaBar;
-import kalle.blocks.bars.BirchBar;
-import kalle.blocks.bars.DarkOakBar;
-import kalle.blocks.bars.JungleBar;
-import kalle.blocks.bars.OakBar;
-import kalle.blocks.bars.SpruceBar;
-import kalle.blocks.bookshelves.AcaciaBookShelves;
-import kalle.blocks.bookshelves.BirchBookShelves;
-import kalle.blocks.bookshelves.DarkOakBookShelves;
-import kalle.blocks.bookshelves.JungleBookShelves;
-import kalle.blocks.bookshelves.SpruceBookShelves;
-import kalle.blocks.crates.AppleCrate;
-import kalle.blocks.crates.CarrotCrate;
-import kalle.blocks.crates.CoalCrate;
-import kalle.blocks.crates.CookieCrate;
-import kalle.blocks.crates.DiamondCrate;
-import kalle.blocks.crates.EmeraldCrate;
-import kalle.blocks.crates.FishCrate;
-import kalle.blocks.crates.GoldCrate;
-import kalle.blocks.crates.IronCrate;
-import kalle.blocks.crates.LapislazuliCrate;
-import kalle.blocks.crates.OakCrate;
-import kalle.blocks.crates.PotatoCrate;
-import kalle.blocks.crates.SalmonCrate;
-import kalle.blocks.floors.AcaciaParquet;
-import kalle.blocks.floors.BirchParquet;
-import kalle.blocks.floors.DarkOakParquet;
-import kalle.blocks.floors.JungleParquet;
-import kalle.blocks.floors.OakParquet;
-import kalle.blocks.floors.SpruceParquet;
-import kalle.blocks.walls.BrickWall;
-import kalle.blocks.walls.LeaveWall;
-import kalle.blocks.walls.RedSandstoneWall;
-import kalle.blocks.walls.SandstoneWall;
-import kalle.blocks.walls.StoneBrickWall;
-import kalle.blocks.walls.StoneWall;
-import kalle.blocks.walls.WoolWall;
+import kalle.blocks.bars.*;
+import kalle.blocks.bookshelves.*;
+import kalle.blocks.crates.*;
+import kalle.blocks.floors.*;
+import kalle.blocks.walls.*;
 import net.minecraft.block.Block;
 
 public class Blocks {
@@ -78,23 +46,6 @@ public class Blocks {
     public static final Block WOOL_WALL = new WoolWall();
     public static final Block LEAVE_WALL = new LeaveWall();
     public static final Block SMALL_BLOCK = new SmallBlock();
-
-    public static final Block WOOL_STAIRS_WHITE = new WoolStairs("wool_stairs_0", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_ORANGE = new WoolStairs("wool_stairs_1", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_MAGENTA = new WoolStairs("wool_stairs_2", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_LIGHT_BLUE = new WoolStairs("wool_stairs_3", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_YELLOW = new WoolStairs("wool_stairs_4", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_LIME = new WoolStairs("wool_stairs_5", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_PINK = new WoolStairs("wool_stairs_6", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_GRAY = new WoolStairs("wool_stairs_7", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_LIGHT_GRAY = new WoolStairs("wool_stairs_8", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_CYAN = new WoolStairs("wool_stairs_9", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_PURPLE = new WoolStairs("wool_stairs_10", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_BLUE = new WoolStairs("wool_stairs_11", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_BROWN = new WoolStairs("wool_stairs_12", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_GREEN = new WoolStairs("wool_stairs_13", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_RED = new WoolStairs("wool_stairs_14", net.minecraft.init.Blocks.WOOL.getDefaultState());
-    public static final Block WOOL_STAIRS_BLACK = new WoolStairs("wool_stairs_15", net.minecraft.init.Blocks.WOOL.getDefaultState());
 
     public static final Block WOOL_STAIRS_WHITE = new WoolStairs("wool_stairs_0", net.minecraft.init.Blocks.WOOL.getDefaultState());
     public static final Block WOOL_STAIRS_ORANGE = new WoolStairs("wool_stairs_1", net.minecraft.init.Blocks.WOOL.getDefaultState());

@@ -1,5 +1,6 @@
 package kalle.proxies;
 
+import kalle.blocks.Blocks;
 import kalle.blocks.walls.LeaveWall;
 import kalle.recipes.Recipes;
 import net.minecraft.block.Block;

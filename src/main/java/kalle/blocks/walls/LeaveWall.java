@@ -1,7 +1,5 @@
 package kalle.blocks.walls;
 
-import java.util.List;
-
 import kalle.blocks.BlockWallBase;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -13,6 +11,8 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import scala.actors.threadpool.Arrays;
+
+import java.util.List;
 
 public class LeaveWall extends BlockWallBase implements IShearable {
 
@@ -48,8 +48,7 @@ public class LeaveWall extends BlockWallBase implements IShearable {
   }
 
   @Override
-  public boolean isVisuallyOpaque()
-  {
+  public boolean isFullyOpaque(IBlockState state) {
     return false;
   }
 
