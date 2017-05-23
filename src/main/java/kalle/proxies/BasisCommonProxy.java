@@ -8,11 +8,8 @@ public class BasisCommonProxy {
     static final Logger LOG = FMLLog.getLogger();
 
     public void preInit() {
-        LOG.debug("Adding crafting recipes...");
-        //TODO is there another event to register recipes?
+        // register all recipes in pre-init phase
         Recipes.register();
-
-        LOG.info("All done.");
     }
 
     public void init() {

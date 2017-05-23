@@ -26,14 +26,14 @@ public class BasisClientProxy extends BasisCommonProxy {
     @Override
     public void preInit() {
         super.preInit();
-        LOG.info("Pre-Initializing client proxy...");
     }
 
     @Override
     public void init() {
         super.init();
-        LOG.info("Loading client proxy...");
+        LOG.info("Registering color handlers...");
         registerColors(Blocks.all);
+        LOG.info("Color handlers registered.");
     }
 
     @SideOnly(Side.CLIENT)
@@ -73,7 +73,6 @@ public class BasisClientProxy extends BasisCommonProxy {
     @Override
     public void postInit() {
         super.postInit();
-        LOG.info("Post-Initializing client proxy...");
     }
 
 }
