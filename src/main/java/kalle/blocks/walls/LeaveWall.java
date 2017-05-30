@@ -1,6 +1,7 @@
 package kalle.blocks.walls;
 
 import kalle.blocks.BlockWallBase;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -17,22 +18,25 @@ import java.util.List;
 
 public class LeaveWall extends BlockWallBase implements IShearable {
 
-    private boolean leavesFancy;
+    private boolean leavesFancy = true;
 
     public LeaveWall() {
         super("leave_wall", net.minecraft.init.Blocks.LEAVES2);
         setHardness(0.2F);
         setLightOpacity(1);
+        setSoundType(SoundType.PLANT);
     }
 
-    @SideOnly(Side.CLIENT)
-    public void setGraphicsLevel(boolean fancy) {
-        this.leavesFancy = fancy;
-    }
-
+    @Override
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer() {
         return this.leavesFancy ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return !this.leavesFancy;
     }
 
     @Override
@@ -50,6 +54,7 @@ public class LeaveWall extends BlockWallBase implements IShearable {
         return true;
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         return !this.leavesFancy && blockAccess.getBlockState(pos.offset(side)).getBlock() == this ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
