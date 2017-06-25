@@ -13,6 +13,6 @@ public class ItemSwordEmerald extends ItemSword {
         this.setUnlocalizedName(this.getRegistryName().toString());
         setCreativeTab(Tabs.tab);
         // double diamond durability
-        setMaxDamage(1561 * 2);
+        setMaxDamage(ToolMaterial.DIAMOND.getMaxUses() * 2);
     }
 }

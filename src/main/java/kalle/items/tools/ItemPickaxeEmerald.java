@@ -13,8 +13,6 @@ public class ItemPickaxeEmerald extends ItemPickaxe {
     this.setUnlocalizedName(this.getRegistryName().toString());
     setCreativeTab(Tabs.tab);
     // double diamond durability
-    setMaxDamage(1561 * 2);
-    // TODO need to set efficiencyOnProperMaterial?
-    efficiencyOnProperMaterial = 4.0f;
+    setMaxDamage(ToolMaterial.DIAMOND.getMaxUses() * 2);
   }
 }

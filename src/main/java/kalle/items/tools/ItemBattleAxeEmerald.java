@@ -47,7 +47,8 @@ public class ItemBattleAxeEmerald extends ItemSword {
         this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "EmeraldBattleAxe"));
         this.setUnlocalizedName(this.getRegistryName().toString());
         setCreativeTab(Tabs.tab);
-        setMaxDamage((int) (material.getMaxUses() * 1.5));
+        // double diamond durabilty
+        setMaxDamage(ToolMaterial.DIAMOND.getMaxUses() * 2);
         setMaxStackSize(1);
         attackDamage = 10F; // 10 damage == 5 hearts
     }
