@@ -1,6 +1,7 @@
 itemGroup.tabKalle=Kalles Mod
 
 # tools
+item.kalle:excavator.name=Excavator
 item.kalle:emeraldpickaxe.name=Emerald Pickaxe
 item.kalle:emeraldaxe.name=Emerald Axe
 item.kalle:emeraldspade.name=Emerald Spade

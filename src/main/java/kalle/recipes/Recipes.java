@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class Recipes {
     public static void register() {
         // --- tool recipes ---------------------------------------------------------
+        GameRegistry.addShapelessRecipe(new ItemStack(kalle.items.Items.EXCAVATOR), kalle.items.Items.EMERALD_PICKAXE, kalle.items.Items.EMERALD_SPADE);
         GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_PICKAXE), "###", "0*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
         GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_AXE), "##0", "#*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
         GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_BATTLEAXE), "###", "#*#", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
