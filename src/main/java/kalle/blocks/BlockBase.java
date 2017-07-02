@@ -11,5 +11,8 @@ public class BlockBase extends Block {
         setRegistryName(Basis.MOD_PREFIX, name);
         setUnlocalizedName(getRegistryName().toString());
         setCreativeTab(Tabs.tab);
+        // default hardness, resistance for all our blocks
+        setHardness(2.0F);
+        setResistance(5.0F);
     }
 }
