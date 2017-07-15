@@ -1,6 +1,8 @@
 package kalle.proxies;
 
+import kalle.events.ToolEvents;
 import kalle.recipes.Recipes;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Logger;
 
@@ -13,7 +15,9 @@ public class BasisCommonProxy {
     }
 
     public void init() {
-        // nothing common to do here yet
+        LOG.info("Registering tool event handlers...");
+        final ToolEvents toolEvents = new ToolEvents();
+        MinecraftForge.EVENT_BUS.register(toolEvents);
     }
 
     public void postInit() {

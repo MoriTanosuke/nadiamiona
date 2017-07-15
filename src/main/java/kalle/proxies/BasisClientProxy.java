@@ -3,7 +3,6 @@ package kalle.proxies;
 import kalle.blocks.Blocks;
 import kalle.blocks.walls.LeaveWall;
 import kalle.events.RenderEvents;
-import kalle.events.ToolEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -37,10 +36,6 @@ public class BasisClientProxy extends BasisCommonProxy {
         LOG.info("Registering color handlers...");
         registerColors(Blocks.all);
         LOG.info("Color handlers registered.");
-
-        LOG.info("Registering tool event handlers...");
-        final ToolEvents toolEvents = new ToolEvents();
-        MinecraftForge.EVENT_BUS.register(toolEvents);
 
         RenderEvents renderEvents = new RenderEvents();
         MinecraftForge.EVENT_BUS.register(renderEvents);
