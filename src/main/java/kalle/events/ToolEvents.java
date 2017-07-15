@@ -21,10 +21,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+/**
+ * This class borrows heavily from Tinkers Constructs Excavator. See https://github.com/SlimeKnights/TinkersConstruct.
+ * Many thanks to the developers.
+ */
 @Mod.EventBusSubscriber
 public class ToolEvents {
 
@@ -35,17 +38,14 @@ public class ToolEvents {
         BlockPos blockPos = event.getPos();
         ItemStack tool = event.getPlayer().inventory.getCurrentItem();
 
-        if(!tool.isEmpty()) {
-            FMLLog.getLogger().info("Tool: " + tool);
-            if(tool.getItem() instanceof ItemExcavator) {
-                FMLLog.getLogger().info("Excavating!");
+        if (!tool.isEmpty()) {
+            if (tool.getItem() instanceof ItemExcavator) {
                 ItemExcavator excavator = (ItemExcavator) tool.getItem();
                 int width = excavator.getAoeWidth();
                 int height = excavator.getAoeHeight();
                 int depth = excavator.getAoeDepth();
                 ImmutableList<BlockPos> blocksToBreak = ToolEventHelper.calcAOEBlocks(tool, world, player, blockPos, width, height, depth);
-                FMLLog.getLogger().info("Extra blocks: {}", blocksToBreak);
-                for(BlockPos extraPos : blocksToBreak) {
+                for (BlockPos extraPos : blocksToBreak) {
                     ToolEventHelper.breakExtraBlock(tool, player.getEntityWorld(), player, extraPos, blockPos);
                 }
             }
@@ -54,45 +54,41 @@ public class ToolEvents {
 }
 
 class ToolEventHelper {
-    public static ImmutableList<BlockPos> calcAOEBlocks(ItemStack stack, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth) {
-        return calcAOEBlocks(stack, world, player, origin, width, height, depth, -1);
+    public static ImmutableList<BlockPos> calcAOEBlocks(ItemStack tool, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth) {
+        return calcAOEBlocks(tool, world, player, origin, width, height, depth, -1);
     }
 
-    public static ImmutableList<BlockPos> calcAOEBlocks(ItemStack stack, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth, int distance) {
+    public static ImmutableList<BlockPos> calcAOEBlocks(ItemStack tool, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth, int distance) {
         // only works with ItemExcavator because we need the raytrace call
-        if(stack.isEmpty() || !(stack.getItem() instanceof ItemExcavator)) {
-            FMLLog.getLogger().debug("Not using excavator, no AOE");
+        if (tool.isEmpty() || !(tool.getItem() instanceof ItemExcavator)) {
             return ImmutableList.of();
         }
 
         // find out where the player is hitting the block
         IBlockState state = world.getBlockState(origin);
 
-        if(!isToolEffective(stack, state)) {
+        if (!isToolEffective(tool, state)) {
             return ImmutableList.of();
         }
 
-        if(state.getMaterial() == Material.AIR) {
-            FMLLog.getLogger().debug("Player is hitting AIR, no AOE");
+        if (state.getMaterial() == Material.AIR) {
             // what are you DOING?
             return ImmutableList.of();
         }
 
         // raytrace to get the side, but has to result in the same block
-        RayTraceResult mop = ((ItemExcavator) stack.getItem()).rayTrace(world, player, true);
-        if(mop == null || !origin.equals(mop.getBlockPos())) {
-            mop = ((ItemExcavator) stack.getItem()).rayTrace(world, player, false);
-            if(mop == null || !origin.equals(mop.getBlockPos())) {
-                FMLLog.getLogger().debug("Raytracing unsuccessful, no AOE");
+        RayTraceResult mop = ((ItemExcavator) tool.getItem()).rayTrace(world, player, true);
+        if (mop == null || !origin.equals(mop.getBlockPos())) {
+            mop = ((ItemExcavator) tool.getItem()).rayTrace(world, player, false);
+            if (mop == null || !origin.equals(mop.getBlockPos())) {
                 return ImmutableList.of();
             }
         }
 
-        FMLLog.getLogger().debug("Calculating AOE...");
         // we know the block and we know which side of the block we're hitting. time to calculate the depth along the different axes
         int x, y, z;
         BlockPos start = origin;
-        switch(mop.sideHit) {
+        switch (mop.sideHit) {
             case DOWN:
             case UP:
                 // x y depends on the angle we look?
@@ -101,19 +97,17 @@ class ToolEventHelper {
                 y = mop.sideHit.getAxisDirection().getOffset() * -depth;
                 z = vec.getX() * width + vec.getZ() * height;
                 start = start.add(-x / 2, 0, -z / 2);
-                if(x % 2 == 0) {
-                    if(x > 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() > 0.5d) {
+                if (x % 2 == 0) {
+                    if (x > 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() > 0.5d) {
                         start = start.add(1, 0, 0);
-                    }
-                    else if(x < 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() < 0.5d) {
+                    } else if (x < 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() < 0.5d) {
                         start = start.add(-1, 0, 0);
                     }
                 }
-                if(z % 2 == 0) {
-                    if(z > 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() > 0.5d) {
+                if (z % 2 == 0) {
+                    if (z > 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() > 0.5d) {
                         start = start.add(0, 0, 1);
-                    }
-                    else if(z < 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() < 0.5d) {
+                    } else if (z < 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() < 0.5d) {
                         start = start.add(0, 0, -1);
                     }
                 }
@@ -124,10 +118,10 @@ class ToolEventHelper {
                 y = height;
                 z = mop.sideHit.getAxisDirection().getOffset() * -depth;
                 start = start.add(-x / 2, -y / 2, 0);
-                if(x % 2 == 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() > 0.5d) {
+                if (x % 2 == 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() > 0.5d) {
                     start = start.add(1, 0, 0);
                 }
-                if(y % 2 == 0 && mop.hitVec.yCoord - mop.getBlockPos().getY() > 0.5d) {
+                if (y % 2 == 0 && mop.hitVec.yCoord - mop.getBlockPos().getY() > 0.5d) {
                     start = start.add(0, 1, 0);
                 }
                 break;
@@ -137,10 +131,10 @@ class ToolEventHelper {
                 y = height;
                 z = width;
                 start = start.add(-0, -y / 2, -z / 2);
-                if(y % 2 == 0 && mop.hitVec.yCoord - mop.getBlockPos().getY() > 0.5d) {
+                if (y % 2 == 0 && mop.hitVec.yCoord - mop.getBlockPos().getY() > 0.5d) {
                     start = start.add(0, 1, 0);
                 }
-                if(z % 2 == 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() > 0.5d) {
+                if (z % 2 == 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() > 0.5d) {
                     start = start.add(0, 0, 1);
                 }
                 break;
@@ -149,43 +143,39 @@ class ToolEventHelper {
         }
 
         ImmutableList.Builder<BlockPos> builder = ImmutableList.builder();
-        for(int xp = start.getX(); xp != start.getX() + x; xp += x / Math.abs(x)) {
-            for(int yp = start.getY(); yp != start.getY() + y; yp += y / Math.abs(y)) {
-                for(int zp = start.getZ(); zp != start.getZ() + z; zp += z / Math.abs(z)) {
+        for (int xp = start.getX(); xp != start.getX() + x; xp += x / Math.abs(x)) {
+            for (int yp = start.getY(); yp != start.getY() + y; yp += y / Math.abs(y)) {
+                for (int zp = start.getZ(); zp != start.getZ() + z; zp += z / Math.abs(z)) {
                     // don't add the origin block
-                    if(xp == origin.getX() && yp == origin.getY() && zp == origin.getZ()) {
+                    if (xp == origin.getX() && yp == origin.getY() && zp == origin.getZ()) {
                         continue;
                     }
-                    if(distance > 0 && Math.abs(xp - origin.getX()) + Math.abs(yp - origin.getY()) + Math.abs(
+                    if (distance > 0 && Math.abs(xp - origin.getX()) + Math.abs(yp - origin.getY()) + Math.abs(
                             zp - origin.getZ()) > distance) {
                         continue;
                     }
                     BlockPos pos = new BlockPos(xp, yp, zp);
-                    if(isToolEffective(stack, state)) {
-                        FMLLog.getLogger().debug("Adding block {} to AOE", pos);
+                    if (isToolEffective(tool, state)) {
                         builder.add(pos);
-                    } else {
-                        FMLLog.getLogger().debug("Tool not effective on {}, no AOE", pos);
                     }
                 }
             }
         }
 
         ImmutableList<BlockPos> blockPosList = builder.build();
-        FMLLog.getLogger().debug("AOE: {}", blockPosList);
         return blockPosList;
     }
 
 
     public static void breakExtraBlock(ItemStack stack, World world, EntityPlayer player, BlockPos pos, BlockPos refPos) {
         // prevent calling that stuff for air blocks, could lead to unexpected behaviour since it fires events
-        if(world.isAirBlock(pos)) {
+        if (world.isAirBlock(pos)) {
             return;
         }
 
-        //if(!(player instanceof EntityPlayerMP)) {
-        //return;
-        //}
+        if (!(player instanceof EntityPlayerMP)) {
+            return;
+        }
 
         // check if the block can be broken, since extra block breaks shouldn't instantly break stuff like obsidian
         // or precious ores you can't harvest while mining stone
@@ -193,7 +183,7 @@ class ToolEventHelper {
         Block block = state.getBlock();
 
         // only effective materials
-        if(!isToolEffective(stack, state)) {
+        if (!isToolEffective(stack, state)) {
             return;
         }
 
@@ -202,20 +192,19 @@ class ToolEventHelper {
         float strength = ForgeHooks.blockStrength(state, player, world, pos);
 
         // only harvestable blocks that aren't impossibly slow to harvest
-        if(!ForgeHooks.canHarvestBlock(block, player, world, pos) || refStrength / strength > 10f) {
+        if (!ForgeHooks.canHarvestBlock(block, player, world, pos) || refStrength / strength > 10f) {
             return;
         }
 
         // From this point on it's clear that the player CAN break the block
-
-        if(player.capabilities.isCreativeMode) {
+        if (player.capabilities.isCreativeMode) {
             block.onBlockHarvested(world, pos, state, player);
-            if(block.removedByPlayer(state, world, pos, player, false)) {
+            if (block.removedByPlayer(state, world, pos, player, false)) {
                 block.onBlockDestroyedByPlayer(world, pos, state);
             }
 
             // send update to client
-            if(!world.isRemote) {
+            if (!world.isRemote) {
                 ((EntityPlayerMP) player).connection.sendPacket(new SPacketBlockChange(world, pos));
             }
             return;
@@ -225,10 +214,10 @@ class ToolEventHelper {
         stack.onBlockDestroyed(world, state, pos, player);
 
         // server sided handling
-        if(!world.isRemote) {
+        if (!world.isRemote) {
             // send the blockbreak event
             int xp = ForgeHooks.onBlockBreakEvent(world, ((EntityPlayerMP) player).interactionManager.getGameType(), (EntityPlayerMP) player, pos);
-            if(xp == -1) {
+            if (xp == -1) {
                 return;
             }
 
@@ -237,7 +226,7 @@ class ToolEventHelper {
 
             TileEntity tileEntity = world.getTileEntity(pos);
             // ItemInWorldManager.removeBlock
-            if(block.removedByPlayer(state, world, pos, player, true)) // boolean is if block can be harvested, checked above
+            if (block.removedByPlayer(state, world, pos, player, true)) // boolean is if block can be harvested, checked above
             {
                 block.onBlockDestroyedByPlayer(world, pos, state);
                 block.harvestBlock(world, player, pos, state, tileEntity, stack);
@@ -256,13 +245,13 @@ class ToolEventHelper {
 
             // following code can be found in PlayerControllerMP.onPlayerDestroyBlock
             world.playBroadcastSound(2001, pos, Block.getStateId(state));
-            if(block.removedByPlayer(state, world, pos, player, true)) {
+            if (block.removedByPlayer(state, world, pos, player, true)) {
                 block.onBlockDestroyedByPlayer(world, pos, state);
             }
             // callback to the tool
             stack.onBlockDestroyed(world, state, pos, player);
 
-            if(stack.getMaxStackSize() == 0 && stack == player.getHeldItemMainhand()) {
+            if (stack.getMaxStackSize() == 0 && stack == player.getHeldItemMainhand()) {
                 ForgeEventFactory.onPlayerDestroyItem(player, stack, EnumHand.MAIN_HAND);
                 player.setHeldItem(EnumHand.MAIN_HAND, null);
             }
@@ -274,10 +263,10 @@ class ToolEventHelper {
         }
     }
 
-    private static boolean isToolEffective(ItemStack stack, IBlockState state) {
+    private static boolean isToolEffective(ItemStack tool, IBlockState state) {
         // check material
-        for(String type : stack.getItem().getToolClasses(stack)) {
-            if(state.getBlock().isToolEffective(type, state)) {
+        for (String type : tool.getItem().getToolClasses(tool)) {
+            if (state.getBlock().isToolEffective(type, state)) {
                 return true;
             }
         }
