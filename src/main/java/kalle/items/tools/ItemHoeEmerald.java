@@ -13,6 +13,6 @@ public class ItemHoeEmerald extends ItemHoe {
     this.setUnlocalizedName(this.getRegistryName().toString());
     setCreativeTab(Tabs.tab);
     // double diamond durability
-    setMaxDamage(1561 * 2);
+    setMaxDamage(ToolMaterial.DIAMOND.getMaxUses() * 2);
   }
 }
