@@ -6,6 +6,7 @@ import kalle.items.tools.*;
 import net.minecraft.item.Item;
 
 public class Items {
+    public static final Item EXCAVATOR = new ItemExcavator();
     public static final Item EMERALD_PICKAXE = new ItemPickaxeEmerald();
     public static final Item EMERALD_AXE = new ItemAxeEmerald();
     public static final Item EMERALD_BATTLEAXE = new ItemBattleAxeEmerald();
@@ -30,6 +31,7 @@ public class Items {
     public static final Item EGGNOG = new ItemEggnog();
 
     public static Item[] all = new Item[]{
+            EXCAVATOR,
             EMERALD_PICKAXE,
             EMERALD_AXE,
             EMERALD_BATTLEAXE,
