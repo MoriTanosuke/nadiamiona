@@ -9,8 +9,8 @@ public class BasisServerProxy extends BasisCommonProxy {
   }
 
   @Override
-  public void load() {
-    super.load();
+  public void init() {
+    super.init();
     LOG.info("Loading server proxy...");
 
   }

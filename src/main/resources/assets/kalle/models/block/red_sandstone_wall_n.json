@@ -1,5 +1,5 @@
 {
-    "parent": "block/wall_n",
+    "parent": "block/wall_side",
     "textures": {
         "top": "blocks/red_sandstone_top",
         "wall": "blocks/red_sandstone_normal"

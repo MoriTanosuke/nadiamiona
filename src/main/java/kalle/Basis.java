@@ -1,7 +1,5 @@
 package kalle;
 
-import org.apache.logging.log4j.Logger;
-
 import kalle.proxies.BasisCommonProxy;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
@@ -10,13 +8,14 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.Logger;
 
 //TODO replace with build.gradle properties
-@Mod(modid = "kalle", name = "Nadiamiona", version = "0.0.3", updateJSON = "https://raw.githubusercontent.com/MoriTanosuke/nadiamiona/master/update.json")
+@Mod(modid = "kalle", name = "Nadiamiona", version = "1.11.2-2", updateJSON = "https://raw.githubusercontent.com/MoriTanosuke/nadiamiona/master/update.json")
 public class Basis {
-  public static final String MOD_PREFIX = "kalle";
-
   private static final Logger LOG = FMLLog.getLogger();
+  public static final String MOD_PREFIX = "kalle";
 
   @Instance(MOD_PREFIX)
   public static Basis instance;
@@ -25,17 +24,20 @@ public class Basis {
   public static BasisCommonProxy proxy;
 
   @EventHandler
-  public void preInit(FMLInitializationEvent event) {
+  public void preInit(FMLPreInitializationEvent event) {
     proxy.preInit();
+    LOG.info("All done.");
   }
 
   @EventHandler
-  public void load(FMLInitializationEvent event) {
-    proxy.load();
+  public void init(FMLInitializationEvent event) {
+    proxy.init();
+    LOG.info("All done.");
   }
 
   @EventHandler
   public void postInit(FMLPostInitializationEvent event) {
     proxy.postInit();
+    LOG.info("All done.");
   }
 }
