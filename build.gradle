@@ -35,7 +35,7 @@ def buildTime() {
     return df.format(new Date())
 }
 
-version = "1.11.2-${buildTime()}"
+version = "1.11.2-4"
 group = "nadiamiona" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nadiamiona"
 
