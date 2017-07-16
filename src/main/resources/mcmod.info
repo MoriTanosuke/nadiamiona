@@ -6,7 +6,7 @@
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://github.com/MoriTanosuke/nadiamiona/wiki",
-  "updateUrl": "",
+  "updateUrl": "https://raw.githubusercontent.com/MoriTanosuke/nadiamiona/master/update.json",
   "authorList": ["JukodoKatzumi"],
   "credits": "Kalle, for making this mod",
   "logoFile": "",
