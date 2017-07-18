@@ -264,13 +264,8 @@ class ToolEventHelper {
     }
 
     private static boolean isToolEffective(ItemStack tool, IBlockState state) {
-        // check material
-        for (String type : tool.getItem().getToolClasses(tool)) {
-            if (state.getBlock().isToolEffective(type, state)) {
-                return true;
-            }
-        }
-
-        return false;
+        // we know this can only be the excavator
+        ItemExcavator excavator = (ItemExcavator) tool.getItem();
+        return excavator.canHarvestBlock(state);
     }
 }
