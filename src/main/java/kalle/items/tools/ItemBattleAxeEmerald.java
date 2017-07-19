@@ -44,7 +44,7 @@ public class ItemBattleAxeEmerald extends ItemSword {
 
     public ItemBattleAxeEmerald() {
         super(material);
-        this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "EmeraldBattleAxe"));
+        this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "ItemBattleAxeEmerald"));
         this.setUnlocalizedName(this.getRegistryName().toString());
         setCreativeTab(Tabs.tab);
         // double diamond durabilty

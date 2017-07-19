@@ -9,7 +9,7 @@ public class ItemSwordEmerald extends ItemSword {
 
     public ItemSwordEmerald() {
         super(ToolMaterial.DIAMOND);
-        this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "EmeraldSword"));
+        this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "ItemSwordEmerald"));
         this.setUnlocalizedName(this.getRegistryName().toString());
         setCreativeTab(Tabs.tab);
         // double diamond durability

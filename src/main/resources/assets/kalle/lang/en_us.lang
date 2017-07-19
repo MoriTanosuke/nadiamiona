@@ -1,30 +1,30 @@
 itemGroup.tabKalle=Kalles Mod
 
 # tools
-item.kalle:excavator.name=Excavator
-item.kalle:emeraldpickaxe.name=Emerald Pickaxe
-item.kalle:emeraldaxe.name=Emerald Axe
-item.kalle:emeraldspade.name=Emerald Spade
-item.kalle:emeraldhoe.name=Emerald Hoe
-item.kalle:emeraldsword.name=Emerald Sword
-item.kalle:emeraldbattleaxe.name=Emerald Battle Axe
+item.kalle:itemexcavator.name=Excavator
+item.kalle:itempickaxeemerald.name=Emerald Pickaxe
+item.kalle:itemaxeemerald.name=Emerald Axe
+item.kalle:itemspadeemerald.name=Emerald Spade
+item.kalle:itemhoeemerald.name=Emerald Hoe
+item.kalle:itemswordemerald.name=Emerald Sword
+item.kalle:itembattleaxeemerald.name=Emerald Battle Axe
 
 # foods
-item.kalle:breadslice.name=Breadslice
-item.kalle:toast.name=Toast
-item.kalle:schokomilch.name=Cocoa
-item.kalle:schnaps.name=Shot
-item.kalle:eierlikoer.name=Eggnog
-item.kalle:milchflasche.name=Bottle of milk
-item.kalle:fischsandwich.name=Fish sandwich
-item.kalle:lachssandwich.name=Salmon sandwich
-item.kalle:roastbeefsandwich.name=Roastbeef sandwich
-item.kalle:bier.name=Beer
-item.kalle:saft.name=Multivitamin juice
-item.kalle:chickensandwich.name=Chicken sandwich
-item.kalle:schinkensandwich.name=Bacon sandwich
-item.kalle:cookedegg.name=Cooked egg
-item.kalle:eiertoast.name=Egg sandwich
+item.kalle:itembreadslice.name=Breadslice
+item.kalle:itemtoast.name=Toast
+item.kalle:itemcocoa.name=Cocoa
+item.kalle:itembooze.name=Shot
+item.kalle:itemeggnog.name=Eggnog
+item.kalle:itemmilk.name=Bottle of milk
+item.kalle:itemtoastfish.name=Fish sandwich
+item.kalle:itemtoastsalmon.name=Salmon sandwich
+item.kalle:itemtoastbeef.name=Roastbeef sandwich
+item.kalle:itembeer.name=Beer
+item.kalle:itemjuice.name=Multivitamin juice
+item.kalle:itemtoastchicken.name=Chicken sandwich
+item.kalle:itemtoastbacon.name=Bacon sandwich
+item.kalle:itemcookedegg.name=Cooked egg
+item.kalle:itemtoastegg.name=Egg sandwich
 
 # blocks
 tile.kalle:kiste.name=Crate
@@ -101,7 +101,7 @@ tile.kalle:wool_stairs_14.name=Red Wool Stairs
 tile.kalle:wool_stairs_15.name=Black Wool Stairs
 
 # utilities
-item.kalle:kettenglieder.name=Chains
+item.kalle:itemchain.name=Chains
 
 # small custom block
 item.kalle:smallblock.name=Small block

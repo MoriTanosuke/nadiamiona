@@ -9,7 +9,7 @@ public class ItemSpadeEmerald extends ItemSpade {
 
   public ItemSpadeEmerald() {
     super(ToolMaterial.DIAMOND);
-    this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "EmeraldSpade"));
+      this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "ItemSpadeEmerald"));
     this.setUnlocalizedName(this.getRegistryName().toString());
     setCreativeTab(Tabs.tab);
     // double diamond durability

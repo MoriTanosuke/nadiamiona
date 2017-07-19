@@ -2,6 +2,6 @@ package kalle.items.foods;
 
 public class ItemCocoa extends ItemDrink {
     public ItemCocoa() {
-        super("Schokomilch", 5, 0.5F);
+        super("ItemCocoa", 5, 0.5F);
     }
 }

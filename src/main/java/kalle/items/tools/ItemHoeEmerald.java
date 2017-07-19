@@ -9,7 +9,7 @@ public class ItemHoeEmerald extends ItemHoe {
 
   public ItemHoeEmerald() {
     super(ToolMaterial.DIAMOND);
-    this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "EmeraldHoe"));
+    this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "ItemHoeEmerald"));
     this.setUnlocalizedName(this.getRegistryName().toString());
     setCreativeTab(Tabs.tab);
     // double diamond durability

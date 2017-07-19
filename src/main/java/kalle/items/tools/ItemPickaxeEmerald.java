@@ -9,7 +9,7 @@ public class ItemPickaxeEmerald extends ItemPickaxe {
 
   public ItemPickaxeEmerald() {
     super(ToolMaterial.DIAMOND);
-    this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "EmeraldPickaxe"));
+      this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "ItemPickaxeEmerald"));
     this.setUnlocalizedName(this.getRegistryName().toString());
     setCreativeTab(Tabs.tab);
     // double diamond durability

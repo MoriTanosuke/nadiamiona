@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ItemExcavator extends ItemPickaxe {
 
-    private static final List<Block> blocks = Arrays.asList(
+    private static final List<Block> EFFECTIVE_BLOCKS = Arrays.asList(
             Blocks.OBSIDIAN,
             Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE,
             Blocks.EMERALD_BLOCK, Blocks.EMERALD_ORE,
@@ -28,7 +28,7 @@ public class ItemExcavator extends ItemPickaxe {
 
     public ItemExcavator() {
         super(ToolMaterial.DIAMOND);
-        this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "Excavator"));
+        this.setRegistryName(new ResourceLocation(Basis.MOD_PREFIX, "ItemExcavator"));
         this.setUnlocalizedName(this.getRegistryName().toString());
         setCreativeTab(Tabs.tab);
         // double diamond durability
@@ -52,7 +52,7 @@ public class ItemExcavator extends ItemPickaxe {
     public boolean canHarvestBlock(IBlockState blockIn) {
         Block block = blockIn.getBlock();
         Material material = blockIn.getMaterial();
-        return blocks.contains(block) || (material == Material.ROCK || material == Material.IRON);
+        return EFFECTIVE_BLOCKS.contains(block) || (material == Material.ROCK || material == Material.IRON);
     }
 
     public int getAoeDepth() {
