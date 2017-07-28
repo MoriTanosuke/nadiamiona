@@ -1,5 +1,6 @@
 package kalle.recipes;
 
+import kalle.Basis;
 import kalle.blocks.Blocks;
 import kalle.blocks.WoolStairs;
 import net.minecraft.block.Block;
@@ -9,9 +10,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.RecipeSorter;
 
 public class Recipes {
     public static void register() {
+        net.minecraftforge.oredict.RecipeSorter.register(Basis.MOD_PREFIX + ".potionRecipe", PotionRecipe.class, RecipeSorter.Category.SHAPED, "after:minecraft:shaped");
+
         // --- tool recipes ---------------------------------------------------------
         ItemStack swiftness = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.STRONG_SWIFTNESS);
         ItemStack strength = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.STRONG_STRENGTH);
