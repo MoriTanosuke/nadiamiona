@@ -1,5 +1,6 @@
 package kalle.proxies;
 
+import kalle.dimensions.Dimensions;
 import kalle.events.ToolEvents;
 import kalle.recipes.Recipes;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,6 +13,7 @@ public class BasisCommonProxy {
     public void preInit() {
         // register all recipes in pre-init phase
         Recipes.register();
+        Dimensions.register();
     }
 
     public void init() {

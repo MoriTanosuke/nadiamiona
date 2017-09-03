@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "kalle:blocks/universe",
+        "up": "kalle:blocks/universe",
+        "north": "kalle:blocks/universe",
+        "east": "kalle:blocks/universe",
+        "south": "kalle:blocks/universe",
+        "west": "kalle:blocks/universe",
+        "particle": "kalle:blocks/universe"
+    }
+}
