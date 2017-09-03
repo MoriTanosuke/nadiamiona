@@ -7,6 +7,7 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.RecipeSorter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 public class PotionRecipe extends ShapedRecipes {
     public PotionRecipe(int width, int height, ItemStack[] ingredientsIn, ItemStack output) {
         super(width, height, ingredientsIn, output);
+        RecipeSorter.register("holovm:vmadv", PotionRecipe.class, RecipeSorter.Category.SHAPED, "after:minecraft:shaped");
     }
 
     /**
