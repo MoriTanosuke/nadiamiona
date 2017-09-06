@@ -214,7 +214,6 @@ public class Recipes {
 
     }
 
-
     private static Item buildSkull(SkullType skullType) {
         return new ItemStack(net.minecraft.init.Items.SKULL, 1, skullType.getMeta()).getItem();
     }

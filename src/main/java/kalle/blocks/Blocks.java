@@ -64,6 +64,8 @@ public class Blocks {
     public static final Block WOOL_STAIRS_RED = new WoolStairs("wool_stairs_14", net.minecraft.init.Blocks.WOOL.getDefaultState());
     public static final Block WOOL_STAIRS_BLACK = new WoolStairs("wool_stairs_15", net.minecraft.init.Blocks.WOOL.getDefaultState());
 
+    public static final Block GLASS_STAIRS = new GlassStairs("glass_stairs");
+
     public static Block[] all = new Block[]{
             BAR,
             SPRUCE_BAR,
@@ -118,6 +120,7 @@ public class Blocks {
             WOOL_STAIRS_BROWN,
             WOOL_STAIRS_GREEN,
             WOOL_STAIRS_RED,
-            WOOL_STAIRS_BLACK
+            WOOL_STAIRS_BLACK,
+            GLASS_STAIRS
     };
 }
