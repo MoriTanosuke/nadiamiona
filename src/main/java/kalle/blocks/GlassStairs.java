@@ -7,6 +7,7 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -37,11 +38,18 @@ public class GlassStairs extends BlockStairsBase {
     }
 
     @Override
+    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+        return false;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
-        Block otherBlock = iblockstate.getBlock();
+        Block block = iblockstate.getBlock();
 
-        return otherBlock != Blocks.GLASS && otherBlock != kalle.blocks.Blocks.GLASS_STAIRS;
+        boolean shouldBeRendered = block != Blocks.GLASS && block != kalle.blocks.Blocks.GLASS_STAIRS;
+        FMLLog.getLogger().info("Side {} (Block {}) should be rendered: {}", side, block, shouldBeRendered);
+        return shouldBeRendered;
     }
 }
