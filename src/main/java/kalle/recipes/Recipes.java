@@ -109,8 +109,9 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Blocks.STONEBRICK_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.STONEBRICK);
         GameRegistry.addRecipe(new ItemStack(Blocks.SANDSTONE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.SANDSTONE);
         GameRegistry.addRecipe(new ItemStack(Blocks.RED_SANDSTONE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.RED_SANDSTONE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.WOOL_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.WOOL);
         GameRegistry.addRecipe(new ItemStack(Blocks.LEAVE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.LEAVES);
+        // wool wall is deactivated because of recipe conflicts in other mods
+        //GameRegistry.addRecipe(new ItemStack(Blocks.WOOL_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.WOOL);
 
         for (int color = 0; color <= 15; color++) {
             //TODO register all variants
