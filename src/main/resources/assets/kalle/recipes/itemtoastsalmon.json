@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "kalle:itemtoast"
+    },
+    "B": {
+      "item": "minecraft:cooked_fish",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "kalle:itemtoastbacon",
+    "count": 1
+  }
+}

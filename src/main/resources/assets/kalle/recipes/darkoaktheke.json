@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " BB",
+    " AA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:planks",
+      "data": 5
+    },
+    "B": {
+      "item": "minecraft:wooden_slab",
+      "data": 5
+    }
+  },
+  "result": {
+    "item": "kalle:darkoaktheke",
+    "count": 1
+  }
+}
