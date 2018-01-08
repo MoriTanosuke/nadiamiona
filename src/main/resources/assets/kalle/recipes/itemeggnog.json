@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "B",
+    "C"
+  ],
+  "key": {
+    "A": {
+      "item": "kalle:itemcookedegg"
+    },
+    "B": {
+      "item": "kalle:itembooze"
+    },
+    "C": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "kalle:itemeggnog",
+    "count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OOO",
+    "#AX",
+    " A "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:potion",
+      "tag": "{Potion:\"minecraft:strong_swiftness\"}"
+    },
+    "X": {
+      "item": "minecraft:potion",
+      "tag": "{Potion:\"minecraft:strong_strength\"}"
+    },
+    "O": {
+      "item": "minecraft:emerald_block"
+    },
+    "A": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "kalle:itemexcavator",
+    "count": 1
+  }
+}

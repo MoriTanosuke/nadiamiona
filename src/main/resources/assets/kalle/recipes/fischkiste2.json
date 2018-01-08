@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "B",
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "kalle:kiste"
+      },
+      "B": {
+        "item": "minecraft:fish",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "kalle:fischkiste",
+      "count": 1
+    }
+  }

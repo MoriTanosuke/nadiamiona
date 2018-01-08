@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "B",
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "kalle:kiste"
+      },
+      "B": {
+        "item": "minecraft:coal"
+      }
+    },
+    "result": {
+      "item": "kalle:kohlekiste",
+      "count": 1
+    }
+  }

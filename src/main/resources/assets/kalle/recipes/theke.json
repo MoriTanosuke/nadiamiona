@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " BB",
+    " AA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:planks",
+      "data": 0
+    },
+    "B": {
+      "item": "minecraft:wooden_slab",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "kalle:theke",
+    "count": 1
+  }
+}
