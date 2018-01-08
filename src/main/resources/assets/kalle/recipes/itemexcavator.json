@@ -7,14 +7,14 @@
   ],
   "key": {
     "A": {
-      "item": "minecraft:emerald"
+      "item": "minecraft:emerald_block"
     },
     "B": {
-      "item": "minecraft:diamond"
+      "item": "minecraft:diamond_block"
     }
   },
   "result": {
-    "item": "kalle:itempickaxeemerald",
+    "item": "kalle:itemexcavator",
     "count": 1
   }
 }

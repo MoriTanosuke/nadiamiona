@@ -1,16 +1,8 @@
 package kalle.recipes;
 
 import kalle.Basis;
-import kalle.blocks.Blocks;
-import kalle.blocks.WoolStairs;
-import net.minecraft.block.Block;
-import net.minecraft.init.Items;
-import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionUtils;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.RecipeSorter;
 
 public class Recipes {
@@ -18,7 +10,7 @@ public class Recipes {
         net.minecraftforge.oredict.RecipeSorter.register(Basis.MOD_PREFIX + ".potionRecipe", PotionRecipe.class, RecipeSorter.Category.SHAPED, "after:minecraft:shaped");
 
         // --- tool recipes ---------------------------------------------------------
-        /* TODO fix registering of PotionRecipe
+        /* TODO fix registering of PotionRecipe for ItemExcavator
         ItemStack swiftness = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.STRONG_SWIFTNESS);
         ItemStack strength = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.STRONG_STRENGTH);
         GameRegistry.addRecipe(new PotionRecipe(3, 3,
@@ -40,23 +32,7 @@ public class Recipes {
         ));
         */
 
-        GameRegistry.addShapedRecipe(
-                new ResourceLocation(Basis.MOD_PREFIX, "recipe." + kalle.items.Items.EMERALD_PICKAXE.getUnlocalizedName()),
-                null,
-                new ItemStack(kalle.items.Items.EMERALD_PICKAXE),
-                new String[] {
-                        "###",
-                        " * ",
-                        " * "},
-                '#', net.minecraft.init.Items.EMERALD,
-                '*', net.minecraft.init.Items.DIAMOND);
         /*
-        GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_AXE), "##0", "#*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
-        GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_BATTLEAXE), "###", "#*#", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
-        GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_SPADE), "0#0", "0*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
-        GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_HOE), "##0", "0*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
-        GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_SWORD), "0#0", "0#0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
-
         // --- block recipes ---------------------------------------------------------
         GameRegistry.addRecipe(new ItemStack(Blocks.BAR, 2), "000", "0BB", "0AA", 'A', new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 0), 'B',
                 new ItemStack(net.minecraft.init.Blocks.WOODEN_SLAB, 1, 0));

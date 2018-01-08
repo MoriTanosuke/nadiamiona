@@ -23,7 +23,7 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -145,7 +145,7 @@ class ToolEventHelper {
                 x = y = z = 0;
         }
 
-        List<BlockPos> builder = Arrays.asList();
+        List<BlockPos> builder = new ArrayList<BlockPos>();
         for (int xp = start.getX(); xp != start.getX() + x; xp += x / Math.abs(x)) {
             for (int yp = start.getY(); yp != start.getY() + y; yp += y / Math.abs(y)) {
                 for (int zp = start.getZ(); zp != start.getZ() + z; zp += z / Math.abs(z)) {

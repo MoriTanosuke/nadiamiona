@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "AAA",
-    " B ",
+    "ABA",
     " B "
   ],
   "key": {
@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "kalle:itempickaxeemerald",
+    "item": "kalle:itembattleaxeemerald",
     "count": 1
   }
 }

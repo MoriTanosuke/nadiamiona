@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "AAA",
+    "AA ",
     " B ",
     " B "
   ],
@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "kalle:itempickaxeemerald",
+    "item": "kalle:itemhoeemerald",
     "count": 1
   }
 }
