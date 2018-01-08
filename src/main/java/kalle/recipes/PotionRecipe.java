@@ -3,17 +3,20 @@ package kalle.recipes;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PotionRecipe extends ShapedRecipes {
-    public PotionRecipe(int width, int height, ItemStack[] ingredientsIn, ItemStack output) {
-        super(width, height, ingredientsIn, output);
+    public PotionRecipe(int width, int height, NonNullList<Ingredient> ingredientsIn, ItemStack output) {
+        super("", width, height, ingredientsIn, output);
     }
 
     /**
@@ -48,9 +51,9 @@ public class PotionRecipe extends ShapedRecipes {
 
                 if (k >= 0 && l >= 0 && k < this.recipeWidth && l < this.recipeHeight) {
                     if (strict) {
-                        itemstack = this.recipeItems[this.recipeWidth - k - 1 + l * this.recipeWidth];
+                        itemstack = this.recipeItems.get(this.recipeWidth - k - 1 + l * this.recipeWidth).getMatchingStacks()[0];
                     } else {
-                        itemstack = this.recipeItems[k + l * this.recipeWidth];
+                        itemstack = this.recipeItems.get(k + l * this.recipeWidth).getMatchingStacks()[0];
                     }
                 }
 
@@ -81,10 +84,10 @@ public class PotionRecipe extends ShapedRecipes {
     private boolean hasAllPotions(InventoryCrafting inv) {
         List<PotionType> recipePotions = new ArrayList<PotionType>();
         List<PotionType> craftingPotions = new ArrayList<PotionType>();
-        for (ItemStack ingredient : recipeItems) {
+        for (Ingredient ingredient : recipeItems) {
             if (isPotion(ingredient)) {
                 // remember this potion from the recipe
-                recipePotions.add(PotionUtils.getPotionFromItem(ingredient));
+                recipePotions.add(PotionUtils.getPotionFromItem(ingredient.getMatchingStacks()[0]));
             }
         }
 
@@ -92,7 +95,7 @@ public class PotionRecipe extends ShapedRecipes {
         for (int i = 0; i < inv.getWidth(); i++) {
             for (int j = 0; j < inv.getHeight(); j++) {
                 ItemStack itemstack = inv.getStackInRowAndColumn(i, j);
-                if (isPotion(itemstack)) {
+                if (isPotion(Ingredient.fromItem(itemstack.getItem()))) {
                     // remember this potion type from the inventory
                     craftingPotions.add(PotionUtils.getPotionFromItem(itemstack));
                 }
@@ -103,8 +106,8 @@ public class PotionRecipe extends ShapedRecipes {
         return craftingPotions.containsAll(recipePotions);
     }
 
-    private boolean isPotion(ItemStack itemstack) {
-        PotionType potion = PotionUtils.getPotionFromItem(itemstack);
+    private boolean isPotion(Ingredient itemstack) {
+        PotionType potion = PotionUtils.getPotionFromItem(itemstack.getMatchingStacks()[0]);
         boolean isPotion = potion != null &&
                 potion != PotionTypes.EMPTY &&
                 potion != PotionTypes.WATER;

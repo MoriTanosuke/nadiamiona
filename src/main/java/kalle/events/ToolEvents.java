@@ -1,6 +1,5 @@
 package kalle.events;
 
-import com.google.common.collect.ImmutableList;
 import kalle.items.tools.ItemExcavator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,6 +23,10 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * This class borrows heavily from Tinkers Constructs Excavator. See https://github.com/SlimeKnights/TinkersConstruct.
  * Many thanks to the developers.
@@ -44,7 +47,7 @@ public class ToolEvents {
                 int width = excavator.getAoeWidth();
                 int height = excavator.getAoeHeight();
                 int depth = excavator.getAoeDepth();
-                ImmutableList<BlockPos> blocksToBreak = ToolEventHelper.calcAOEBlocks(tool, world, player, blockPos, width, height, depth);
+                List<BlockPos> blocksToBreak = ToolEventHelper.calcAOEBlocks(tool, world, player, blockPos, width, height, depth);
                 for (BlockPos extraPos : blocksToBreak) {
                     ToolEventHelper.breakExtraBlock(tool, player.getEntityWorld(), player, extraPos, blockPos);
                 }
@@ -54,26 +57,26 @@ public class ToolEvents {
 }
 
 class ToolEventHelper {
-    public static ImmutableList<BlockPos> calcAOEBlocks(ItemStack tool, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth) {
+    public static List<BlockPos> calcAOEBlocks(ItemStack tool, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth) {
         return calcAOEBlocks(tool, world, player, origin, width, height, depth, -1);
     }
 
-    public static ImmutableList<BlockPos> calcAOEBlocks(ItemStack tool, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth, int distance) {
+    public static List<BlockPos> calcAOEBlocks(ItemStack tool, World world, EntityPlayer player, BlockPos origin, int width, int height, int depth, int distance) {
         // only works with ItemExcavator because we need the raytrace call
         if (tool.isEmpty() || !(tool.getItem() instanceof ItemExcavator)) {
-            return ImmutableList.of();
+            return Collections.EMPTY_LIST;
         }
 
         // find out where the player is hitting the block
         IBlockState state = world.getBlockState(origin);
 
         if (!isToolEffective(tool, state)) {
-            return ImmutableList.of();
+            return Collections.EMPTY_LIST;
         }
 
         if (state.getMaterial() == Material.AIR) {
             // what are you DOING?
-            return ImmutableList.of();
+            return Collections.EMPTY_LIST;
         }
 
         // raytrace to get the side, but has to result in the same block
@@ -81,7 +84,7 @@ class ToolEventHelper {
         if (mop == null || !origin.equals(mop.getBlockPos())) {
             mop = ((ItemExcavator) tool.getItem()).rayTrace(world, player, false);
             if (mop == null || !origin.equals(mop.getBlockPos())) {
-                return ImmutableList.of();
+                return Collections.EMPTY_LIST;
             }
         }
 
@@ -98,16 +101,16 @@ class ToolEventHelper {
                 z = vec.getX() * width + vec.getZ() * height;
                 start = start.add(-x / 2, 0, -z / 2);
                 if (x % 2 == 0) {
-                    if (x > 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() > 0.5d) {
+                    if (x > 0 && mop.hitVec.x - mop.getBlockPos().getX() > 0.5d) {
                         start = start.add(1, 0, 0);
-                    } else if (x < 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() < 0.5d) {
+                    } else if (x < 0 && mop.hitVec.x - mop.getBlockPos().getX() < 0.5d) {
                         start = start.add(-1, 0, 0);
                     }
                 }
                 if (z % 2 == 0) {
-                    if (z > 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() > 0.5d) {
+                    if (z > 0 && mop.hitVec.z - mop.getBlockPos().getZ() > 0.5d) {
                         start = start.add(0, 0, 1);
-                    } else if (z < 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() < 0.5d) {
+                    } else if (z < 0 && mop.hitVec.z - mop.getBlockPos().getZ() < 0.5d) {
                         start = start.add(0, 0, -1);
                     }
                 }
@@ -118,10 +121,10 @@ class ToolEventHelper {
                 y = height;
                 z = mop.sideHit.getAxisDirection().getOffset() * -depth;
                 start = start.add(-x / 2, -y / 2, 0);
-                if (x % 2 == 0 && mop.hitVec.xCoord - mop.getBlockPos().getX() > 0.5d) {
+                if (x % 2 == 0 && mop.hitVec.x - mop.getBlockPos().getX() > 0.5d) {
                     start = start.add(1, 0, 0);
                 }
-                if (y % 2 == 0 && mop.hitVec.yCoord - mop.getBlockPos().getY() > 0.5d) {
+                if (y % 2 == 0 && mop.hitVec.y - mop.getBlockPos().getY() > 0.5d) {
                     start = start.add(0, 1, 0);
                 }
                 break;
@@ -131,10 +134,10 @@ class ToolEventHelper {
                 y = height;
                 z = width;
                 start = start.add(-0, -y / 2, -z / 2);
-                if (y % 2 == 0 && mop.hitVec.yCoord - mop.getBlockPos().getY() > 0.5d) {
+                if (y % 2 == 0 && mop.hitVec.y - mop.getBlockPos().getY() > 0.5d) {
                     start = start.add(0, 1, 0);
                 }
-                if (z % 2 == 0 && mop.hitVec.zCoord - mop.getBlockPos().getZ() > 0.5d) {
+                if (z % 2 == 0 && mop.hitVec.z - mop.getBlockPos().getZ() > 0.5d) {
                     start = start.add(0, 0, 1);
                 }
                 break;
@@ -142,7 +145,7 @@ class ToolEventHelper {
                 x = y = z = 0;
         }
 
-        ImmutableList.Builder<BlockPos> builder = ImmutableList.builder();
+        List<BlockPos> builder = Arrays.asList();
         for (int xp = start.getX(); xp != start.getX() + x; xp += x / Math.abs(x)) {
             for (int yp = start.getY(); yp != start.getY() + y; yp += y / Math.abs(y)) {
                 for (int zp = start.getZ(); zp != start.getZ() + z; zp += z / Math.abs(z)) {
@@ -162,7 +165,7 @@ class ToolEventHelper {
             }
         }
 
-        ImmutableList<BlockPos> blockPosList = builder.build();
+        List<BlockPos> blockPosList = Collections.unmodifiableList(builder);
         return blockPosList;
     }
 

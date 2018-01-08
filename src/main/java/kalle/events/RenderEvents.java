@@ -16,6 +16,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.List;
+
 @SideOnly(Side.CLIENT)
 public class RenderEvents {
 
@@ -39,7 +41,7 @@ public class RenderEvents {
                         int width = excavator.getAoeWidth();
                         int height = excavator.getAoeHeight();
                         int depth = excavator.getAoeDepth();
-                        ImmutableList<BlockPos> blocksToBreak = ToolEventHelper.calcAOEBlocks(tool, world, player, mop.getBlockPos(), width, height, depth);
+                        List<BlockPos> blocksToBreak = ToolEventHelper.calcAOEBlocks(tool, world, player, mop.getBlockPos(), width, height, depth);
                         for(BlockPos pos : blocksToBreak) {
                             event.getContext().drawSelectionBox(player, new RayTraceResult(new Vec3d(0, 0, 0), null, pos), 0, event.getPartialTicks());
                         }

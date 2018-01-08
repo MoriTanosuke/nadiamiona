@@ -9,6 +9,7 @@ import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.RecipeSorter;
 
@@ -17,6 +18,7 @@ public class Recipes {
         net.minecraftforge.oredict.RecipeSorter.register(Basis.MOD_PREFIX + ".potionRecipe", PotionRecipe.class, RecipeSorter.Category.SHAPED, "after:minecraft:shaped");
 
         // --- tool recipes ---------------------------------------------------------
+        /* TODO fix registering of PotionRecipe
         ItemStack swiftness = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.STRONG_SWIFTNESS);
         ItemStack strength = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.STRONG_STRENGTH);
         GameRegistry.addRecipe(new PotionRecipe(3, 3,
@@ -36,8 +38,19 @@ public class Recipes {
                 },
                 new ItemStack(kalle.items.Items.EXCAVATOR)
         ));
+        */
 
-        GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_PICKAXE), "###", "0*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
+        GameRegistry.addShapedRecipe(
+                new ResourceLocation(Basis.MOD_PREFIX, "recipe." + kalle.items.Items.EMERALD_PICKAXE.getUnlocalizedName()),
+                null,
+                new ItemStack(kalle.items.Items.EMERALD_PICKAXE),
+                new String[] {
+                        "###",
+                        " * ",
+                        " * "},
+                '#', net.minecraft.init.Items.EMERALD,
+                '*', net.minecraft.init.Items.DIAMOND);
+        /*
         GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_AXE), "##0", "#*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
         GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_BATTLEAXE), "###", "#*#", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
         GameRegistry.addRecipe(new ItemStack(kalle.items.Items.EMERALD_SPADE), "0#0", "0*0", "0*0", '#', net.minecraft.init.Items.EMERALD, '*', net.minecraft.init.Items.DIAMOND);
@@ -212,7 +225,7 @@ public class Recipes {
         // TODO wither skeleton head
         // TODO wither skeleton spawner
         GameRegistry.addRecipe(new ItemStack(net.minecraft.init.Blocks.MOB_SPAWNER, 1, 52), "ABA", "ACA", "ADA", 'A', kalle.items.Items.CHAINS, 'B', net.minecraft.init.Items.ENDER_EYE, 'C', buildSkull(SkullType.WITHER_SKELETON), 'D', net.minecraft.init.Blocks.REDSTONE_BLOCK);
-
+        */
     }
 
 

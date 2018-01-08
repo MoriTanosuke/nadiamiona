@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "group": "tools",
+  "pattern": [
+    "###",
+    " * ",
+    " * "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:emerald",
+      "data": 0
+    },
+    "#": {
+      "item": "minecraft:diamond",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "kalle:itempickaxeemerald"
+  }
+}
