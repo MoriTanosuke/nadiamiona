@@ -32,21 +32,10 @@ public class Recipes {
                 },
                 new ItemStack(kalle.items.Items.EXCAVATOR)
         ));
+        */
 
+        /*
         // --- block recipes ---------------------------------------------------------
-
-        GameRegistry.addRecipe(new ItemStack(Blocks.STONE_WALL, 6),
-         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.STONE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.BRICK_WALL, 6),
-         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.BRICK_BLOCK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.STONEBRICK_WALL, 6),
-         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.STONEBRICK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.SANDSTONE_WALL, 6),
-         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.SANDSTONE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.RED_SANDSTONE_WALL, 6),
-         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.RED_SANDSTONE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.LEAVE_WALL, 6),
-         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.LEAVES);
         // wool wall is deactivated because of recipe conflicts in other mods
         //GameRegistry.addRecipe(new ItemStack(Blocks.WOOL_WALL, 6),
          "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.WOOL);
@@ -54,7 +43,9 @@ public class Recipes {
         for (int color = 0; color <= 15; color++) {
             //TODO register all variants
             final Block woolStairs = new WoolStairs("wool_stairs_" + color, net.minecraft.init.Blocks.WOOL.getDefaultState());
-            GameRegistry.addRecipe(new ItemStack(woolStairs, 4), "A##", "AA#", "AAA", 'A', new ItemStack(net.minecraft.init.Blocks.WOOL, 1, color));
+            GameRegistry.addRecipe(new ItemStack(woolStairs, 4),
+             "A##", "AA#", "AAA",
+              'A', new ItemStack(net.minecraft.init.Blocks.WOOL, 1, color));
         }
         */
 
@@ -66,35 +57,6 @@ public class Recipes {
         GameRegistry.addSmelting(Items.POISONOUS_POTATO, new ItemStack(Items.POTATO), 0.25f);
         GameRegistry.addSmelting(Items.ROTTEN_FLESH, new ItemStack(Items.BEEF), 0.25f);
         GameRegistry.addSmelting(net.minecraft.init.Blocks.QUARTZ_BLOCK, new ItemStack(Items.QUARTZ, 8), 0.25f);
-
-        /*
-        // --- additional recipes ---------------------------------------------------------
-
-        // To build spawners for specific mobs, use the meta value from http://minecraft.gamepedia.com/Data_values/Entity_IDs
-
-        // zombie egg
-        final ItemStack zombieEggStack = new ItemStack(net.minecraft.init.Items.SPAWN_EGG, 1, 54);
-        final Item zombieEgg = zombieEggStack.getItem();
-        GameRegistry.addRecipe(zombieEggStack, "AAA", "AAA", "AAA", 'A', net.minecraft.init.Items.ROTTEN_FLESH);
-        // TODO zombie head
-        GameRegistry.addRecipe(new ItemStack(buildSkull(SkullType.ZOMBIE), 1, 54), "AAA", "AAA", "AAA", 'A', zombieEgg);
-        // zombie spawner
-        GameRegistry.addRecipe(new ItemStack(net.minecraft.init.Blocks.MOB_SPAWNER, 1, 54), "ABA", "ACA", "ADA", 'A', kalle.items.Items.CHAINS, 'B', net.minecraft.init.Items.ENDER_EYE, 'C', buildSkull(SkullType.ZOMBIE), 'D', net.minecraft.init.Blocks.REDSTONE_BLOCK);
-        // skeleton egg
-        final ItemStack skeletonEggStack = new ItemStack(net.minecraft.init.Items.SPAWN_EGG, 1, 51);
-        final Item skeletonEgg = skeletonEggStack.getItem();
-        GameRegistry.addRecipe(skeletonEggStack, "AAA", "AAA", "AAA", 'A', net.minecraft.init.Items.BONE);
-        // TODO skeleton head
-        // skeleton spawner
-        GameRegistry.addRecipe(new ItemStack(net.minecraft.init.Blocks.MOB_SPAWNER, 1, 51), "ABA", "ACA", "ADA", 'A', kalle.items.Items.CHAINS, 'B', net.minecraft.init.Items.ENDER_EYE, 'C', buildSkull(SkullType.SKELETON), 'D', net.minecraft.init.Blocks.REDSTONE_BLOCK);
-        // spider egg
-        final ItemStack spiderEggStack = new ItemStack(net.minecraft.init.Items.SPAWN_EGG, 1, 52);
-        final Item spiderEgg = spiderEggStack.getItem();
-        GameRegistry.addRecipe(spiderEggStack, "AAA", "AAA", "AAA", 'A', net.minecraft.init.Items.SPIDER_EYE);
-        // TODO wither skeleton head
-        // TODO wither skeleton spawner
-        GameRegistry.addRecipe(new ItemStack(net.minecraft.init.Blocks.MOB_SPAWNER, 1, 52), "ABA", "ACA", "ADA", 'A', kalle.items.Items.CHAINS, 'B', net.minecraft.init.Items.ENDER_EYE, 'C', buildSkull(SkullType.WITHER_SKELETON), 'D', net.minecraft.init.Blocks.REDSTONE_BLOCK);
-        */
     }
 
 
