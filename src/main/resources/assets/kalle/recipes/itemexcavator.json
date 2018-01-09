@@ -1,5 +1,5 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "OOO",
     "#AX",
@@ -23,6 +23,6 @@
   },
   "result": {
     "item": "kalle:itemexcavator",
-    "data": 1
+    "count": 1
   }
 }
