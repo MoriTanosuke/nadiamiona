@@ -32,57 +32,24 @@ public class Recipes {
                 },
                 new ItemStack(kalle.items.Items.EXCAVATOR)
         ));
-        */
 
-        /*
         // --- block recipes ---------------------------------------------------------
-        GameRegistry.addRecipe(new ItemStack(Blocks.SPRUCE_BOOK_SHELVES), "###", "#*#", "###", '#', new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 1),
-                '*', Items.BOOK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.JUNGLE_BOOK_SHELVES), "###", "#*#", "###", '#', new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 3),
-                '*', Items.BOOK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.BIRCH_BOOK_SHELVES), "###", "#*#", "###", '#', new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 2), '*',
-                Items.BOOK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.ACACIA_BOOK_SHELVES), "###", "#*#", "###", '#', new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 4), '*',
-                Items.BOOK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.DARK_OAK_BOOK_SHELVES), "###", "#*#", "###", '#', new ItemStack(net.minecraft.init.Blocks.PLANKS, 1, 5), '*',
-                Items.BOOK);
 
-        GameRegistry.addRecipe(new ItemStack(Blocks.OAK_CRATE), "#0#", "#0#", "###", '#', net.minecraft.init.Blocks.PLANKS);
-        GameRegistry.addRecipe(new ItemStack(Blocks.COAL_CRATE), "*", "#", '*', Items.COAL, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.COAL_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.COAL);
-        GameRegistry.addRecipe(new ItemStack(Blocks.IRON_CRATE), "*", "#", '*', Items.IRON_INGOT, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.IRON_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.IRON_INGOT);
-        GameRegistry.addRecipe(new ItemStack(Blocks.GOLD_CRATE), "*", "#", '*', Items.GOLD_INGOT, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.GOLD_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.GOLD_INGOT);
-        GameRegistry.addRecipe(new ItemStack(Blocks.DIAMOND_CRATE), "*", "#", '*', Items.DIAMOND, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.DIAMOND_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.DIAMOND);
-        GameRegistry.addRecipe(new ItemStack(Blocks.EMERALD_CRATE), "*", "#", '*', Items.EMERALD, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.EMERALD_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.EMERALD);
-        // check out dye meta IDs at http://minecraft.gamepedia.com/Data_values#Dyes
-        GameRegistry.addRecipe(new ItemStack(Blocks.LAPISLAZULI_CRATE), "*", "#", '*', new ItemStack(Items.DYE, 1, 4), '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.LAPISLAZULI_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', new ItemStack(Items.DYE, 1, 4));
-        GameRegistry.addRecipe(new ItemStack(Blocks.APPLE_CRATE), "*", "#", '*', Items.APPLE, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.APPLE_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.APPLE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.COOKIE_CRATE), "*", "#", '*', Items.COOKIE, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.COOKIE_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.COOKIE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.POTATO_CRATE), "*", "#", '*', Items.POTATO, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.POTATO_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.POTATO);
-        //TODO replace with meta recipes?!
-        GameRegistry.addRecipe(new ItemStack(Blocks.FISH_CRATE), "*", "#", '*', new ItemStack(Items.FISH, 1, 0), '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.FISH_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', new ItemStack(Items.FISH, 1, 0));
-        GameRegistry.addRecipe(new ItemStack(Blocks.SALMON_CRATE), "*", "#", '*', new ItemStack(Items.FISH, 1, 1), '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.SALMON_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', new ItemStack(Items.FISH, 1, 1));
-        GameRegistry.addRecipe(new ItemStack(Blocks.CARROT_CRATE), "*", "#", '*', Items.CARROT, '#', Blocks.OAK_CRATE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.CARROT_CRATE), "#0#", "#*#", "###", '#', net.minecraft.init.Blocks.PLANKS, '*', Items.CARROT);
-
-        GameRegistry.addRecipe(new ItemStack(Blocks.STONE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.STONE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.BRICK_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.BRICK_BLOCK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.STONEBRICK_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.STONEBRICK);
-        GameRegistry.addRecipe(new ItemStack(Blocks.SANDSTONE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.SANDSTONE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.RED_SANDSTONE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.RED_SANDSTONE);
-        GameRegistry.addRecipe(new ItemStack(Blocks.LEAVE_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.LEAVES);
+        GameRegistry.addRecipe(new ItemStack(Blocks.STONE_WALL, 6),
+         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.STONE);
+        GameRegistry.addRecipe(new ItemStack(Blocks.BRICK_WALL, 6),
+         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.BRICK_BLOCK);
+        GameRegistry.addRecipe(new ItemStack(Blocks.STONEBRICK_WALL, 6),
+         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.STONEBRICK);
+        GameRegistry.addRecipe(new ItemStack(Blocks.SANDSTONE_WALL, 6),
+         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.SANDSTONE);
+        GameRegistry.addRecipe(new ItemStack(Blocks.RED_SANDSTONE_WALL, 6),
+         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.RED_SANDSTONE);
+        GameRegistry.addRecipe(new ItemStack(Blocks.LEAVE_WALL, 6),
+         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.LEAVES);
         // wool wall is deactivated because of recipe conflicts in other mods
-        //GameRegistry.addRecipe(new ItemStack(Blocks.WOOL_WALL, 6), "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.WOOL);
+        //GameRegistry.addRecipe(new ItemStack(Blocks.WOOL_WALL, 6),
+         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.WOOL);
 
         for (int color = 0; color <= 15; color++) {
             //TODO register all variants

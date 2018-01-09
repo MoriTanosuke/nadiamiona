@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "A A",
+      "ABA",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:planks",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:fish",
+        "data": 1
+      }
+    },
+    "result": {
+      "item": "kalle:lachskiste",
+      "count": 1
+    }
+  }

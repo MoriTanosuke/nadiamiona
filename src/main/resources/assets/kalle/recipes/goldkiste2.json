@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "B",
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "kalle:kiste"
+      },
+      "B": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "kalle:goldkiste",
+      "count": 1
+    }
+  }
