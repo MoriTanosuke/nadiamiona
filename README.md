@@ -1,4 +1,4 @@
-# nadiamiona [![Build Status](https://travis-ci.org/MoriTanosuke/nadiamiona.svg?branch=1.11)](https://travis-ci.org/MoriTanosuke/nadiamiona)
+# nadiamiona [![Build Status](https://travis-ci.org/MoriTanosuke/nadiamiona.svg?branch=1.12)](https://travis-ci.org/MoriTanosuke/nadiamiona)
 Simple minecraft mod adding some decorations. For full documentation go to [the wiki][4].
 
 You can [download the latest build][2]. Or view the [complete build history][3]. The mod will also do an update check. If you open the *Mod options* menu, you can verify that you have the latest version.
