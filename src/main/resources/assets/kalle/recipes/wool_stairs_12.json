@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A  ",
+    "AA ",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:wool",
+      "data": 12
+    }
+  },
+  "result": {
+    "item": "kalle:wool_stairs_12",
+    "count": 4
+  }
+}
