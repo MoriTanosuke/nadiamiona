@@ -58,25 +58,4 @@ public class Recipes {
         GameRegistry.addSmelting(Items.ROTTEN_FLESH, new ItemStack(Items.BEEF), 0.25f);
         GameRegistry.addSmelting(net.minecraft.init.Blocks.QUARTZ_BLOCK, new ItemStack(Items.QUARTZ, 8), 0.25f);
     }
-
-
-    private static Item buildSkull(SkullType skullType) {
-        return new ItemStack(net.minecraft.init.Items.SKULL, 1, skullType.getMeta()).getItem();
-    }
-
-    enum SkullType {
-        ZOMBIE(2),
-        SKELETON(0),
-        WITHER_SKELETON(1);
-
-        private final int meta;
-
-        private SkullType(int meta) {
-            this.meta = meta;
-        }
-
-        public int getMeta() {
-            return meta;
-        }
-    }
 }
