@@ -2,7 +2,6 @@ package kalle.recipes;
 
 import kalle.Basis;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.RecipeSorter;
@@ -32,21 +31,6 @@ public class Recipes {
                 },
                 new ItemStack(kalle.items.Items.EXCAVATOR)
         ));
-        */
-
-        /*
-        // --- block recipes ---------------------------------------------------------
-        // wool wall is deactivated because of recipe conflicts in other mods
-        //GameRegistry.addRecipe(new ItemStack(Blocks.WOOL_WALL, 6),
-         "###", "AAA", "AAA", 'A', net.minecraft.init.Blocks.WOOL);
-
-        for (int color = 0; color <= 15; color++) {
-            //TODO register all variants
-            final Block woolStairs = new WoolStairs("wool_stairs_" + color, net.minecraft.init.Blocks.WOOL.getDefaultState());
-            GameRegistry.addRecipe(new ItemStack(woolStairs, 4),
-             "A##", "AA#", "AAA",
-              'A', new ItemStack(net.minecraft.init.Blocks.WOOL, 1, color));
-        }
         */
 
         // --- food recipes ---------------------------------------------------------
