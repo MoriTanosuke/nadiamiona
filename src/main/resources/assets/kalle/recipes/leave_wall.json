@@ -6,7 +6,8 @@
     ],
     "key": {
       "A": {
-        "item": "minecraft:leaves"
+        "item": "minecraft:leaves",
+        "data": 0
       }
     },
     "result": {

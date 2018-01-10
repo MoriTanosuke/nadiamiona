@@ -6,7 +6,8 @@
     ],
     "key": {
       "A": {
-        "item": "minecraft:red_sandstone"
+        "item": "minecraft:red_sandstone",
+        "data": 0
       }
     },
     "result": {

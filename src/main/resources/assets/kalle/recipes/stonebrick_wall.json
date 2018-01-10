@@ -6,7 +6,8 @@
     ],
     "key": {
       "A": {
-        "item": "minecraft:stone_brick"
+        "item": "minecraft:stonebrick",
+        "data": 0
       }
     },
     "result": {
