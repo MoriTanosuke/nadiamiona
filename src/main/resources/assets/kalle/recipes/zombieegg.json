@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "minecraft:spawn_egg",
+    "nbt": {
+      "EntityTag": {
+        "id": "minecraft:zombie"
+      }
+    },
+    "count": 1
+  }
+}

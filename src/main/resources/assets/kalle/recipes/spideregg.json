@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:spider_eye"
+    }
+  },
+  "result": {
+    "item": "minecraft:spawn_egg",
+    "nbt": {
+      "EntityTag": {
+        "id": "minecraft:spider"
+      }
+    },
+    "count": 1
+  }
+}
