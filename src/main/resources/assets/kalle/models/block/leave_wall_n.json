@@ -1,19 +1,39 @@
 {
     "parent": "block/wall_side",
     "textures": {
-        "particle": "#wall",
-        "all": "#wall",
-        "wall": "blocks/leaves_oak"
+        "wall": "blocks/leaves_oak",
+        "particle": "blocks/leaves_oak",
+        "all": "blocks/leaves_oak"
     },
     "elements": [
         {   "from": [ 5, 0, 0 ],
             "to": [ 11, 14, 8 ],
             "faces": {
-                "down":  { "texture": "#wall", "tintindex": 0, "cullface": "down" },
-                "up":    { "texture": "#wall", "tintindex": 0, "cullface": "up"  },
-                "north": { "texture": "#wall", "tintindex": 0, "cullface": "north"  },
-                "west":  { "texture": "#wall", "tintindex": 0, "cullface": "west"  },
-                "east":  { "texture": "#wall", "tintindex": 0, "cullface": "east"  }
+                "down": {
+                    "texture": "blocks/leaves_oak",
+                    "tintindex": 0,
+                    "cullface": "down"
+                },
+                "up": {
+                    "texture": "blocks/leaves_oak",
+                    "tintindex": 0,
+                    "cullface": "up"
+                },
+                "north": {
+                    "texture": "blocks/leaves_oak",
+                    "tintindex": 0,
+                    "cullface": "north"
+                },
+                "west": {
+                    "texture": "blocks/leaves_oak",
+                    "tintindex": 0,
+                    "cullface": "west"
+                },
+                "east": {
+                    "texture": "blocks/leaves_oak",
+                    "tintindex": 0,
+                    "cullface": "east"
+                }
             },
             "__comment": "wall"
         }
