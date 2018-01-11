@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "ACA",
+    "ADA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_bars"
+    },
+    "B": {
+      "item": "minecraft:ender_eye"
+    },
+    "C": {
+      "item": "minecraft:skull",
+      "data": 2
+    },
+    "D": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "minecraft:mob_spawner",
+    "nbt": {
+      "BlockEntityTag": {
+        "SpawnData": {
+          "id": "minecraft:zombie"
+        },
+        "SpawnPotentials": []
+      }
+    },
+    "count": 1
+  }
+}
