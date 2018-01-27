@@ -8,13 +8,16 @@
   "key": {
     "A": {
       "item": "minecraft:dye",
-      "data": 3
+      "data": 3,
+      "count": 1
     },
     "B": {
-      "item": "minecraft:sugar"
+      "item": "minecraft:sugar",
+      "count": 1
     },
     "C": {
-      "item": "kalle:itemmilk"
+      "item": "kalle:itemmilk",
+      "count": 1
     }
   },
   "result": {

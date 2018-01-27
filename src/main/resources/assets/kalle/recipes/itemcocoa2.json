@@ -7,17 +7,21 @@
   ],
   "key": {
     "A": {
-      "item": "minecraft:milk_bucket"
+      "item": "minecraft:milk_bucket",
+      "count": 1
     },
     "B": {
       "item": "minecraft:dye",
-      "data": 3
+      "data": 3,
+      "count": 3
     },
     "C": {
-      "item": "minecraft:glass_bottle"
+      "item": "minecraft:glass_bottle",
+      "count": 3
     },
     "D": {
-      "item": "minecraft:sugar"
+      "item": "minecraft:sugar",
+      "count": 2
     }
   },
   "result": {
