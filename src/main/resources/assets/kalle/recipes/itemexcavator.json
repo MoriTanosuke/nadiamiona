@@ -2,17 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "OOO",
-    "#AX",
+    "#A#",
     " A "
   ],
   "key": {
     "#": {
-      "item": "minecraft:potion",
-      "tag": "{Potion:\"minecraft:strong_swiftness\"}"
-    },
-    "X": {
-      "item": "minecraft:potion",
-      "tag": "{Potion:\"minecraft:strong_strength\"}"
+      "item": "minecraft:piston"
     },
     "O": {
       "item": "minecraft:emerald_block"
